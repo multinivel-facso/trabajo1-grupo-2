@@ -1,0 +1,336 @@
+---
+title: "ICILS2023_proc"
+format: html
+editor: visual
+---
+
+# Procesamiento para ICILS 2023
+
+El presente documento tiene como objetivo realizar los procesamientos necesarios para unir las bases de datos de estudiantes de todos los países del 2023.
+
+## Algunas consideraciones sobre la base de datos
+
+#### Sobre el muestreo y consideraciones metodológicas
+
+ICILS no usa un muestreo aleatorio simple. Selecciona escuelas y luego estudiantes dentro de ellas, a menudo de forma estratificada y con probabilidades desiguales (ej. sobremuestreando ciertos tipos de escuelas o regiones). Si simplemente calculamos un promedio (ej. de CIL) sin usar los pesos, los estudiantes que fueron "más fáciles" de muestrear o que tuvieron mayor tasa de participación estarán sobrerrepresentados, y nuestro resultado **no representaría fielmente** a la población total de estudiantes del país.
+
+Para contrarrestar esto, ICILS tiene la variable `TOTWGTS` (Peso total), Al usarlo, cada estudiante en la muestra "equivale" por el número correcto de estudiantes en la población real. Se tiene que usar esta variable para cualquier cálculo de estadística descriptiva que queramos hacer.
+
+#### Sobre la inferencia estadística y las pruebas de significancia
+
+El diseño muestral de ICILS (selección de escuelas) hace que los estudiantes dentro de una misma escuela se parezcan más entre sí que estudiantes de escuelas diferentes (no son observaciones independientes). Las fórmulas estándar para calcular errores estándar (y por tanto, los p-values) que asumen independencia, **subestimarán la verdadera variabilidad muestral**. Esto significa que **encontraremos resultados "estadísticamente significativos" mucho más fácilmente de lo que deberíamos**, concluyendo que existen relaciones o diferencias que en realidad podrían deberse al azar o al diseño muestral.
+
+Al igual que con el peso total para la validez del muestreo en la representación, existen las varibales `JKZONES` y `JKREPS`, para no invalidar las pruebas de significancia. No se usan para "calcular promedios", sino que para calcular la precisión de esos promedios. {Aquí se hace algo que se llama JRR (Varianza Jackknife) que aún no entiendo lo que es, pero son como 75 columnas por estudiante}
+
+## Configuraciones generales
+
+#### Cargamos paquetes
+
+```{r}
+library(pacman)
+p_load(dplyr, haven, lme4, summarytools, tidyverse, sjPlot, corrplot, reghelper)
+options(scipen = 999) 
+rm(list = ls())      
+```
+
+## Base de Estudiantes (BSG) - Nivel 1
+
+#### Cargamos y unimos las bases de datos directamente
+
+```{r}
+# Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
+archivos_bsg <- list.files(
+  path = "./ICILS2023_IDB_R/Data", # Directorio actual (cambia si es necesario)
+  pattern = "^BSG.*\\.Rdata$",
+  full.names = TRUE
+)
+
+# Ver qué archivos encontramos
+print(archivos_bsg)
+
+# Inicializar una lista vacía para almacenar temporalmente los dataframes
+temp_dataframes <- list()
+
+# Cargar cada archivo y añadirlo a la lista
+for (archivo in archivos_bsg) {
+  # Crea un entorno temporal para cargar el archivo
+  temp_env <- new.env()
+  # Carga el archivo en el entorno temporal
+  load(archivo, envir = temp_env)
+  
+  # Identifica el nombre del dataframe en el entorno temporal
+  nombres_objetos <- ls(temp_env)
+  for (nombre in nombres_objetos) {
+    objeto <- get(nombre, envir = temp_env)
+    # Verifica si es un data frame y si el nombre comienza con BSG
+    if (is.data.frame(objeto) && grepl("^BSG", nombre)) {
+      # Añade el dataframe a nuestra lista
+      temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
+    }
+  }
+}
+
+# Combina todos los dataframes en uno solo
+datos_combinados_bsg <- bind_rows(temp_dataframes)
+
+# Ver el resultado
+dim(datos_combinados_bsg)  # Dimensiones del data frame combinado
+```
+
+#### \[Opcional - ¡Precaución!\] Eliminar otros objetos del entorno
+
+```{r}
+# Guardamos el nombre del objeto que queremos mantener
+objeto_a_mantener <- "datos_combinados_bsg"
+
+# Obtenemos todos los objetos en el entorno actual
+todos_los_objetos <- ls()
+
+# Creamos una lista de objetos a eliminar (todos excepto datos_combinados)
+objetos_a_eliminar <- todos_los_objetos[todos_los_objetos != objeto_a_mantener]
+
+# Eliminamos los objetos que no necesitamos
+rm(list = objetos_a_eliminar)
+
+# Verificamos que solo queda el dataframe combinado
+print(ls())
+```
+
+Deberíamos tener un data frame con 568 columnas y 135.615 filas.
+
+#### Selección de variables relevantes
+
+```{r}
+# Vector con todas las variables de interés
+variables_seleccionadas <- c(
+  # Variable dependiente (outcome), 
+  # son todos los valores plausibles de CIL
+  "PV1CIL", "PV2CIL", "PV3CIL", "PV4CIL", "PV5CIL",
+  
+  # Variables esenciales
+  "CNTRY", # El código del país (tres letras)
+  "IDSCHOOL", # id único de la escuela
+  "IDSTUD", # No sé si este es tan necesario, podemos sacarlo, id único de c/ estudiante 
+  "TOTWGTS", # Pesos totales, para mitigar sesgos del muestreo en descriptivas
+  "JKZONES", "JKREPS", # Para cálculos de varianza jackknife
+  
+  # Pesos replicados (SRWGT1-SRWGT75)
+  paste0("SRWGT", 1:75), # También para la varianza jacknife
+  
+  # Variables SES, demográficas y TIC
+  "NISB", # National index of socieconomic background
+  "S_HISEI", # Highest ISEI of parents
+  "S_HISCED", # Highest ISCED of parents
+  "S_HOMLIT", # Home literacy index
+  "S_SEX", # Sexo del/la estudiante
+  "SGENDER", # Género del/la estudiante
+  "S_AGE", # Edad del/la estudiante
+  
+  "S_IMMIG", # Immigration status,
+  "S_IMMBGR", # Immigration status, dicotómica
+  "S_TLANG", # Test language spoken at home
+  "S_ISCED", # Expected ISCED by student
+  "S_INTNET", # Internet access at home
+  "S_EXCOMP", # Computer experience in years
+  
+  "S_GENEFF", # ICT self-efficacy regarding the use of general applications
+  "S_ICTPOSS", # Students' perceptions of ICT - learning with and use of ICT
+  "S_ICTFUT", # Students' perceptions of ICT - expectations for future use of ICT
+  "S_SPECEFF", # ICT self-efficacy regarding the use of specialist applications
+  "S_ICTPOSG", # Students' perceptions of ICT - positive beliefs about ICT and society
+  "S_ICTNEG", # Students' perceptions of ICT - negative beliefs about ICT and society
+  "S_ICTSTUD", # ICT studies in current school year
+  "S_ACMULT", # Academic-media multitasking,
+  
+  #Acceso a TIC en casa
+  "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre)
+  "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre)
+  "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre)
+  "S_INTNET" # Internet en casa si/no
+)
+
+# Seleccionar solo las columnas que existen en el dataframe
+datos_analisis <- datos_combinados_bsg %>%
+  select(any_of(variables_seleccionadas))
+
+# Mostrar información del resultado
+cat("Variables encontradas:", ncol(datos_analisis), "de", length(variables_seleccionadas), "\n")
+```
+
+```{r}
+#pregunta 1: efecto de acceso TIC en hogar en CIL
+datos_m1 <- datos_analisis %>%
+  select(IS3G16BA, IS3G16BB, IS3G16BC, S_INTNET, PV1CIL, S_SEX, S_AGE, IDSCHOOL, S_EXCOMP, S_ISCED, S_ICTSTUD)  %>%
+  na.omit() %>%
+  mutate_all(~(as.numeric(.))) # Convertimos todas las variables a numéricas
+
+# IS3G16X va de 0 a 3. Queremos que vaya de 0 a 1
+# Podemos multiplicar por 0.333333... (1/3)
+# Es decir, los valores posibles van a ser 0, 0.3~, 0,6~ y 1
+# Luego sumamos todos los valores de 0 a 1, y los dividimos por 4
+
+# Asignamos el resultado de la operación de vuelta a datos_indice
+# La línea 'datos_indice$acceso_TIC_intnet = NA' ya no es necesaria
+datos_m1 <- datos_m1 %>%
+  mutate(
+    acceso_TIC_intnet = (
+      ((IS3G16BA - 1) * (1/3)) +
+      ((IS3G16BB - 1) * (1/3)) + 
+      ((IS3G16BC - 1) * (1/3)) + 
+      (S_INTNET) # S_INTNET ya está en la escala deseada (0-1)
+     ) / 4
+   )
+
+
+multivariate_model <- lm(PV1CIL ~ acceso_TIC_intnet + S_SEX + S_EXCOMP + S_ISCED , data = datos_m1)
+
+```
+
+```{r}
+# Asumiendo que tu modelo se llama multivariate_model
+# (Aunque por la fórmula parece una regresión MÚLTIPLE, no multivariada)
+summary_model <- summary(multivariate_model)
+print(summary_model)
+
+# También puedes ver los coeficientes directamente (pero sin significancia)
+coef(multivariate_model)
+
+# Y los intervalos de confianza para los coeficientes
+confint(multivariate_model)
+```
+
+```{r}
+# --- PASO 1: Obtén los datos usados en el modelo ---
+# Opción A: Si los datos están guardados en el objeto del modelo (recomendado)
+# La imagen muestra que 'multivariate_model$model' podría contenerlos
+if (!is.null(multivariate_model$model)) {
+  data_for_corr <- multivariate_model$model
+} else {
+   stop("Data not found in model object ($model). Provide the original data frame.")
+}
+
+# --- PASO 2: Asegúrate de que todas las columnas sean numéricas ---
+# Verifica los tipos de datos
+print(sapply(data_for_corr, class))
+
+data_for_corr_numeric <- data_for_corr %>% select_if(is.numeric)
+
+# --- PASO 3: Calcula la matriz de correlaciones ---
+# 'use = "pairwise.complete.obs"' maneja NAs si aún quedaran algunos
+cor_matrix <- cor(data_for_corr_numeric, use = "pairwise.complete.obs")
+
+print("Matriz de Correlación:")
+print(round(cor_matrix, 2)) # Mostrar redondeada
+
+# --- PASO 4: Crea el gráfico de correlación ---
+# Gráfico básico
+corrplot(cor_matrix, method = "circle")
+
+# Gráfico más informativo (ejemplo)
+corrplot(cor_matrix,
+         method = "color",         # Método: color, number, circle, pie, shade
+         type = "upper",           # Mostrar solo triángulo superior
+         order = "hclust",         # Reordenar variables por clustering jerárquico
+         tl.col = "black",         # Color del texto de las etiquetas
+         tl.srt = 45,              # Rotación de las etiquetas
+         addCoef.col = "black",    # Color de los coeficientes añadidos
+         number.cex = 0.7,         # Tamaño de los coeficientes añadidos
+         diag = FALSE,             # Ocultar la diagonal
+         title = "Matriz de Correlación de Variables del Modelo",
+         mar = c(0,0,1,0))         # Ajustar márgenes para el título
+```
+
+```{r}
+results_0 = lmer(PV1CIL ~ 1 + (1 | IDSCHOOL), data = datos_m1)
+summary(results_0)
+
+print(reghelper::ICC(results_0))
+```
+
+### Cargamos las variables de escuela
+
+Nota: las variables del cuestionario de teachers usualmente se usan como nivel de escuela
+
+```{r}
+# Obtener la lista de archivos que comienzan con "BCG" y terminan con ".Rdata"
+archivos_bcg <- list.files(
+  path = "./ICILS2023_IDB_R/Data", # Directorio actual (cambia si es necesario)
+  pattern = "^BCG.*\\.Rdata$",
+  full.names = TRUE
+)
+
+# Ver qué archivos encontramos
+print(archivos_bcg)
+
+# Inicializar una lista vacía para almacenar temporalmente los dataframes
+temp_dataframes <- list()
+
+# Cargar cada archivo y añadirlo a la lista
+for (archivo in archivos_bcg) {
+  # Crea un entorno temporal para cargar el archivo
+  temp_env <- new.env()
+  # Carga el archivo en el entorno temporal
+  load(archivo, envir = temp_env)
+  
+  # Identifica el nombre del dataframe en el entorno temporal
+  nombres_objetos <- ls(temp_env)
+  for (nombre in nombres_objetos) {
+    objeto <- get(nombre, envir = temp_env)
+    # Verifica si es un data frame y si el nombre comienza con BCG
+    if (is.data.frame(objeto) && grepl("^BCG", nombre)) {
+      # Añade el dataframe a nuestra lista
+      temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
+    }
+  }
+}
+
+# Combina todos los dataframes en uno solo
+datos_combinados_bcg <- bind_rows(temp_dataframes)
+
+# Ver el resultado
+dim(datos_combinados_bcg)  # Dimensiones del data frame combinado
+```
+
+```{r}
+# Vector con todas las variables de interés
+variables_seleccionadas <- c(
+  "IDSCHOOL", 
+  "IP3G05", #Tamaño lugar escuela (rural o ciudad, población)
+  "IP3G10C", #Student access to school computers outside class hours during school
+  "IP3G06BA", #Percentage of students with socio-economic background/affluent homes
+  "IP3G06BB", #Percentage of students with socio-economic background/disadvantaged homes
+  "IP3G10B", #Restrictions on allowed time to spend on computer
+  "IP3G10C", #Student access to school computers outside class hours during school
+  "IP3G10D", #Student access to school computers outside school hours
+  #Mirar variables de Availability II3G0 (4, 5, 6 y 7)"
+  "CRATSTD",
+)
+
+# Seleccionar solo las columnas que existen en el dataframe
+datos_analisis <- datos_combinados_bcg %>%
+  select(any_of(variables_seleccionadas))
+
+# Mostrar información del resultado
+cat("Variables encontradas:", ncol(datos_analisis), "de", length(variables_seleccionadas), "\n")
+```
+
+```{r}
+library(sjPlot)
+
+multilevel_model <- lmer(PV1CIL ~ acceso_TIC_intnet + S_SEX + S_EXCOMP + S_ISCED  + (1 | IDSCHOOL), data = datos_m1)
+
+
+combined_table <- tab_model(
+  multivariate_model,
+  multilevel_model,
+  #show.ci = 0.95,       # Mostrar ICs
+  #show.p = TRUE,        # Mostrar valores p
+  #auto.label = TRUE,    # Intentar usar nombres de variables directamente
+  #show.r2 = TRUE,       # Mostrar R2 (aplica de forma diferente a cada modelo)
+  show.icc = TRUE,      # Mostrar ICC (solo relevante para multinivel)
+  show.re.var = TRUE,   # Mostrar varianzas aleatorias (solo relevante para multinivel)
+  title = "Tabla Comparativa: Modelo Multivariado y Modelo Multinivel" # Título opcional
+)
+
+combined_table
+```
