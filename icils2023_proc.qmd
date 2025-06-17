@@ -137,8 +137,8 @@ variables_seleccionadas <- c(
   "IDSCHOOL", # id único de la escuela
   
   # Variables SES, demográficas y TIC (se agregarán en la próxima entrega)
-#  "S_HOMLIT", # Home literacy index
-#  "S_SEX", # Sexo del/la estudiante
+  "S_HOMLIT", # Home literacy index
+  "S_SEX", # Sexo del/la estudiante
 #  "S_AGE", # Edad del/la estudiante
 
   # Variables del estudio
@@ -218,6 +218,12 @@ tab_models <- sjPlot::tab_model(modelo_DSE_gen_fij, modelo_DSE_spec_fij, modelo_
                   digits =3)
 print(tab_models)
 ```
+
+-   Alfa de conbach
+
+-   Infraestructura tic en la escuela
+
+-   Variables de control en nivel 1 (homlit y sexo)
 
 ## Resultados preliminares
 
