@@ -26,20 +26,28 @@ pacman::p_load(lme4,
                stargazer,
                ggplot2, # gráficos
                dplyr, # manipulacion de datos
-               equatiomatic) # paquetes a cargar
+               equatiomatic,
+               summarytools, 
+               reghelper, 
+               corrplot,
+               psych) # paquetes a cargar
 
-mlm = read_dta("http://www.stata-press.com/data/mlmus3/hsb.dta")
+
+options(scipen = 999) 
+rm(list = ls())   
+
+mlm = read_dta("trabajo1-grupo-2/output/workspace.Rdata")
 
 mlm = mlm %>% 
-  select(mathach, female,ses,sector,mnses,schoolid) %>%
-  as.data.frame()
+  select("CNTRY", "IDSCHOOL", "id_school_unique", "S_HOMLIT", "S_SEX", "S_GENEFF", "S_SPECEFF", "IS3G16BA", "IS3G16BB", "IS3G16BC", "IS3G16AA", "IS3G16AB", "S_INTNET", "C_RATDEV", "C_RATSTD", "C_ICTRES") %>%
+as.data.frame()
 
 
-results_0 = lmer(mathach ~ 1 + (1 | schoolid), data = mlm)
-results_1 = lmer(mathach ~ 1 + ses + female + (1 | schoolid), data = mlm)
-results_2 = lmer(mathach ~ 1 + sector + mnses + (1 | schoolid), data = mlm)
-results_3 = lmer(mathach ~ 1 + ses + female + sector + mnses + (1 | schoolid), data = mlm)
-results_4 = lmer(mathach ~ 1 + ses + female + sector + mnses + ses*sector + (1 | schoolid), data = mlm)
+#results_0 = lmer(mathach ~ 1 + (1 | schoolid), data = mlm)
+#results_1 = lmer(mathach ~ 1 + ses + female + (1 | schoolid), data = mlm)
+#results_2 = lmer(mathach ~ 1 + sector + mnses + (1 | schoolid), data = mlm)
+#results_3 = lmer(mathach ~ 1 + ses + female + sector + mnses + (1 | schoolid), data = mlm)
+#results_4 = lmer(mathach ~ 1 + ses + female + sector + mnses + ses*sector + (1 | schoolid), data = mlm)
 ```
 
 
@@ -84,7 +92,7 @@ Aquí mis notas
 
 - Factores asociados L1: Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género. 
   
-- Factores asociados L2: Acceso de estudiantes a TIC en la escuela, 
+- Factores asociados L2: Acceso de estudiantes a TIC en la escuela,  
 
 ## {data-background-color="#5f5758"}
 
@@ -98,15 +106,15 @@ Aquí mis notas
 
 Nivel 1:
 
-$H_1$:
+$H_1$: Los estudiantes con mayor acceso a TIC en el hogar presentarán niveles más altos de autoeficacia digital. 
 
-$H_2$:
+$H_2$: 
 
 Nivel 2
 
-$H_3$:
+$H_3$: 
 
-$H_4$:
+$H_4$: 
 
 # Metodología{data-background-color="#5f5758"}
 
