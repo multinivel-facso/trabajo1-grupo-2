@@ -44,7 +44,7 @@ Esta base incluye datos de 132.998 estudiantes (117338 luego de limpiar NAs) y e
 
 Las variables dependientes de este estudio son la autoeficacia digital general (`S_GENEFF`) y la autoeficacia digital especializada (`S_SPECEFF`). Estas fueron construidas por ICILS en base a las siguientes variables: `IS3G24A`, `IS3G24B`, `IS3G24C`, `IS3G24D`, `IS3G24E`, `IS3G24F`, `IS3G24G`, `IS3G24H`, `IS3G24I`, `IS3G24J`, `IS3G24K`, `IS3G24L`, `IS3G24M`. Estas variables corresponden a preguntas tipo Likert con categorías de respuesta de 1 a 4, que buscan medir la autoeficacia relacionada a distintas habilidades del medio digital, en base a la pregunta (traducida) ¿Que tan bien puedes hacer cada una de estas tareas utilizando TIC?. Entre las generales, hay preguntas cómo "Editar imágenes" y "Buscar información en internet", y entre las especializadas, se encuentran preguntas cómo "Construir o editar una página web".
 
-Las variables independientes principales incluyen un índice de acceso a TIC en el hogar (construido a partir del uso de computador, tablet, smartphone e internet) y, en etapas posteriores del análisis, la infraestructura TIC de las escuelas. Como variables de control (no aplicadas aún en el presente documento) se consideran el sexo (`S_SEX`), la edad (`S_AGE`), y la alfabetización del hogar (`S_HOMLIT`). Estas variables permitirán construir modelos explicativos que integren factores individuales y contextuales, en coherencia con el enfoque teórico y metodológico adoptado.
+Las variables independientes principales incluyen un índice de acceso a TIC en el hogar (construido a partir del uso de computador, tablet, smartphone e internet) y, en etapas posteriores del análisis, la infraestructura TIC de las escuelas. Como variables de control (no aplicadas aún en el presente documento) se consideran el sexo (`S_SEX`), y la alfabetización del hogar (`S_HOMLIT`). Estas variables permitirán construir modelos explicativos que integren factores individuales y contextuales, en coherencia con el enfoque teórico y metodológico adoptado.
 
 ## Metodología
 
@@ -71,7 +71,7 @@ rm(list = ls())
 ```{r}
 # Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
 archivos_bsg <- list.files(
-  path = "./ICILS2023_IDB_R/Data", # Directorio actual
+  path = "./ICILS2023_IDB_R/Data", # Asegúrate que esta ruta es correcta
   pattern = "^BSG.*\\.Rdata$",
   full.names = TRUE
 )
@@ -84,40 +84,41 @@ temp_dataframes <- list()
 
 # Cargar cada archivo y añadirlo a la lista
 for (archivo in archivos_bsg) {
-  # Crea un entorno temporal para cargar el archivo
   temp_env <- new.env()
-  # Carga el archivo en el entorno temporal
   load(archivo, envir = temp_env)
   
-  # Identifica el nombre del dataframe en el entorno temporal
   nombres_objetos <- ls(temp_env)
   for (nombre in nombres_objetos) {
     objeto <- get(nombre, envir = temp_env)
-    # Verifica si es un data frame y si el nombre comienza con BSG
     if (is.data.frame(objeto) && grepl("^BSG", nombre)) {
-      # Añade el dataframe a nuestra lista
       temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
     }
   }
 }
 
-# Crear columna id_school
-
-
 # Combina todos los dataframes en uno solo
 datos_combinados_bsg <- bind_rows(temp_dataframes)
 
+
+# Columna de id única para cada escuela
+datos_combinados_bsg <- datos_combinados_bsg %>%
+  unite("id_school_unique", CNTRY, IDSCHOOL, sep = "_", remove = FALSE)
+
+
 # Ver el resultado
-dim(datos_combinados_bsg)  # Dimensiones del data frame combinado
+dim(datos_combinados_bsg)
+
+# Revisar las primeras filas y las nuevas columnas para confirmar
+head(select(datos_combinados_bsg, id_school_unique, CNTRY, IDSCHOOL))
 ```
 
 ### Cargamos datos de la escuela
 
 ```{r}
 
-# Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
+# Obtener la lista de archivos que comienzan con "BCG" y terminan con ".Rdata"
 archivos_bcg <- list.files(
-  path = "./ICILS2023_IDB_R/Data", # Directorio actual
+  path = "./ICILS2023_IDB_R/Data", # Revisa que la ruta sea correcta
   pattern = "^BCG.*\\.Rdata$",
   full.names = TRUE
 )
@@ -126,36 +127,35 @@ archivos_bcg <- list.files(
 print(archivos_bcg)
 
 # Inicializar una lista vacía para almacenar temporalmente los dataframes
-temp_dataframes <- list()
+temp_dataframes_escuela <- list() # Usamos un nombre de lista diferente para claridad
 
 # Cargar cada archivo y añadirlo a la lista
 for (archivo in archivos_bcg) {
-  # Crea un entorno temporal para cargar el archivo
   temp_env <- new.env()
-  # Carga el archivo en el entorno temporal
   load(archivo, envir = temp_env)
   
-  # Identifica el nombre del dataframe en el entorno temporal
   nombres_objetos <- ls(temp_env)
   for (nombre in nombres_objetos) {
     objeto <- get(nombre, envir = temp_env)
-    # Verifica si es un data frame y si el nombre comienza con BSG
+    # Verificamos si el nombre del dataframe comienza con BCG
     if (is.data.frame(objeto) && grepl("^BCG", nombre)) {
-      # Añade el dataframe a nuestra lista
-      temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
+      temp_dataframes_escuela[[length(temp_dataframes_escuela) + 1]] <- objeto
     }
   }
 }
 
-# Crear columna id_school
+# Combina todos los dataframes de escuelas en uno solo
+datos_combinados_bcg <- bind_rows(temp_dataframes_escuela)
 
-
-
-# Combina todos los dataframes en uno solo
-datos_combinados_bcg <- bind_rows(temp_dataframes)
+# Usamos unite() para crear 'id_school_unique' a partir de CNTRY e IDSCHOOL
+datos_combinados_bcg <- datos_combinados_bcg %>%
+  unite("id_school_unique", CNTRY, IDSCHOOL, sep = "_", remove = FALSE)
 
 # Ver el resultado
-dim(datos_combinados_bcg)  # Dimensiones del data frame combinado
+dim(datos_combinados_bcg)
+
+# Revisar las primeras filas para confirmar que la columna se creó correctamente
+head(select(datos_combinados_bcg, id_school_unique, CNTRY, IDSCHOOL))
 ```
 
 #### Eliminamos objetos innecesarios del entorno
@@ -185,28 +185,26 @@ variables_seleccionadas <- c(
   # Variables esenciales
   "CNTRY", # El código del país (tres letras)
   "IDSCHOOL", # id único de la escuela
+  "id_school_unique",
   
   # Variables SES, demográficas y TIC (se agregarán en la próxima entrega)
   "S_HOMLIT", # Home literacy index
   "S_SEX", # Sexo del/la estudiante
-#  "S_AGE", # Edad del/la estudiante
 
   # Variables del estudio
-
   "S_GENEFF", # Autoeficacia general del estudiante
   "S_SPECEFF", # Autoeficacia específica del estudiante
 
   # Variables índice
-  
   "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre)
   "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre)
   "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre)
-   "IS3G16AA",  # Cuantos pcs hay en tu hogar
-   "IS3G16AB",  # Cuantas tablets hay en tu hogar
-  "S_INTNET" # Internet en casa si/no
+  "IS3G16AA",  # Cuantos pcs hay en tu hogar
+  "IS3G16AB",  # Cuantas tablets hay en tu hogar
+  "S_INTNET" # Internet en casa si/no - dummy
 )
 
-datos_analisis <- datos_combinados_bsg %>%
+datos_stud <- datos_combinados_bsg %>%
   select(any_of(variables_seleccionadas))
 ```
 
@@ -215,51 +213,272 @@ datos_analisis <- datos_combinados_bsg %>%
 ```{r}
 
 datos_schl <- datos_combinados_bcg %>%
-  select(IDSCHOOL, C_RATDEV, C_RATSTD)
+  select(
+    id_school_unique, # El índice que ya hicimos
+    C_RATDEV, # ratio de dispositivos TIC en la escuela y tamaño escuela
+    C_RATSTD, #ratio de dispositivos TIC disponibles para estudiantes en la escuela y cantidad de estudiantes en la escuela
+    C_ICTRES # ICT coordinators reports on availability of ICT resources at school
+    )
 ```
 
-### Unimos dataframes
-
-Hay escuelas que están en varios países, por lo que el ID es el mismo pero responden de forma separada en el cuestionario de escuela. Creo que podríamos promediar el ratio de dispositivos por estudiante por id escuela (group_by ID_SCHOOL) y mantener solo una fila. Por eso ICILS dice que se aplicó a 5200 escuelas y luego hay solo 608.
+### Unimos dataframes y verificamos datos
 
 ```{r}
+# Unimos el dataframe de estudiantes (datos_stud) con el de escuelas (datos_schl)
+datos_analisis <- left_join(datos_stud, datos_schl, by = "id_school_unique")
 
-# datos_analisis <- left_join(datos_stud, datos_schl, by="id_school")
+# Verificación 
+print("Dimensiones del dataframe de estudiantes:")
+dim(datos_analisis)
+print("Dimensiones del dataframe final combinado:")
+dim(datos_analisis)
 ```
 
--   Descriptivos univariados por nivel (recomiendo usar la función table1 del paquete table1)
+### Limpieza de datos
 
--   Descriptivos bivariados por nivel (recomiendo usar la función table1 del paquete table1)
+```{r}
+# Grupos de variables
+vars_categoricas <- c("S_HOMLIT", "S_SEX", "IS3G16BA", "IS3G16BB", 
+                      "IS3G16BC", "IS3G16AA", "IS3G16AB", "S_INTNET")
+vars_escala <- c("S_GENEFF", "S_SPECEFF", "C_RATDEV", "C_RATSTD", "C_ICTRES")
+
+datos_limpios <- datos_analisis %>%
+  select(-IDSCHOOL) %>%
+  mutate(across(all_of(vars_categoricas), 
+                ~ case_when(
+                  . %in% c(8, 9) ~ NA_integer_,
+                  TRUE ~ .
+                ))) %>%
+  mutate(across(all_of(vars_escala), 
+                ~ case_when(
+                  . %in% c(998, 999) ~ NA_real_,
+                  TRUE ~ .
+                ))) %>%
+  mutate(
+    C_RATDEV = case_when(
+      C_RATDEV == 9999 ~ NA_real_,
+      TRUE ~ C_RATDEV
+    ),
+    C_RATSTD = case_when(
+      C_RATSTD == 9999 ~ NA_real_,
+      TRUE ~ C_RATSTD
+    ),
+    C_ICTRES = case_when(
+      C_ICTRES == 9999 ~ NA_real_,
+      TRUE ~ C_ICTRES
+    )
+  ) %>%
+  mutate(across(all_of(vars_categoricas), as_factor))
+```
 
 ### Descriptivos univariados y bivariados
 
-Agregar todas las variables y labels para las categorías de respuesta
+#### Variables categóricas u ordinales por estudiante
 
 ```{r}
 library(table1)
 
-table1::table1(~IS3G16BA + IS3G16BB + IS3G16BC + IS3G16AA + IS3G16AB + S_SEX + S_GENEFF, data=datos_analisis)
+label(datos_limpios$S_GENEFF)  <- "Autoeficacia General"
+label(datos_limpios$S_SPECEFF) <- "Autoeficacia Específica"
+label(datos_limpios$S_SEX)     <- "Sexo del Estudiante"
+label(datos_limpios$S_INTNET)  <- "Acceso a Internet en Casa"
+label(datos_limpios$S_HOMLIT)  <- "Índice de Literatura en Casa"
+
+table1(~ S_GENEFF + S_SPECEFF + S_SEX + S_INTNET + S_HOMLIT, 
+       data = datos_limpios,
+       caption = "<h3>Tabla 1: Características de la Muestra de Estudiantes</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar); los datos categóricos como n (%).
+       <br>Nota: Elaborado con datos de ICILS 2023.")
 ```
 
-### Creamos el índice de acceso a TICs
+Podemos notar que la disponibilidad de los datos varía considerablemente con valores entre 0,6% y 9,2% de datos faltantes. El acceso a internet es de más del 93%, lo que muestra desde un inicio que las brechas de acceso podrían ser mínimas. En cuanto a los índices de literatura en la casa se muestra una importante diversidad de condiciones socieconómicas en la muestra.
+
+#### Variables por Escuela
 
 ```{r}
-#pregunta 1: efecto de acceso TIC en hogar en Actitud hacia las TIC
-datos_analisis <- datos_analisis %>%
-  na.omit() %>%
-  mutate(across(.cols = -CNTRY, .fns = ~as.numeric(.)))
 
-# Dataframe dividido para facilitar alfa de cronbach y matriz de correlaciones
+label(datos_schl$C_RATDEV)  <- "Ratio de Dispositivos por Escuela"
+label(datos_schl$C_RATSTD)  <- "Ratio de Dispositivos por Estudiante"
+label(datos_schl$C_ICTRES)  <- "coordinadores TIC informan disponibilidad recursos TIC en la escuela"
 
-datos_analisis <- datos_analisis %>% 
-  mutate(
-    IS3G16BA = as.factor(IS3G16BA),
-    IS3G16BB = as.factor(IS3G16BB),
-    IS3G16BC = as.factor(IS3G16BC),
-    IS3G16AA = as.factor(IS3G16AA),
-    IS3G16AB = as.factor(IS3G16AB),
-    S_SEX = as.factor(S_SEX)
-  )
+table1(~ C_RATDEV + C_RATSTD + C_ICTRES, 
+       data = datos_schl,
+       caption = "<h3>Tabla 2: Características de la Muestra de Escuelas</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar).
+       <br>Nota: Elaborado con datos de ICILS 2023.")
+
+```
+
+En este caso la falta de datos es masiva, con más de un 20% de datos perdidos. Una proporción problemática para las conclusiones. Las medias son extremadamente altas en comparación con las medianas, lo que sugiere que hay casos atípicos (probablemente NAs con valores 999, 9999, etc.) que desfiguran la representación.
+
+#### Variables continuas
+
+```{r}
+library(table1)
+
+label(datos_limpios$S_GENEFF)  <- "Autoeficacia General"
+label(datos_limpios$S_SPECEFF) <- "Autoeficacia Específica"
+label(datos_limpios$C_RATDEV)  <- "Ratio de Dispositivos por Escuela"
+label(datos_limpios$C_RATSTD)  <- "Ratio de Dispositivos por Estudiante"
+label(datos_limpios$C_ICTRES)  <- "coordinadores TIC informan disponibilidad recursos TIC en la escuela"
+
+
+tabla3_continuas <- table1(~ S_GENEFF + S_SPECEFF + C_RATDEV + C_RATSTD + C_ICTRES, 
+                           data = datos_limpios,
+                           caption = "<h3>Tabla 3: Estadísticos Descriptivos de Variables Continuas</h3>",
+                           footnote = "Los datos se presentan como Media (Desviación Estándar).
+                           <br>Nota: Elaborado con datos de ICILS 2023.")
+
+tabla3_continuas
+```
+
+Los ratios ahora tienen un porcentaje aún mayor de datos faltantes, más del 25%. Los valores medios ya no son exhorbitantemente altos, pero las desviaciones estándar siguen siendo altas. Persisten problemas serios de calidad. Las medidas de autoeficacia mantienen su calidad relativamente buena (aproximadamente 7% a 9% datos faltantes), mientras que las variables tecnológicas son prácticamente inútiles para análisis rigurosos.
+
+#### Eliminamos NAs
+
+```{r}
+datos_limpios <- datos_limpios %>% na.omit() 
+datos_schl <- datos_schl %>% na.omit()
+```
+
+#### Bivariados
+
+```{r}
+library(ggplot2)
+
+ggplot(datos_limpios, aes(x = S_SPECEFF, y = S_GENEFF)) +
+  geom_point(alpha = 0.1, color = "steelblue") +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Específica",
+    subtitle = "Datos limpios, con línea de regresión lineal",
+    x = "Puntaje de Autoeficacia Específica",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+
+ggplot(datos_limpios, aes(x = S_GENEFF , y = C_RATDEV)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia General del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+
+ggplot(datos_limpios, aes(x = S_SPECEFF , y = C_RATDEV)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia Específica y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia Específica del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+
+ggplot(datos_limpios, aes(x = S_SPECEFF , y = C_ICTRES)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia Específica y Información Disponibilidad TIC Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia Específica del Estudiante",
+    y = "Información Disponibilidad TIC Escuela"
+  ) +
+  theme_minimal()
+```
+
+La autoeficacia del estudiante y los recursos tecnológicos de su escuela parecen ser dos factores independientes en esta muestra de datos. No hay correlación aparente.
+
+```{r}
+# Autoeficacia por Sexo de Estudiante
+ggplot(datos_limpios, aes(x = S_SEX, y = S_GENEFF, fill = S_SEX)) +
+  geom_boxplot(na.rm = TRUE, alpha = 0.8) +
+  labs(
+    title = "Distribución de la Autoeficacia General por Sexo",
+    x = "Sexo del Estudiante",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Autoeficacia por Sexo de Estudiante
+ggplot(datos_limpios, aes(x = S_SEX, y = S_SPECEFF, fill = S_SEX)) +
+  geom_boxplot(na.rm = TRUE, alpha = 0.8) +
+  labs(
+    title = "Distribución de la Autoeficacia Específica por Sexo",
+    x = "Sexo del Estudiante",
+    y = "Puntaje de Autoeficacia Específica"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+table1(~ S_GENEFF + S_SPECEFF | S_SEX, 
+                           data = datos_limpios,
+                           caption = "<h3>Tabla 4: Autoeficiencia por Sexo de Estudiante</h3>",
+                           footnote = "Nota: Elaborado con datos de ICILS 2023.")
+```
+
+Respecto a la autoeficacia general, en ambos sexos hay un grupo considerable de estudiantes que marcan un puntaje inusualmente bajo. La diferencia de género en la autoconfianza aparece más fuertemente cuando se pregunta por habilidades específicas y menos cuando se pregunta de forma general.
+
+#### Autoeficacia por Acceso a Internet en Casa
+
+```{r}
+ggplot(datos_limpios, aes(x = S_INTNET, y = S_GENEFF, fill = S_INTNET)) +
+  geom_violin(na.rm = TRUE, trim = FALSE) + 
+  geom_boxplot(na.rm = TRUE, width = 0.1, fill = "white", alpha = 0.5) +
+  labs(
+    title = "Distribución de la Autoeficacia General por Acceso a Internet",
+    x = "Acceso a Internet en Casa",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_bw() +
+  theme(legend.position = "none")
+
+ggplot(datos_limpios, aes(x = S_INTNET, y = S_SPECEFF, fill = S_INTNET)) +
+  geom_violin(na.rm = TRUE, trim = FALSE) + 
+  geom_boxplot(na.rm = TRUE, width = 0.1, fill = "white", alpha = 0.5) +
+  labs(
+    title = "Distribución de la Autoeficacia Específica por Acceso a Internet",
+    x = "Acceso a Internet en Casa",
+    y = "Puntaje de Autoeficacia Específica"
+  ) +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+#### Cantidad de dispositivos y autoeficacia
+
+```{r}
+ggplot(datos_limpios, aes(x = IS3G16AA, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de PCs en casa",
+       x = "Cantidad de PCs en casa)",
+       y = "Autoeficacia General")
+
+ggplot(datos_limpios, aes(x = IS3G16AB, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de Tablets en casa",
+       x = "Cantidad de Tablets en casa",
+       y = "Autoeficacia General")
+
+ggplot(datos_limpios, aes(x = IS3G16AA, y = S_SPECEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia Específica según la cantidad de PCs en casa",
+       x = "Cantidad de PCs en casa)",
+       y = "Autoeficacia Específica")
+
+ggplot(datos_limpios, aes(x = IS3G16AB, y = S_SPECEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia Específica según la cantidad de Tablets en casa",
+       x = "Cantidad de Tablets en casa",
+       y = "Autoeficacia Específica")
 ```
 
 ### Análisis Alfa de Cronbach índice acceso
@@ -267,10 +486,11 @@ datos_analisis <- datos_analisis %>%
 ```{r}
 library(corrplot)
 
+datos_indice_acceso <- datos_limpios %>%  
+  select(IS3G16BA, IS3G16BB, IS3G16BC, IS3G16AA, IS3G16AB) %>%
+  mutate(across(everything(), as.numeric))
+
 matriz_cor <- cor(datos_indice_acceso)
-
-print(round(matriz_cor, 2))
-
 corrplot(matriz_cor, 
          method = "number", # Muestra el coeficiente de correlación
          type = "upper",    # Muestra solo el triángulo superior
@@ -278,11 +498,6 @@ corrplot(matriz_cor,
          tl.srt = 45,       # Rota el texto de las variables para que no se solapen
          title = "Matriz de Correlaciones de los Ítems del Índice",
          mar = c(0,0,1,0))  # Ajusta los márgenes para el título
-
-
-```
-
-```{r}
 
 alfa_resultado <- alpha(datos_indice_acceso)
 
@@ -293,8 +508,8 @@ print(alfa_resultado)
 
 ```{r}
 
-results_0_gen_sch = lmer(S_GENEFF ~ 1 + (1 | IDSCHOOL), data = datos_analisis)
-results_0_spec_sch = lmer(S_SPECEFF ~ 1 + (1 | IDSCHOOL), data = datos_analisis)
+results_0_gen_sch = lmer(S_GENEFF ~ 1 + (1 | id_school_unique), data = datos_limpios)
+results_0_spec_sch = lmer(S_SPECEFF ~ 1 + (1 | id_school_unique), data = datos_limpios)
 
 print(reghelper::ICC(results_0_gen_sch))
 
@@ -302,6 +517,29 @@ print(reghelper::ICC(results_0_spec_sch))
 ```
 
 ### Modelos multinivel preliminares
+
+```{r}
+# --- Modelo 1: Autoeficacia GENERAL con Intercepto Aleatorio ---
+modelo_gen_intercepto <- lmer(S_GENEFF ~ IS3G16AA + IS3G16AB + S_HOMLIT + S_SEX + C_RATSTD + (1 | id_school_unique),
+                              data = datos_limpios)
+
+
+# --- Modelo 2: Autoeficacia ESPECÍFICA con Intercepto Aleatorio ---
+modelo_spec_intercepto <- lmer(S_SPECEFF ~ IS3G16AA + IS3G16AB + S_HOMLIT + S_SEX + C_RATSTD + (1 | id_school_unique),
+                               data = datos_limpios)
+
+
+# --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
+modelo_gen_pendiente <- lmer(S_GENEFF ~ IS3G16AA + IS3G16AB + S_HOMLIT + S_SEX + C_RATSTD + (1 + IS3G16AA + IS3G16AB | id_school_unique),
+                             data = datos_limpios)
+
+
+# --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
+modelo_spec_pendiente <- lmer(S_SPECEFF ~ IS3G16AA + IS3G16AB + S_HOMLIT + S_SEX + C_RATSTD + (1 + IS3G16AA + IS3G16AB | id_school_unique),
+                              data = datos_limpios)
+
+# summary(modelo_gen_intercepto)
+```
 
 -   Cambiar las variables
 
@@ -316,7 +554,7 @@ print(reghelper::ICC(results_0_spec_sch))
     ```         
     "S_HOMLIT", # Home literacy index
     "S_SEX", # Sexo del/la estudiante
-      
+
     "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre) 
     "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre) 
     "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre) 
@@ -326,19 +564,6 @@ print(reghelper::ICC(results_0_spec_sch))
     "IS3G16AB", # Cuantas tablets hay en tu hogar
     ```
 
-```{r}
-
-
-
-modelo_DSE_gen_fij =lmer(S_GENEFF ~ 1 + acceso_TIC_intnet + (1|IDSCHOOL), data=datos_analisis)
-
-modelo_DSE_spec_fij =lmer(S_SPECEFF ~ 1 + acceso_TIC_intnet + (1|IDSCHOOL), data=datos_analisis)
-
-modelo_DSE_gen_rndm = lmer(S_GENEFF ~ 1 + acceso_TIC_intnet + (1 + acceso_TIC_intnet | IDSCHOOL),data=datos_analisis)
-
-modelo_DSE_spec_rndm = lmer(S_SPECEFF ~ 1 + acceso_TIC_intnet + (1 + acceso_TIC_intnet | IDSCHOOL),data=datos_analisis)
-```
-
 ### Tabla resumen
 
 -   Arreglar la tabla para que utilice los nombres de los modelos correctos
@@ -347,13 +572,25 @@ modelo_DSE_spec_rndm = lmer(S_SPECEFF ~ 1 + acceso_TIC_intnet + (1 + acceso_TIC_
 
 ```{r}
 
-tab_models <- sjPlot::tab_model(modelo_DSE_gen_fij, modelo_DSE_spec_fij, modelo_DSE_gen_rndm, modelo_DSE_spec_rndm,
-                  title = "Comparativa modelos pendiente fija y aleatoria Autoeficacia Digital y acceso a TIC",
-                  p.style = "stars",
-                  dv.labels = c("DSE general | efecto fijo", "DSE especializada | efecto fijo", "DSE general | efecto aleatorio", "DSE especializada | efecto aleatorio"),
-                  p.threshold = c(0.05, 0.01, 0.001),
-                  show.se = TRUE,
-                  digits =3)
+tab_models <- sjPlot::tab_model(
+  modelo_gen_intercepto, 
+  modelo_spec_intercepto, 
+  modelo_gen_pendiente, 
+  modelo_spec_pendiente,
+  title = "Comparativa de Modelos de Autoeficacia Digital",
+  p.style = "stars",
+  dv.labels = c(
+    "AE General (Intercepto Aleatorio)", 
+    "AE Específica (Intercepto Aleatorio)", 
+    "AE General (Pendiente Aleatoria)", 
+    "AE Específica (Pendiente Aleatoria)"
+  ),
+  p.threshold = c(0.05, 0.01, 0.001),
+  show.se = TRUE,
+  digits = 3
+)
+
+# Imprimir la tabla
 print(tab_models)
 ```
 
