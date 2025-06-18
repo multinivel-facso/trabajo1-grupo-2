@@ -61,12 +61,12 @@ Se hizo un modelo nulo para estimar la correlación intra clase (ICC por sus sig
 ```{r}
 
 library(pacman)
-p_load(dplyr, haven, lme4, summarytools, tidyverse, sjPlot, corrplot, reghelper)
+p_load(dplyr, haven, lme4, summarytools, tidyverse, sjPlot, corrplot, reghelper, corrplot, psych)
 options(scipen = 999) 
 rm(list = ls())   
 ```
 
-### Cargamos los datos
+### Cargamos los datos del estudiante
 
 ```{r}
 # Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
@@ -101,6 +101,9 @@ for (archivo in archivos_bsg) {
   }
 }
 
+# Crear columna id_school
+
+
 # Combina todos los dataframes en uno solo
 datos_combinados_bsg <- bind_rows(temp_dataframes)
 
@@ -108,11 +111,58 @@ datos_combinados_bsg <- bind_rows(temp_dataframes)
 dim(datos_combinados_bsg)  # Dimensiones del data frame combinado
 ```
 
+### Cargamos datos de la escuela
+
+```{r}
+
+# Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
+archivos_bcg <- list.files(
+  path = "./ICILS2023_IDB_R/Data", # Directorio actual
+  pattern = "^BCG.*\\.Rdata$",
+  full.names = TRUE
+)
+
+# Ver qué archivos encontramos
+print(archivos_bcg)
+
+# Inicializar una lista vacía para almacenar temporalmente los dataframes
+temp_dataframes <- list()
+
+# Cargar cada archivo y añadirlo a la lista
+for (archivo in archivos_bcg) {
+  # Crea un entorno temporal para cargar el archivo
+  temp_env <- new.env()
+  # Carga el archivo en el entorno temporal
+  load(archivo, envir = temp_env)
+  
+  # Identifica el nombre del dataframe en el entorno temporal
+  nombres_objetos <- ls(temp_env)
+  for (nombre in nombres_objetos) {
+    objeto <- get(nombre, envir = temp_env)
+    # Verifica si es un data frame y si el nombre comienza con BSG
+    if (is.data.frame(objeto) && grepl("^BCG", nombre)) {
+      # Añade el dataframe a nuestra lista
+      temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
+    }
+  }
+}
+
+# Crear columna id_school
+
+
+
+# Combina todos los dataframes en uno solo
+datos_combinados_bcg <- bind_rows(temp_dataframes)
+
+# Ver el resultado
+dim(datos_combinados_bcg)  # Dimensiones del data frame combinado
+```
+
 #### Eliminamos objetos innecesarios del entorno
 
 ```{r}
 # Guardamos el nombre del objeto que queremos mantener
-objeto_a_mantener <- "datos_combinados_bsg"
+objeto_a_mantener <- c("datos_combinados_bsg", "datos_combinados_bcg")
 
 # Obtenemos todos los objetos en el entorno actual
 todos_los_objetos <- ls()
@@ -127,7 +177,7 @@ rm(list = objetos_a_eliminar)
 print(ls())
 ```
 
-### Selecciónamos variables relevantes
+### Seleccionamos variables relevantes estudiantes
 
 ```{r}
 # Vector con todas las variables de interés
@@ -151,11 +201,44 @@ variables_seleccionadas <- c(
   "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre)
   "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre)
   "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre)
+   "IS3G16AA",  # Cuantos pcs hay en tu hogar
+   "IS3G16AB",  # Cuantas tablets hay en tu hogar
   "S_INTNET" # Internet en casa si/no
 )
 
 datos_analisis <- datos_combinados_bsg %>%
   select(any_of(variables_seleccionadas))
+```
+
+### Seleccionamos variables relevantes escuela
+
+```{r}
+
+datos_schl <- datos_combinados_bcg %>%
+  select(IDSCHOOL, C_RATDEV, C_RATSTD)
+```
+
+### Unimos dataframes
+
+Hay escuelas que están en varios países, por lo que el ID es el mismo pero responden de forma separada en el cuestionario de escuela. Creo que podríamos promediar el ratio de dispositivos por estudiante por id escuela (group_by ID_SCHOOL) y mantener solo una fila. Por eso ICILS dice que se aplicó a 5200 escuelas y luego hay solo 608.
+
+```{r}
+
+# datos_analisis <- left_join(datos_stud, datos_schl, by="id_school")
+```
+
+-   Descriptivos univariados por nivel (recomiendo usar la función table1 del paquete table1)
+
+-   Descriptivos bivariados por nivel (recomiendo usar la función table1 del paquete table1)
+
+### Descriptivos univariados y bivariados
+
+Agregar todas las variables y labels para las categorías de respuesta
+
+```{r}
+library(table1)
+
+table1::table1(~IS3G16BA + IS3G16BB + IS3G16BC + IS3G16AA + IS3G16AB + S_SEX + S_GENEFF, data=datos_analisis)
 ```
 
 ### Creamos el índice de acceso a TICs
@@ -166,18 +249,44 @@ datos_analisis <- datos_analisis %>%
   na.omit() %>%
   mutate(across(.cols = -CNTRY, .fns = ~as.numeric(.)))
 
+# Dataframe dividido para facilitar alfa de cronbach y matriz de correlaciones
 
-datos_analisis <- datos_analisis %>%
+datos_analisis <- datos_analisis %>% 
   mutate(
-    acceso_TIC_intnet = (
-      ((IS3G16BA - 1) * (1/3)) +
-      ((IS3G16BB - 1) * (1/3)) + 
-      ((IS3G16BC - 1) * (1/3)) + 
-      (S_INTNET) # S_INTNET ya está en la escala deseada (0-1)
-     ) / 4
-   )
+    IS3G16BA = as.factor(IS3G16BA),
+    IS3G16BB = as.factor(IS3G16BB),
+    IS3G16BC = as.factor(IS3G16BC),
+    IS3G16AA = as.factor(IS3G16AA),
+    IS3G16AB = as.factor(IS3G16AB),
+    S_SEX = as.factor(S_SEX)
+  )
+```
+
+### Análisis Alfa de Cronbach índice acceso
+
+```{r}
+library(corrplot)
+
+matriz_cor <- cor(datos_indice_acceso)
+
+print(round(matriz_cor, 2))
+
+corrplot(matriz_cor, 
+         method = "number", # Muestra el coeficiente de correlación
+         type = "upper",    # Muestra solo el triángulo superior
+         tl.col = "black",  # Color del texto de las variables
+         tl.srt = 45,       # Rota el texto de las variables para que no se solapen
+         title = "Matriz de Correlaciones de los Ítems del Índice",
+         mar = c(0,0,1,0))  # Ajusta los márgenes para el título
 
 
+```
+
+```{r}
+
+alfa_resultado <- alpha(datos_indice_acceso)
+
+print(alfa_resultado)
 ```
 
 ### Creamos los modelos nulos (para autoeficacia digital general y específica)
@@ -194,7 +303,32 @@ print(reghelper::ICC(results_0_spec_sch))
 
 ### Modelos multinivel preliminares
 
+-   Cambiar las variables
+
+    -   Probar el modelo con independientes IS3G16B\* y IS2G16A\*
+
+    -   Hacer modelos de intercepto aleatorio y efecto fijo (primeros dos modelos en el bloque de abajo para que veas la sintaxis) y de intercepto y pendiente / efecto aleatorio (los últimos dos modelos en el bloque de abajo)
+
+    -   Agregar la variable a nivel escuela C_RATDEV (ratio de dispositivos TIC en la escuela y tamaño escuela) o C_RATSTD (ratio de dispositivos TIC disponibles para estudiantes en la escuela y cantidad de estudiantes en la escuela)
+
+    -   Agregar variables de control home literacy y sex
+
+    ```         
+    "S_HOMLIT", # Home literacy index
+    "S_SEX", # Sexo del/la estudiante
+      
+    "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre) 
+    "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre) 
+    "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre) 
+
+
+    "IS3G16AA", # Cuantos pcs hay en tu hogar 
+    "IS3G16AB", # Cuantas tablets hay en tu hogar
+    ```
+
 ```{r}
+
+
 
 modelo_DSE_gen_fij =lmer(S_GENEFF ~ 1 + acceso_TIC_intnet + (1|IDSCHOOL), data=datos_analisis)
 
@@ -205,7 +339,11 @@ modelo_DSE_gen_rndm = lmer(S_GENEFF ~ 1 + acceso_TIC_intnet + (1 + acceso_TIC_in
 modelo_DSE_spec_rndm = lmer(S_SPECEFF ~ 1 + acceso_TIC_intnet + (1 + acceso_TIC_intnet | IDSCHOOL),data=datos_analisis)
 ```
 
-### Tabla resúmen
+### Tabla resumen
+
+-   Arreglar la tabla para que utilice los nombres de los modelos correctos
+
+-   Agregar nombres de variables como labels a la tabla
 
 ```{r}
 
@@ -218,12 +356,6 @@ tab_models <- sjPlot::tab_model(modelo_DSE_gen_fij, modelo_DSE_spec_fij, modelo_
                   digits =3)
 print(tab_models)
 ```
-
--   Alfa de conbach
-
--   Infraestructura tic en la escuela
-
--   Variables de control en nivel 1 (homlit y sexo)
 
 ## Resultados preliminares
 
