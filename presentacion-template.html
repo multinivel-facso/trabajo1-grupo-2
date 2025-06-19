@@ -330,7 +330,7 @@
 
 <div class="columns">
 <div class="column" style="width:20%;">
-
+<p><br></p>
 </div><div class="column column-right" style="width:80%;">
 <section id="mayor-acceso-significa-mayor-autoeficacia" class="title-slide slide level1 center">
 <h1><strong>¿Mayor acceso significa mayor autoeficacia?</strong></h1>
@@ -340,11 +340,10 @@
 <p><strong>Análisis de Datos Multinivel - 2025</strong></p>
 <p><strong>Departamento de Sociología, Universidad de Chile</strong></p>
 </div>
-<p>Santiago, 19 de Junio de 2025</p>
+<p>Santiago, 19 de Junio de 2025<br> <a href="https://github.com/multinivel-facso/trabajo1-grupo-2">🐱github.com/multinivel-facso/trabajo1-grupo-2</a></p>
 </section>
 
-</div><p><a href="https://github.com/multinivel-facso/trabajo1-grupo-2">🐱github.com/multinivel-facso/trabajo1-grupo-2</a></p>
-</div>
+</div></div>
 <aside class="notes">
 <p>Aquí mis notas</p>
 <style type="text/css">
@@ -376,7 +375,13 @@
 
 <section id="hipótesis" class="title-slide slide level1 center">
 <h1>Hipótesis:</h1>
-<p><span class="math inline">\(H_1\)</span>[L1]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> <span class="math inline">\(H_2\)</span>[L2]: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> <span class="math inline">\(H_3\)</span>[L2]: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.<br> <span class="math inline">\(H_4\)</span>[L3]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.<br> <span class="math inline">\(H_5\)</span>[L3]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(H_1\)</span>[L1]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_2\)</span>[L2]: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_3\)</span>[L2]: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_4\)</span>[L3]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_5\)</span>[L3]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.</p></li>
+</ul>
 </section>
 
 <section id="metodología" class="title-slide slide level1 center">
@@ -606,7 +611,7 @@
 <thead>
 <tr>
 <th class="rowlabel firstrow lastrow"></th>
-<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=79508)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=34)</span></span></th>
 </tr>
 </thead><tfoot><tr><td colspan="2" class="Rtable1-footnote"><p>Los datos se presentan como Media (Desviación Estándar).
                            <br>Nota: Elaborado con datos de IDI 2023.</p>
@@ -619,11 +624,15 @@
 </tr>
 <tr>
 <td class="rowlabel">Mean (SD)</td>
-<td>89.1 (3.78)</td>
+<td>89.0 (4.61)</td>
 </tr>
 <tr>
-<td class="rowlabel lastrow">Median [Min, Max]</td>
-<td class="lastrow">88.4 [76.6, 96.9]</td>
+<td class="rowlabel">Median [Min, Max]</td>
+<td>88.3 [76.6, 96.9]</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">2 (5.9%)</td>
 </tr>
 </tbody>
 </table>
@@ -635,7 +644,6 @@
 </div>
 </section>
 
-<section>
 <section id="variables" class="title-slide slide level1 center">
 <h1>Variables</h1>
 <ul>
@@ -644,30 +652,109 @@
 <li class="fragment"><p>Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.</p></li>
 <li class="fragment"><p>Variables nivel 3: IDI</p></li>
 </ul>
-<p>(incluir tablas univariados por nivel)</p>
 </section>
-<section id="métodos" class="slide level2">
-<h2>Métodos</h2>
-<p>… se estimó el siguiente modelo:</p>
-<p><span class="math display">\[
-y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gamma_{03} \text{sector} + \gamma_{04} \text{mnses} + u_{0j} + r_{ij}
-\]</span></p>
-</section></section>
+
 <section>
-<section id="resultados" class="title-slide slide level1 center">
-<h1>Resultados</h1>
+<section id="modelos-multinivel-de-autoeficacia" class="title-slide slide level1 center">
+<h1>Modelos Multinivel de Autoeficacia</h1>
 
 </section>
-<section id="descriptivos" class="slide level2">
-<h2>Descriptivos</h2>
+<section id="modelo-1-autoeficacia-general" class="slide level2">
+<h2>Modelo 1: Autoeficacia General</h2>
+<p><span class="math display">\[
+\begin{aligned}
+\text{S\_GENEFF}_{ijk} = &amp;\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
+&amp;+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
+&amp;+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
+&amp;+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&amp;+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&amp;+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
+&amp;+ v_{0jk} + r_{ijk}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="modelo-2-autoeficacia-específica" class="slide level2">
+<h2>Modelo 2: Autoeficacia Específica</h2>
+<p><span class="math display">\[
+\begin{aligned}
+\text{S\_SPECEFF}_{ijk} = &amp;\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
+&amp;+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
+&amp;+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
+&amp;+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&amp;+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&amp;+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
+&amp;+ v_{0jk} + r_{ijk}
+\end{aligned}
+\]</span></p>
+<p>donde: - <span class="math inline">\(i\)</span> = estudiante, <span class="math inline">\(j\)</span> = escuela, <span class="math inline">\(k\)</span> = país - <span class="math inline">\(r_{ijk} \sim N(0, \sigma^2)\)</span> (varianza residual) - <span class="math inline">\(v_{0jk} \sim N(0, \tau_v)\)</span> (intercepto aleatorio de escuela) - <span class="math inline">\((u_{0k}, u_{1k}, u_{2k})' \sim MVN(0, \mathbf{T}_u)\)</span> (efectos aleatorios de país)</p>
 </section>
 <section id="modelos" class="slide level2">
 <h2>Modelos</h2>
 <p>Los resultados de los modelos de regresión pueden ser presentados en un coefplot</p>
-</section>
-<section id="resultados-1" class="slide level2 scrollable-x smaller">
-<h2>Resultados</h2>
-<p>o mediante tablas</p>
+</section></section>
+<section>
+<section id="resultados" class="title-slide slide level1 center">
+<h1>Resultados</h1>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">AEG/AEE</a></li><li><a href="#tabset-2-2">AEG/RDEscuela</a></li><li><a href="#tabset-2-3">AEE/RDEscuela</a></li><li><a href="#tabset-2-4">PCs/AEG</a></li><li><a href="#tabset-2-5">Tablets/AEG</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-5">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="interacción" class="slide level2">
 <h2>Interacción</h2>

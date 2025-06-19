@@ -19,6 +19,7 @@ options(scipen = 999)
 rm(list = ls())   
 
 mlm = readRDS("output/datos_proc.rds")
+df_idi = readRDS("output/datos_descr_idi.rds")
 
 mlm = mlm %>% 
   as.data.frame()
@@ -33,6 +34,7 @@ mlm = mlm %>%
 
 :::::: columns
 ::: {.column width="20%"}
+<br>
 :::
 
 :::: {.column .column-right width="80%"}
@@ -48,10 +50,8 @@ mlm = mlm %>%
 **Departamento de Sociología, Universidad de Chile**
 :::
 
-Santiago, 19 de Junio de 2025
+Santiago, 19 de Junio de 2025<br> [🐱github.com/multinivel-facso/trabajo1-grupo-2](https://github.com/multinivel-facso/trabajo1-grupo-2)
 ::::
-
-[🐱github.com/multinivel-facso/trabajo1-grupo-2](https://github.com/multinivel-facso/trabajo1-grupo-2)
 ::::::
 
 ::: notes
@@ -72,7 +72,15 @@ Aquí mis notas
 
 # Hipótesis:
 
-$H_1$\[L1\]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> $H_2$\[L2\]: El ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> $H_3$\[L2\]: El efecto del ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.<br> $H_4$\[L3\]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.<br> $H_5$\[L3\]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.
+-   $H_1$\[L1\]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.
+
+-   $H_2$\[L2\]: El ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.
+
+-   $H_3$\[L2\]: El efecto del ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.
+
+-   $H_4$\[L3\]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.
+
+-   $H_5$\[L3\]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.
 
 # Metodología
 
@@ -84,8 +92,7 @@ $H_1$\[L1\]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoef
 
 # Datos (ICILS 2023)
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Características Personales
 
 ```{r}
@@ -131,56 +138,67 @@ table1(~ C_RATDEV + C_RATSTD,
 ### IDI
 
 ```{r}
-library(table1)
-
-label(mlm$IDI)  <- "ICT Development Index (IDI)"
+label(df_idi$IDI)  <- "ICT Development Index (IDI)"
 
 
 tabla3_idi <- table1(~ IDI, 
-                           data = mlm,
+                           data = df_idi,
                            caption = "<h3>Estadísticos Descriptivos de ICT Development Index (IDI)</h3>",
                            footnote = "Los datos se presentan como Media (Desviación Estándar).
                            <br>Nota: Elaborado con datos de IDI 2023.")
 
 tabla3_idi
 ```
-
 :::
 
 # Variables
 
-- Variables dependientes: Autoeficacia (general y específica)
+-   Variables dependientes: Autoeficacia (general y específica)
 
-- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet.
+-   Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet.
 
-- Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.
+-   Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.
 
-- Variables nivel 3: IDI
+-   Variables nivel 3: IDI
 
-(incluir tablas univariados por nivel)
+# Modelos Multinivel de Autoeficacia
 
-## Métodos
-
-... se estimó el siguiente modelo:
+## Modelo 1: Autoeficacia General
 
 $$
-y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gamma_{03} \text{sector} + \gamma_{04} \text{mnses} + u_{0j} + r_{ij}
+\begin{aligned}
+\text{S\_GENEFF}_{ijk} = &\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
+&+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
+&+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
+&+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
+&+ v_{0jk} + r_{ijk}
+\end{aligned}
 $$
 
-# Resultados
+## Modelo 2: Autoeficacia Específica
 
-## Descriptivos
+$$
+\begin{aligned}
+\text{S\_SPECEFF}_{ijk} = &\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
+&+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
+&+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
+&+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
+&+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
+&+ v_{0jk} + r_{ijk}
+\end{aligned}
+$$
 
-```{r}
-#scatterplot(mlm$mathach ~ mlm$ses, data=mlm, xlab="Ses", ylab="Math Score", main="Math on SES", smooth=FALSE)
-```
+donde: - $i$ = estudiante, $j$ = escuela, $k$ = país - $r_{ijk} \sim N(0, \sigma^2)$ (varianza residual) - $v_{0jk} \sim N(0, \tau_v)$ (intercepto aleatorio de escuela) - $(u_{0k}, u_{1k}, u_{2k})' \sim MVN(0, \mathbf{T}_u)$ (efectos aleatorios de país)
 
 ## Modelos
 
 Los resultados de los modelos de regresión pueden ser presentados en un coefplot
 
 ```{r}
-#plot_model(results_3, 
+#plot_model(modelo_gen_pendiente, 
 #            title = "", #quitar titulo
 #            show.values = TRUE, #mostrar valor de efectos
 #            dot.size = 3, #tamaño circulos
@@ -188,7 +206,6 @@ Los resultados de los modelos de regresión pueden ser presentados en un coefplo
 #            value.size = 4, #tamaño valor efectoss
 #            spacing = 1, #espacio entre efectos
 #            vline.color = "red", # linea roja en punto neutro (0)
-#            axis.labels = rev(c("Ses",
 #                              "Female", 
 #                              "Sector", 
 #                              "Mean sed")), #con rev porque automatico los tira en otro orden
@@ -196,15 +213,77 @@ Los resultados de los modelos de regresión pueden ser presentados en un coefplo
 #  theme_bw()
 ```
 
-## Resultados {.scrollable-x .smaller}
+# Resultados
 
-o mediante tablas
+::: panel-tabset
+## AEG/AEE
 
 ```{r}
-#tab_model(results_0,results_1,results_2,results_3,results_4,
-#          show.ci=FALSE,
-#          show.icc=FALSE)
+library(ggplot2)
+
+ggplot(mlm, aes(x = S_SPECEFF, y = S_GENEFF)) +
+  geom_point(alpha = 0.1, color = "steelblue") +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Específica",
+    subtitle = "Datos limpios, con línea de regresión lineal",
+    x = "Puntaje de Autoeficacia Específica",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_minimal()
 ```
+
+## AEG/RDEscuela
+
+```{r}
+
+ggplot(mlm, aes(x = S_GENEFF , y = C_RATSTD)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia General del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+```
+
+## AEE/RDEscuela
+
+```{r}
+ggplot(mlm, aes(x = S_SPECEFF , y = C_RATSTD)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia Específica y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia Específica del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+```
+
+## PCs/AEG
+
+```{r}
+ggplot(mlm, aes(x = IS3G16AA, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de PCs en casa",
+       x = "Cantidad de PCs en casa)",
+       y = "Autoeficacia General")
+```
+
+## Tablets/AEG
+
+```{r}
+ggplot(mlm, aes(x = IS3G16AB, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de Tablets en casa",
+       x = "Cantidad de Tablets en casa",
+       y = "Autoeficacia General")
+```
+:::
 
 ## Interacción
 
