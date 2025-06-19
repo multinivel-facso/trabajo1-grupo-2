@@ -6,9 +6,8 @@
 <script src="presentacion-template_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="presentacion-template_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentacion-template_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="presentacion-template_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="presentacion-template_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+<link href="presentacion-template_files/libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.30">
 
   <title>presentacion-template</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="presentacion-template_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="presentacion-template_files/libs/revealjs/dist/theme/quarto-166944a4c6b72281634077e9d8d4baf1.css">
   <link href="presentacion-template_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentacion-template_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="presentacion-template_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -155,7 +154,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -318,40 +318,32 @@
       margin-right: 0; 
     }
   </style>
+  <link href="presentacion-template_files/libs/table1-1.0/table1_defaults.css" rel="stylesheet">
+
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 
-<section>
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  There is a binary version available but the source version is later:
-             binary  source needs_compilation
-broom.mixed 0.2.9.5 0.2.9.6             FALSE</code></pre>
-</div>
-</div>
-</section>
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:20%;">
 
 </div><div class="column column-right" style="width:80%;">
-<section id="mayor-acceso-significa-mayor-autoeficacia-un-análisis-de-la-autoeficacia-digital-general-y-específica-a-lo-largo-de-35-países." class="title-slide slide level1 center">
-<h1><strong>¿Mayor acceso significa mayor autoeficacia? Un análisis de la autoeficacia digital general y específica a lo largo de 35 países.</strong></h1>
+<section id="mayor-acceso-significa-mayor-autoeficacia" class="title-slide slide level1 center">
+<h1><strong>¿Mayor acceso significa mayor autoeficacia?</strong></h1>
 <hr>
 <p><strong>Ismael Aguayo, Domingo Monasterio, Exequiel Trujillo &amp; Antonia Vera</strong></p>
 <div class="red2 medium">
-<p><strong>Análisis de datos multinivel - 2025</strong></p>
+<p><strong>Análisis de Datos Multinivel - 2025</strong></p>
 <p><strong>Departamento de Sociología, Universidad de Chile</strong></p>
 </div>
-<p>Santiago, 18 de Junio de 2025</p>
+<p>Santiago, 19 de Junio de 2025</p>
 </section>
 
-</div><p><a href="link%20al%20repo">Github repo</a></p>
+</div><p><a href="https://github.com/multinivel-facso/trabajo1-grupo-2">🐱github.com/multinivel-facso/trabajo1-grupo-2</a></p>
 </div>
 <aside class="notes">
 <p>Aquí mis notas</p>
@@ -365,42 +357,293 @@ broom.mixed 0.2.9.5 0.2.9.6             FALSE</code></pre>
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section>
-<section>
+      }</style></aside>
+</section>
 <section id="introducción" class="title-slide slide level1 center">
 <h1>Introducción</h1>
 <ul>
-<li class="fragment"><p>Problema de estudio: Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes.</p></li>
-<li class="fragment"><p>Factores asociados L1: Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género.</p></li>
-<li class="fragment"><p>Factores asociados L2: Acceso de estudiantes a TIC en la escuela,</p></li>
+<li class="fragment"><p><strong>Problema de estudio:</strong> Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes.</p></li>
+<li class="fragment"><p><strong>Factores asociados [L1]:</strong> Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género.</p></li>
+<li class="fragment"><p><strong>Factores asociados [L2]:</strong> Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela.</p></li>
+<li class="fragment"><p><strong>Factores asociados [L3]:</strong> Índice de Desarrollo de TIC (IDI) en el país.</p></li>
 </ul>
 </section>
-<section id="section-1" class="slide level2" data-background-color="#5f5758">
-<h2></h2>
-<div class="center middle">
-<p><span style="font-size: 250%;">¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? </span></p>
-</div>
-</section></section>
+
+<section id="de-qué-manera-el-acceso-a-tic-en-el-hogar-y-en-la-escuela-influye-en-la-autoeficacia-digital-general-y-especializada-de-los-estudiantes-y-cómo-influye-el-índice-de-desarrollo-de-tic-del-país" class="title-slide slide level1 center-v center">
+<h1>¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el índice de desarrollo de TIC del país?</h1>
+
+</section>
+
 <section id="hipótesis" class="title-slide slide level1 center">
 <h1>Hipótesis:</h1>
-<p>Nivel 1:</p>
-<p><span class="math inline">\(H_1\)</span>:</p>
-<p><span class="math inline">\(H_2\)</span>:</p>
-<p>Nivel 2</p>
-<p><span class="math inline">\(H_3\)</span>:</p>
-<p><span class="math inline">\(H_4\)</span>:</p>
+<p><span class="math inline">\(H_1\)</span>[L1]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> <span class="math inline">\(H_2\)</span>[L2]: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> <span class="math inline">\(H_3\)</span>[L2]: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.<br> <span class="math inline">\(H_4\)</span>[L3]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.<br> <span class="math inline">\(H_5\)</span>[L3]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.</p>
+</section>
+
+<section id="metodología" class="title-slide slide level1 center">
+<h1>Metodología</h1>
+<ul>
+<li class="fragment"><p>Método Multinivel</p></li>
+<li class="fragment"><p>Centrado de variables y tratamiento de casos influyentes</p></li>
+<li class="fragment"><p>Modelo nulo, modelo con intercepto aleatorio y modelo con intercepto y pendiente aleatorias</p></li>
+</ul>
+</section>
+
+<section id="datos-icils-2023" class="title-slide slide level1 center">
+<h1>Datos (ICILS 2023)</h1>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Características Personales</a></li><li><a href="#tabset-1-2">Recursos del Hogar</a></li><li><a href="#tabset-1-3">Variables por Escuela</a></li><li><a href="#tabset-1-4">IDI</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output-display">
+<div class="Rtable1"><table class="Rtable1"><caption><h3>Características Personales del Estudiante</h3></caption>
+
+<thead>
+<tr>
+<th class="rowlabel firstrow lastrow"></th>
+<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=79508)</span></span></th>
+</tr>
+</thead><tfoot><tr><td colspan="2" class="Rtable1-footnote"><p>Los datos continuos se presentan como Media (Desviación Estándar)</p>
+</td></tr></tfoot>
+
+<tbody>
+<tr>
+<td class="rowlabel firstrow">Autoeficacia General</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>50.2 (9.82)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">48.9 [14.3, 71.6]</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Autoeficacia Específica</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>49.6 (9.94)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">48.5 [28.9, 71.6]</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Sexo del Estudiante</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Boy</td>
+<td>39674 (49.9%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Girl</td>
+<td>39834 (50.1%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Not administered/not scored/score out of range</td>
+<td>0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Omitted</td>
+<td class="lastrow">0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Acceso a Internet en Casa</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">No</td>
+<td>2424 (3.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Yes</td>
+<td>77084 (97.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Not administered/not scored/score out of range</td>
+<td>0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Omitted</td>
+<td class="lastrow">0 (0%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output-display">
+<div class="Rtable1"><table class="Rtable1"><caption><h3>Recursos Tecnológicos y Educativos</h3></caption>
+
+<thead>
+<tr>
+<th class="rowlabel firstrow lastrow"></th>
+<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=79508)</span></span></th>
+</tr>
+</thead><tfoot><tr><td colspan="2" class="Rtable1-footnote"><p>Nota: Elaborado con datos de ICILS 2023.</p>
+</td></tr></tfoot>
+
+<tbody>
+<tr>
+<td class="rowlabel firstrow">Índice de Literatura en Casa</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">None or very few (0 - 10 books)</td>
+<td>10759 (13.5%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill one shelf (11 - 25 books)</td>
+<td>16927 (21.3%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill one bookcase (26 - 100 books)</td>
+<td>23852 (30.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill two bookcases (101 - 200 books)</td>
+<td>13846 (17.4%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill three or more bookcases (more than 200 books)</td>
+<td>14124 (17.8%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Not administered/not scored/score out of range</td>
+<td>0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Omitted</td>
+<td class="lastrow">0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Número de computadores en Casa (centrado a la media de escuela)</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>0.000807 (0.826)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">0.125 [-2.88, 2.54]</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Número de tablets en Casa (centrado a la media de escuela)</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>-0.00750 (1.01)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">-0.0435 [-2.69, 2.68]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="cell-output-display">
+<div class="Rtable1"><table class="Rtable1"><caption><h3>Características de la Muestra de Escuelas</h3></caption>
+
+<thead>
+<tr>
+<th class="rowlabel firstrow lastrow"></th>
+<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=79508)</span></span></th>
+</tr>
+</thead><tfoot><tr><td colspan="2" class="Rtable1-footnote"><p>Los datos continuos se presentan como Media (Desviación Estándar).
+       <br>Nota: Elaborado con datos de ICILS 2023.</p>
+</td></tr></tfoot>
+
+<tbody>
+<tr>
+<td class="rowlabel firstrow">Ratio de Dispositivos por Escuela</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>5.12 (9.63)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">3.00 [0.0700, 231]</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Ratio de Dispositivos por Estudiante</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>9.90 (27.5)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">4.83 [0.0800, 840]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="cell">
+<div class="cell-output-display">
+<div class="Rtable1"><table class="Rtable1"><caption><h3>Estadísticos Descriptivos de ICT Development Index (IDI)</h3></caption>
+
+<thead>
+<tr>
+<th class="rowlabel firstrow lastrow"></th>
+<th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=79508)</span></span></th>
+</tr>
+</thead><tfoot><tr><td colspan="2" class="Rtable1-footnote"><p>Los datos se presentan como Media (Desviación Estándar).
+                           <br>Nota: Elaborado con datos de IDI 2023.</p>
+</td></tr></tfoot>
+
+<tbody>
+<tr>
+<td class="rowlabel firstrow">ICT Development Index (IDI)</td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>89.1 (3.78)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">88.4 [76.6, 96.9]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <section>
-<section id="metodología" class="title-slide slide level1 center" data-background-color="#5f5758">
-<h1>Metodología</h1>
-<p>Hola</p>
-</section>
-<section id="datos" class="slide level2">
-<h2>Datos</h2>
-</section>
-<section id="variables" class="slide level2">
-<h2>Variables</h2>
+<section id="variables" class="title-slide slide level1 center">
+<h1>Variables</h1>
+<ul>
+<li class="fragment"><p>Variables dependientes: Autoeficacia (general y específica)</p></li>
+<li class="fragment"><p>Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet.</p></li>
+<li class="fragment"><p>Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.</p></li>
+<li class="fragment"><p>Variables nivel 3: IDI</p></li>
+</ul>
 <p>(incluir tablas univariados por nivel)</p>
 </section>
 <section id="métodos" class="slide level2">
@@ -411,196 +654,29 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 \]</span></p>
 </section></section>
 <section>
-<section id="resultados" class="title-slide slide level1 center" data-background-color="#5f5758">
+<section id="resultados" class="title-slide slide level1 center">
 <h1>Resultados</h1>
 
 </section>
 <section id="descriptivos" class="slide level2">
 <h2>Descriptivos</h2>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</div>
-</div>
 </section>
 <section id="modelos" class="slide level2">
 <h2>Modelos</h2>
 <p>Los resultados de los modelos de regresión pueden ser presentados en un coefplot</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-</div>
 </section>
 <section id="resultados-1" class="slide level2 scrollable-x smaller">
 <h2>Resultados</h2>
 <p>o mediante tablas</p>
-<div class="cell">
-<div class="cell-output-display">
-
-<table style="border-collapse:collapse; border:none;">
-<tbody><tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">mathach</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">mathach</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">mathach</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">mathach</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">mathach</th>
-</tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">p</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">12.64</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">13.28</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">12.13</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">12.74</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">12.82</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">ses</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.36</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">2.15</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">2.73</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">female</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-1.19</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-1.20</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-1.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sector</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.23</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.25</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">1.27</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">mnses</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">5.33</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">3.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">3.12</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">ses × sector</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-1.31</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td colspan="11" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
-</tr>
-
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">39.15</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">36.81</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">39.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">36.80</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">36.62</td>
-</tr>
-
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">8.61 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">4.49 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">2.31 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">2.15 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">2.09 <sub>schoolid</sub></td>
-
-</tr><tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">160 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">160 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">160 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">160 <sub>schoolid</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">160 <sub>schoolid</sub></td>
-</tr><tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">7185</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">7185</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">7185</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">7185</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">7185</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.000 / 0.180</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.086 / 0.185</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.130 / 0.179</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.181 / 0.226</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.184 / 0.228</td>
-</tr>
-
-</tbody></table>
-
-</div>
-</div>
 </section>
 <section id="interacción" class="slide level2">
 <h2>Interacción</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
-</div>
-</div>
+
 </div><div class="column" style="width:30%;">
 <p>La interacción muestra que…</p>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="conclusiones" class="title-slide slide level1 center" data-background-color="black">
@@ -615,12 +691,14 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 </section>
 <section id="referencias" class="slide level2">
 <h2>Referencias</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 
 </div>
-</section></section>
-    </div>
-  </div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="presentacion-template_files/libs/revealjs/dist/reveal.js"></script>
@@ -645,12 +723,12 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -804,7 +882,7 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -831,42 +909,80 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -900,18 +1016,7 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -943,11 +1048,50 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -957,8 +1101,17 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -972,7 +1125,11 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

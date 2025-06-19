@@ -11,37 +11,17 @@ format:
 editor: source
 ---
 
-
-#
-
-
 ```{r}
-if (!require("pacman")) install.packages("pacman") # solo la primera vez
-install.packages("equatiomatic", dependencies = TRUE)
-
-pacman::p_load(lme4,
-               kableExtra,
-               haven,
-               car,
-               sjmisc,
-               sjPlot,
-               stargazer,
-               ggplot2, # gráficos
-               dplyr, # manipulacion de datos
-               summarytools, 
-               reghelper, 
-               corrplot,
-               psych) # paquetes a cargar
+pacman::p_load(dplyr, haven, lme4, summarytools, tidyverse, sjPlot, corrplot, reghelper, corrplot, psych, table1, ggplot2, car)
 
 
 options(scipen = 999) 
 rm(list = ls())   
 
-mlm = read_dta("")
+mlm = readRDS("output/datos_proc.rds")
 
 mlm = mlm %>% 
-  select("CNTRY", "IDSCHOOL", "id_school_unique", "S_HOMLIT", "S_SEX", "S_GENEFF", "S_SPECEFF", "IS3G16BA", "IS3G16BB", "IS3G16BC", "IS3G16AA", "IS3G16AB", "S_INTNET", "C_RATDEV", "C_RATSTD", "C_ICTRES") %>%
-as.data.frame()
+  as.data.frame()
 
 
 #results_0 = lmer(mathach ~ 1 + (1 | schoolid), data = mlm)
@@ -51,100 +31,131 @@ as.data.frame()
 #results_4 = lmer(mathach ~ 1 + ses + female + sector + mnses + ses*sector + (1 | schoolid), data = mlm)
 ```
 
-
-::: columns
+:::::: columns
 ::: {.column width="20%"}
-
 :::
 
-::: {.column .column-right width="80%"}
-
-# **¿Mayor acceso significa mayor autoeficacia? Un análisis de la autoeficacia digital general y específica a lo largo de 35 países.**
+:::: {.column .column-right width="80%"}
+# **¿Mayor acceso significa mayor autoeficacia?**
 
 ------------------------------------------------------------------------
 
 **Ismael Aguayo, Domingo Monasterio, Exequiel Trujillo & Antonia Vera**
 
-
 ::: {.red2 .medium}
-
-**Análisis de datos multinivel - 2025**
+**Análisis de Datos Multinivel - 2025**
 
 **Departamento de Sociología, Universidad de Chile**
-
-
-
 :::
 
-Santiago, 18 de Junio de 2025
+Santiago, 19 de Junio de 2025
+::::
 
-:::
+[🐱github.com/multinivel-facso/trabajo1-grupo-2](https://github.com/multinivel-facso/trabajo1-grupo-2)
+::::::
 
-[Github repo](link al repo)
-:::
-
-::: {.notes}
+::: notes
 Aquí mis notas
 :::
 
 # Introducción
 
-- Problema de estudio: Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes. 
+-   **Problema de estudio:** Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes.
 
-- Factores asociados L1: Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género. 
-  
-- Factores asociados L2: Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela. 
+-   **Factores asociados \[L1\]:** Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género.
 
-- Factores asociados L3: Índice de Desarrollo de TIC (IDI) en el país. 
+-   **Factores asociados \[L2\]:** Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela.
 
-## {data-background-color="#5f5758"}
+-   **Factores asociados \[L3\]:** Índice de Desarrollo de TIC (IDI) en el país.
 
-
-::: {.center .middle}
-
-<span style="font-size: 250%;">¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el índice de desarrollo de TIC del país?</span>
-:::
+# ¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el índice de desarrollo de TIC del país? {.center-v}
 
 # Hipótesis:
 
-Nivel 1:
+$H_1$\[L1\]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> $H_2$\[L2\]: El ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.<br> $H_3$\[L2\]: El efecto del ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.<br> $H_4$\[L3\]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.<br> $H_5$\[L3\]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.
 
-$H_1$: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes
+# Metodología
 
-Nivel 2
+-   Método Multinivel
 
-$H_3$: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes
+-   Centrado de variables y tratamiento de casos influyentes
 
-$H_4$: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar 
+-   Modelo nulo, modelo con intercepto aleatorio y modelo con intercepto y pendiente aleatorias
 
-Nivel 3
+# Datos (ICILS 2023)
 
-$H_5$: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital
+::: {.panel-tabset}
 
-$H_6$: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar
+### Características Personales
 
-# Metodología{data-background-color="#5f5758"}
+```{r}
+label(mlm$S_GENEFF)  <- "Autoeficacia General"
+label(mlm$S_SPECEFF) <- "Autoeficacia Específica"
+label(mlm$S_SEX)     <- "Sexo del Estudiante"
+label(mlm$S_INTNET)  <- "Acceso a Internet en Casa"
 
-- Método multinivel
+table1(~ S_GENEFF + S_SPECEFF + S_SEX + S_INTNET, 
+       data = mlm,
+       caption = "<h3>Características Personales del Estudiante</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar)")
+```
 
-- Centrado de variables y tratamiento de casos influyentes
+### Recursos del Hogar
 
-- Modelo nulo, modelo con intercepto aleatorio y modelo con intercepto y pendiente aleatorias
+```{r}
+label(mlm$S_HOMLIT)  <- "Índice de Literatura en Casa"
+label(mlm$desktops_cmc)  <- "Número de computadores en Casa (centrado a la media de escuela)"
+label(mlm$tablets_cmc)  <- "Número de tablets en Casa (centrado a la media de escuela)"
 
-## Datos
+table1(~ S_HOMLIT + desktops_cmc + tablets_cmc, 
+       data = mlm,
+       caption = "<h3>Recursos Tecnológicos y Educativos</h3>",
+       footnote = "Nota: Elaborado con datos de ICILS 2023.")
+```
 
-- ICILS 2023
+### Variables por Escuela
 
-## Variables
+```{r}
+
+label(mlm$C_RATDEV)  <- "Ratio de Dispositivos por Escuela"
+label(mlm$C_RATSTD)  <- "Ratio de Dispositivos por Estudiante"
+
+table1(~ C_RATDEV + C_RATSTD, 
+       data = mlm,
+       caption = "<h3>Características de la Muestra de Escuelas</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar).
+       <br>Nota: Elaborado con datos de ICILS 2023.")
+
+```
+
+### IDI
+
+```{r}
+library(table1)
+
+label(mlm$IDI)  <- "ICT Development Index (IDI)"
+
+
+tabla3_idi <- table1(~ IDI, 
+                           data = mlm,
+                           caption = "<h3>Estadísticos Descriptivos de ICT Development Index (IDI)</h3>",
+                           footnote = "Los datos se presentan como Media (Desviación Estándar).
+                           <br>Nota: Elaborado con datos de IDI 2023.")
+
+tabla3_idi
+```
+
+:::
+
+# Variables
 
 - Variables dependientes: Autoeficacia (general y específica)
 
-- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet. 
+- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet.
 
 - Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.
 
 - Variables nivel 3: IDI
-
 
 (incluir tablas univariados por nivel)
 
@@ -156,76 +167,66 @@ $$
 y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gamma_{03} \text{sector} + \gamma_{04} \text{mnses} + u_{0j} + r_{ij}
 $$
 
-# Resultados{data-background-color="#5f5758"}
-
+# Resultados
 
 ## Descriptivos
 
 ```{r}
-scatterplot(mlm$mathach ~ mlm$ses, data=mlm, xlab="Ses", ylab="Math Score", main="Math on SES", smooth=FALSE)
+#scatterplot(mlm$mathach ~ mlm$ses, data=mlm, xlab="Ses", ylab="Math Score", main="Math on SES", smooth=FALSE)
 ```
-
 
 ## Modelos
 
 Los resultados de los modelos de regresión pueden ser presentados en un coefplot
 
 ```{r}
-plot_model(results_3, 
-            title = "", #quitar titulo
-            show.values = TRUE, #mostrar valor de efectos
-            dot.size = 3, #tamaño circulos
-            line.size = 1, #tamaño CI
-            value.size = 4, #tamaño valor efectoss
-            spacing = 1, #espacio entre efectos
-            vline.color = "red", # linea roja en punto neutro (0)
-            axis.labels = rev(c("Ses",
-                              "Female", 
-                              "Sector", 
-                              "Mean sed")), #con rev porque automatico los tira en otro orden
-            show.legend = FALSE) + # variables dependientes
-  theme_bw()
+#plot_model(results_3, 
+#            title = "", #quitar titulo
+#            show.values = TRUE, #mostrar valor de efectos
+#            dot.size = 3, #tamaño circulos
+#            line.size = 1, #tamaño CI
+#            value.size = 4, #tamaño valor efectoss
+#            spacing = 1, #espacio entre efectos
+#            vline.color = "red", # linea roja en punto neutro (0)
+#            axis.labels = rev(c("Ses",
+#                              "Female", 
+#                              "Sector", 
+#                              "Mean sed")), #con rev porque automatico los tira en otro orden
+#            show.legend = FALSE) + # variables dependientes
+#  theme_bw()
 ```
-
 
 ## Resultados {.scrollable-x .smaller}
 
 o mediante tablas
 
-
 ```{r}
-tab_model(results_0,results_1,results_2,results_3,results_4,
-          show.ci=FALSE,
-          show.icc=FALSE)
+#tab_model(results_0,results_1,results_2,results_3,results_4,
+#          show.ci=FALSE,
+#          show.icc=FALSE)
 ```
 
 ## Interacción
 
-:::: columns
+::::: columns
 ::: {.column width="70%"}
-
 ```{r}
-plot_model(results_4, type="int") +
-  theme_bw()
+#plot_model(results_4, type="int") +
+#  theme_bw()
 ```
-
 :::
 
 ::: {.column width="30%"}
-
 La interacción muestra que...
-
 :::
-:::
-
+:::::
 
 # Conclusiones {data-background-color="black"}
 
-
 ::: incremental
 -   bla bla bla
--  bla bla
-- bla
+-   bla bla
+-   bla
 :::
 
 ## Referencias
