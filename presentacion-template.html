@@ -122,6 +122,10 @@
   </style>
   <link href="presentacion-template_files/libs/table1-1.0/table1_defaults.css" rel="stylesheet">
 
+  <script src="presentacion-template_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+  <link href="presentacion-template_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -513,10 +517,12 @@ S\_SPECEFF_{ijk} &amp;= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + 
 <span class="math inline">\((u_{0jk}, u_{1jk})' \sim MVN(0, \mathbf{T}_u)\)</span></p>
 <p>donde <span class="math inline">\(\mathbf{T}_u = \begin{pmatrix} \sigma_{u00} &amp; \sigma_{u01} \\ \sigma_{u01} &amp; \sigma_{u11} \end{pmatrix}\)</span></p>
 </div></div>
-</section>
-<section class="slide level2">
-
 </section></section>
+<section id="resultados" class="title-slide slide level1 center">
+<h1>Resultados</h1>
+
+</section>
+
 <section id="resultados-descriptivos" class="title-slide slide level1 center">
 <h1>Resultados descriptivos</h1>
 <div class="panel-tabset">
@@ -582,8 +588,8 @@ S\_SPECEFF_{ijk} &amp;= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + 
 </section>
 
 <section>
-<section id="resultados-por-país" class="title-slide slide level1 center">
-<h1>Resultados por País</h1>
+<section id="casos-influyentes-por-país" class="title-slide slide level1 center">
+<h1>Casos influyentes por País</h1>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">General</a></li><li><a href="#tabset-3-2">Específica</a></li></ul>
 <div class="tab-content">
@@ -605,6 +611,47 @@ S\_SPECEFF_{ijk} &amp;= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + 
 </div>
 </div>
 </div>
+</section>
+<section id="coeficientes-de-correlación-intraclase-icc" class="slide level2">
+<h2>Coeficientes de Correlación Intraclase (ICC)</h2>
+<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; background-color: rgba(248, 249, 250, 255) !important;">Modelo</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(248, 249, 250, 255) !important;">Nivel</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(248, 249, 250, 255) !important;">ICC</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(248, 249, 250, 255) !important;">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 3cm; font-weight: bold;">Autoeficacia General</td>
+<td style="text-align: center; width: 2cm;">Escuela</td>
+<td style="text-align: center; width: 2cm;">0.0310</td>
+<td style="text-align: center; width: 2cm;">3.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 3cm; font-weight: bold;">Autoeficacia General</td>
+<td style="text-align: center; width: 2cm;">País</td>
+<td style="text-align: center; width: 2cm;">0.0342</td>
+<td style="text-align: center; width: 2cm;">3.42%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 3cm; font-weight: bold;">Autoeficacia Específica</td>
+<td style="text-align: center; width: 2cm;">Escuela</td>
+<td style="text-align: center; width: 2cm;">0.0343</td>
+<td style="text-align: center; width: 2cm;">3.43%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 3cm; font-weight: bold;">Autoeficacia Específica</td>
+<td style="text-align: center; width: 2cm;">País</td>
+<td style="text-align: center; width: 2cm;">0.0545</td>
+<td style="text-align: center; width: 2cm;">5.45%</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 <section class="slide level2">
 
@@ -656,7 +703,7 @@ Table&nbsp;2: Modelo de Autoeficacia Específica con Efectos Aleatorios
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -668,8 +715,11 @@ Table&nbsp;2: Modelo de Autoeficacia Específica con Efectos Aleatorios
 <h1>Conclusiones</h1>
 <div>
 <ul>
+<li class="fragment"><span class="math inline">\(H_1\)</span>[L1]: El acceso si aumenta la autoeficacia</li>
+<li class="fragment"><span class="math inline">\(H_2\)</span>[L2]: El ratio demostró no ser significativo</li>
+<li class="fragment"><span class="math inline">\(H_3\)</span>[L3]: Efecto contrario del IDI</li>
+<li class="fragment"><span class="math inline">\(H_4\)</span>[L3]: Los chicos son más afectados por el acceso en el hogar</li>
 <li class="fragment">Efecto de computadores &gt; efecto tablets… calidad de acceso?</li>
-<li class="fragment">El género como moderador del efecto de los computadores en el hogar</li>
 <li class="fragment">Países con + IDI ≠ países con + autoeficacia</li>
 <li class="fragment">La insignificancia de la escuela</li>
 </ul>

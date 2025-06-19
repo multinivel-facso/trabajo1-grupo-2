@@ -231,7 +231,9 @@ donde $\mathbf{T}_u = \begin{pmatrix} \sigma_{u00} & \sigma_{u01} \\ \sigma_{u01
 :::
 ::::
 
----
+
+# Resultados
+
 
 # Resultados descriptivos
 
@@ -307,7 +309,7 @@ ggplot(mlm, aes(x = IS3G16AB, y = S_GENEFF)) +
 ```
 :::
 
-# Resultados por País
+# Casos influyentes por País
 
 ::: panel-tabset
 ## General
@@ -328,6 +330,46 @@ estex_spec_cnt <- readRDS("./output/estex_spec_cnt.rds")
 
 ![Distancia de Cook AE](images/spec.png){fig-align="center" width="85%"}
 ::: 
+
+---
+
+## Coeficientes de Correlación Intraclase (ICC)
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Calcular ICC
+ICC_schl_gen <- 2.909/(2.909 + 91.049)
+ICC_cnt_gen <- 3.327/(3.327 + 2.909 + 91.049)
+ICC_schl_spec <- 3.212/(3.212 + 90.530)
+ICC_cnt_spec  <- 5.400/(5.400 + 3.212 + 90.530)
+
+# Crear tabla de resultados
+library(kableExtra)
+library(dplyr)
+
+icc_results <- data.frame(
+  Modelo = c("Autoeficacia General", "Autoeficacia General", 
+             "Autoeficacia Específica", "Autoeficacia Específica"),
+  Nivel = c("Escuela", "País", "Escuela", "País"),
+  ICC = c(ICC_schl_gen, ICC_cnt_gen, ICC_schl_spec, ICC_cnt_spec),
+  Porcentaje = paste0(round(c(ICC_schl_gen, ICC_cnt_gen, ICC_schl_spec, ICC_cnt_spec) * 100, 2), "%")
+)
+
+kable(icc_results, 
+      col.names = c("Modelo", "Nivel", "ICC", "Porcentaje"),
+      digits = 4,
+      align = "lccc") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE,
+                position = "center",
+                font_size = 16) %>%
+  row_spec(0, bold = TRUE, background = "#f8f9fa") %>%
+  column_spec(1, bold = TRUE, width = "3cm") %>%
+  column_spec(2, width = "2cm") %>%
+  column_spec(3:4, width = "2cm")
+```
 
 ---
 
@@ -381,8 +423,11 @@ sjPlot::plot_model(modelo_spec_pendiente, type="int")
 # Conclusiones {data-background-color="black"}
 
 ::: incremental
+-   $H_1$\[L1\]: El acceso si aumenta la autoeficacia
+-   $H_2$\[L2\]: El ratio demostró no ser significativo
+-   $H_3$\[L3\]: Efecto contrario del IDI
+-   $H_4$\[L3\]: Los chicos son más afectados por el acceso en el hogar
 -   Efecto de computadores > efecto tablets... calidad de acceso?
--   El género como moderador del efecto de los computadores en el hogar
 -   Países con + IDI ≠ países con + autoeficacia
 -   La insignificancia de la escuela
 :::
