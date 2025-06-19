@@ -390,7 +390,7 @@ table1(~ C_RATDEV + C_RATSTD,
 
 En este caso la falta de datos es masiva, con más de un 20% de datos perdidos. Una proporción problemática para las conclusiones. Las medias son extremadamente altas en comparación con las medianas, lo que sugiere que hay casos atípicos (probablemente NAs con valores 999, 9999, etc.) que desfiguran la representación.
 
-#### Variables continuas
+#### Variables país
 
 ```{r}
 library(table1)
@@ -445,25 +445,27 @@ ggplot(datos_limpios, aes(x = S_SPECEFF, y = S_GENEFF)) +
 
 ```{r}
 
-ggplot(datos_limpios, aes(x = S_GENEFF , y = C_RATSTUD)) +
+ggplot(datos_limpios, aes(x = C_RATSTD , y = S_GENEFF)) +
   geom_point(alpha = 0.1, color = "darkgray") +
   geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
   labs(
     title = "Relación entre Autoeficacia General y Ratio de Dispositivos por Escuela",
     subtitle = "Cada punto representa a un estudiante",
-    x = "Puntaje de Autoeficacia General del Estudiante",
-    y = "Ratio de Dispositivos por Escuela"
+    x = "Ratio de Dispositivos por Escuela",
+    y = "Puntaje de Autoeficacia General del Estudiante"
+    
   ) +
   theme_minimal()
 
-ggplot(datos_limpios, aes(x = S_SPECEFF , y = C_RATSTUD)) +
+ggplot(datos_limpios, aes(x = C_RATSTD , y = S_SPECEFF)) +
   geom_point(alpha = 0.1, color = "darkgray") +
   geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
   labs(
     title = "Relación entre Autoeficacia Específica y Ratio de Dispositivos por Escuela",
     subtitle = "Cada punto representa a un estudiante",
-    x = "Puntaje de Autoeficacia Específica del Estudiante",
-    y = "Ratio de Dispositivos por Escuela"
+    x = "Ratio de Dispositivos por Escuela",
+    y = "Puntaje de Autoeficacia Específica del Estudiante"
+    
   ) +
   theme_minimal()
 ```
@@ -609,7 +611,7 @@ modelo_spec_intercepto <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD
 
 # --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
 
-modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY) + (1 | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
+modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       desktops_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc | CNTRY) + (1 | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 # --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
 modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY) + (1 | id_school_unique),data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
@@ -653,6 +655,7 @@ estex_spec_schl <- influence(modelo_spec_pendiente, "id_school_unique")
 
 
 ```
+
 ### Tabla resumen
 
 -   Arreglar la tabla para que utilice los nombres de los modelos correctos

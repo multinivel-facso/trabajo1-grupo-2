@@ -60,11 +60,11 @@ Aquí mis notas
 
 # Introducción
 
--   **Problema de estudio:** Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes.
+-   **Problema de estudio:** Efecto del acceso TIC en el hogar, en la escuela y en el país en la autoeficacia digital de estudiantes.
 
 -   **Factores asociados \[L1\]:** Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género.
 
--   **Factores asociados \[L2\]:** Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela.
+-   **Factores asociados \[L2\]:** Acceso de estudiantes a TIC en la escuela.
 
 -   **Factores asociados \[L3\]:** Índice de Desarrollo de TIC (IDI) en el país.
 
@@ -237,14 +237,15 @@ ggplot(mlm, aes(x = S_SPECEFF, y = S_GENEFF)) +
 
 ```{r}
 
-ggplot(mlm, aes(x = S_GENEFF , y = C_RATSTD)) +
+ggplot(mlm, aes(x = C_RATSTD, y = S_GENEFF)) +
   geom_point(alpha = 0.1, color = "darkgray") +
   geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
   labs(
     title = "Relación entre Autoeficacia General y Ratio de Dispositivos por Escuela",
     subtitle = "Cada punto representa a un estudiante",
-    x = "Puntaje de Autoeficacia General del Estudiante",
-    y = "Ratio de Dispositivos por Escuela"
+    y = "Ratio de Dispositivos por Escuela",
+    x = "Puntaje de Autoeficacia General del Estudiante"
+
   ) +
   theme_minimal()
 ```
@@ -252,14 +253,15 @@ ggplot(mlm, aes(x = S_GENEFF , y = C_RATSTD)) +
 ## AEE/RDEscuela
 
 ```{r}
-ggplot(mlm, aes(x = S_SPECEFF , y = C_RATSTD)) +
+ggplot(mlm, aes(x = C_RATSTD, y = S_SPECEFF)) +
   geom_point(alpha = 0.1, color = "darkgray") +
   geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
   labs(
     title = "Relación entre Autoeficacia Específica y Ratio de Dispositivos por Escuela",
     subtitle = "Cada punto representa a un estudiante",
-    x = "Puntaje de Autoeficacia Específica del Estudiante",
-    y = "Ratio de Dispositivos por Escuela"
+    x = "Ratio de Dispositivos por Escuela",
+    y = "Puntaje de Autoeficacia Específica del Estudiante"
+
   ) +
   theme_minimal()
 ```
