@@ -611,11 +611,10 @@ modelo_spec_intercepto <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD
 
 # --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
 
-modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       desktops_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc | CNTRY) + (1 | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
+modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       desktops_cmc*S_SEX + S_HOMLIT + S_SEX + (1 + desktops_cmc | CNTRY) + (1 | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 # --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
-modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY) + (1 | id_school_unique),data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
-
+modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc*S_SEX + tablets_cmc + C_RATSTD + IDI + tablets_cmc + S_HOMLIT + S_SEX + (1 | CNTRY) + (1 + desktops_cmc | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 ```
 
 ```{r}
@@ -630,23 +629,31 @@ pacman::p_load(influence.ME,
 # Modelo con pendientes aleatorias solo para CNTRY
 
 
-estex_gen_cnt <- influence(modelo_gen_pendiente, "CNTRY") # ex estex_mod_est
+estex_gen_cnt <- influence(modelo_gen_pendiente, "CNTRY")
 estex_spec_cnt <- influence(modelo_spec_pendiente, "CNTRY")
 
+saveRDS(estex_gen_cnt, "./output/estex_gen_cnt.rds")
 
-plot(estex_spec_cnt, which="cook",
-     cutoff=.17, sort=TRUE,
-     xlab="Cooks Distance",
-     ylab="Countrie")
+saveRDS(estex_spec_cnt, "./output/estex_spec_cnt.rds")
 
-sigtest(estex_spec_cnt, test=-1.96)$tablets_cmc
+
+cooks.distance(estex_spec_cnt, sort = TRUE)
+
+plot(estex_gen_cnt, 
+     which="cook",
+     cutoff = 0.17, 
+     sort = TRUE,
+     xlab = "Cook's Distance",
+     ylab = "Countries")
+
+plot(estex_spec_cnt, which="cook")
 
 sigtest(estex_mod_est, test=-1.96)$tablets_cmc
 
-plot(estex_mod_est, which="cook",
-     cutoff=.17, sort=TRUE,
-     xlab="Cooks Distance",
-     ylab="Countrie")
+sigtest(estex_spec_cnt, test=-1.96)$tablets_cmc
+
+
+
 
 
 estex_gen_schl <- influence(modelo_gen_pendiente, "id_school_unique") 

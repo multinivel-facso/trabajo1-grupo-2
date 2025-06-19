@@ -76,11 +76,9 @@ Aquí mis notas
 
 -   $H_2$\[L2\]: El ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.
 
--   $H_3$\[L2\]: El efecto del ratio \[dispositivos TIC disponibles por estudiante\]/\[cantidad de estudiantes\] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.
+-   $H_3$\[L3\]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.
 
--   $H_4$\[L3\]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.
-
--   $H_5$\[L3\]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.
+-   $H_4$\[L3\]: El efecto del acceso a computadores en el hogas sobre la autoeficacia de los estudiantes es moderado por el sexo.
 
 # Metodología
 
@@ -165,55 +163,77 @@ tabla3_idi
 
 ## Modelo 1: Autoeficacia General
 
+:::: {.columns}
+::: {.column width="55%"}
 $$
-\begin{aligned}
-\text{S\_GENEFF}_{ijk} = &\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
-&+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
-&+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
-&+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
-&+ v_{0jk} + r_{ijk}
-\end{aligned}
+\begin{align}
+S\_GENEFF_{ijk} &= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + \beta_2 \cdot tablets\_cmc_{ijk} \\
+&\quad + \beta_3 \cdot C\_RATSTD_{jk} + \beta_4 \cdot IDI_{k} \\
+&\quad + \beta_5 \cdot (desktops\_cmc_{ijk} \times S\_SEX_{ijk}) \\
+&\quad + \beta_6 \cdot S\_HOMLIT_{ijk} + \beta_7 \cdot S\_SEX_{ijk} \\
+&\quad + v_{00k} + v_{10k} \cdot desktops\_cmc_{ijk} + u_{0jk} + e_{ijk}
+\end{align}
 $$
+:::
+
+::: {.column width="30%" style="padding-left: 10px;"}
+**Índices:**
+
+$i$ = estudiante  
+$j$ = escuela  
+$k$ = país  
+
+**Coeficientes:**
+
+$\beta$ = efectos fijos (estudiante)  
+$\gamma$ = efectos escuela  
+$\delta$ = efectos país  
+
+**Efectos Aleatorios:**
+
+$e_{ijk} \sim N(0, \sigma_e^2)$  
+$u_{0jk} \sim N(0, \sigma_u^2)$  
+$(v_{00k}, v_{10k})' \sim MVN(0, \mathbf{T}_v)$  
+
+donde $\mathbf{T}_v = \begin{pmatrix} \tau_{00} & \tau_{01} \\ \tau_{01} & \tau_{11} \end{pmatrix}$
+:::
+::::
 
 ## Modelo 2: Autoeficacia Específica
 
+:::: {.columns}
+::: {.column width="60%"}
 $$
-\begin{aligned}
-\text{S\_SPECEFF}_{ijk} = &\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
-&+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
-&+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
-&+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
-&+ v_{0jk} + r_{ijk}
-\end{aligned}
+\begin{align}
+S\_SPECEFF_{ijk} &= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + \beta_2 \cdot tablets\_cmc_{ijk} \\
+&\quad + \beta_3 \cdot C\_RATSTD_{jk} + \beta_4 \cdot IDI_{k} \\
+&\quad + \beta_5 \cdot (desktops\_cmc_{ijk} \times S\_SEX_{ijk}) \\
+&\quad + \beta_6 \cdot S\_HOMLIT_{ijk} + \beta_7 \cdot S\_SEX_{ijk} \\
+&\quad + v_{00k} + u_{0jk} + u_{1jk} \cdot desktops\_cmc_{ijk} + e_{ijk}
+\end{align}
 $$
+:::
 
-donde: - $i$ = estudiante, $j$ = escuela, $k$ = país - $r_{ijk} \sim N(0, \sigma^2)$ (varianza residual) - $v_{0jk} \sim N(0, \tau_v)$ (intercepto aleatorio de escuela) - $(u_{0k}, u_{1k}, u_{2k})' \sim MVN(0, \mathbf{T}_u)$ (efectos aleatorios de país)
+::: {.column width="30%" style="padding-left: 10px;"}
+**Índices:**
 
-## Modelos
+$i$ = estudiante  
+$j$ = escuela  
+$k$ = país  
 
-Los resultados de los modelos de regresión pueden ser presentados en un coefplot
+**Efectos Aleatorios:**
 
-```{r}
-#plot_model(modelo_gen_pendiente, 
-#            title = "", #quitar titulo
-#            show.values = TRUE, #mostrar valor de efectos
-#            dot.size = 3, #tamaño circulos
-#            line.size = 1, #tamaño CI
-#            value.size = 4, #tamaño valor efectoss
-#            spacing = 1, #espacio entre efectos
-#            vline.color = "red", # linea roja en punto neutro (0)
-#                              "Female", 
-#                              "Sector", 
-#                              "Mean sed")), #con rev porque automatico los tira en otro orden
-#            show.legend = FALSE) + # variables dependientes
-#  theme_bw()
-```
+$e_{ijk} \sim N(0, \sigma_e^2)$  
+$v_{00k} \sim N(0, \tau_{00})$  
+$(u_{0jk}, u_{1jk})' \sim MVN(0, \mathbf{T}_u)$  
 
-# Resultados
+donde $\mathbf{T}_u = \begin{pmatrix} \sigma_{u00} & \sigma_{u01} \\ \sigma_{u01} & \sigma_{u11} \end{pmatrix}$
+:::
+::::
+
+---
+
+# Resultados descriptivos
 
 ::: panel-tabset
 ## AEG/AEE
@@ -287,27 +307,102 @@ ggplot(mlm, aes(x = IS3G16AB, y = S_GENEFF)) +
 ```
 :::
 
+# Resultados por País
+
+::: panel-tabset
+## General
+```{r}
+#| include: false
+# Cargar datos sin mostrar
+estex_gen_cnt <- readRDS("./output/estex_gen_cnt.rds")
+```
+
+![Distancia de Cook AG](images/gen.png){fig-align="center" width="85%"}
+
+## Específica
+```{r}
+#| include: false
+# Cargar datos sin mostrar
+estex_spec_cnt <- readRDS("./output/estex_spec_cnt.rds")
+```
+
+![Distancia de Cook AE](images/spec.png){fig-align="center" width="85%"}
+::: 
+
+---
+
+```{r}
+#| label: tbl-modelo-general
+#| tbl-cap: "Modelo de Autoeficacia General con Efectos Aleatorios"
+
+# --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
+modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       
+                           desktops_cmc*S_SEX + S_HOMLIT + S_SEX + 
+                           (1 + desktops_cmc | CNTRY) + (1 | id_school_unique), 
+                           data = mlm, 
+                           control = lmerControl(optimizer = "bobyqa"))
+
+```
+
+![Autoeficacia general](images/tab_gen.png){fig-align="center"}
+
+---
+
+```{r}
+#| label: tbl-modelo-especifica
+#| tbl-cap: "Modelo de Autoeficacia Específica con Efectos Aleatorios"
+
+# --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
+modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc*S_SEX + tablets_cmc + C_RATSTD + IDI + 
+                            tablets_cmc + S_HOMLIT + S_SEX + 
+                            (1 | CNTRY) + (1 + desktops_cmc | id_school_unique), 
+                            data = mlm, 
+                            control = lmerControl(optimizer = "bobyqa"))
+
+```
+
+
+![Autoeficacia específica](images/tab_spec.png){fig-align="center"}
+---
+
 ## Interacción
 
 ::::: columns
 ::: {.column width="70%"}
 ```{r}
-#plot_model(results_4, type="int") +
-#  theme_bw()
+
+sjPlot::plot_model(modelo_spec_pendiente, type="int")
+
 ```
 :::
 
-::: {.column width="30%"}
-La interacción muestra que...
-:::
 :::::
 
 # Conclusiones {data-background-color="black"}
 
 ::: incremental
--   bla bla bla
--   bla bla
--   bla
+-   Efecto de computadores > efecto tablets... calidad de acceso?
+-   El género como moderador del efecto de los computadores en el hogar
+-   Países con + IDI ≠ países con + autoeficacia
+-   La insignificancia de la escuela
 :::
 
 ## Referencias
+
+-   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. https://doi.org/10.1017/CBO9780511527692 
+:::
+
+-   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+    Eastin, M. S., & LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <https://doi.org/10.1111/j.1083-6101.2000.tb00110.x> 
+    :::
+
+-   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+    Hatlevik, O. E., Gudmundsdottir, G. B., & Loi, M. (2018). Digital diversity among upper secondary students: A multilevel analysis of the relationship between socio-economic status and digital competence. Computers & Education, 120, 91--102. <https://doi.org/10.1016/j.compedu.2014.10.019> 
+    :::
+
+
+    
+    -   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+    Ulfert-Blank, A. S., & Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers & Education, 191, 104626. <https://doi.org/10.1016/j.compedu.2022.104626> 
+    :::

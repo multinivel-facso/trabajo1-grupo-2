@@ -163,9 +163,9 @@
 <section id="introducción" class="title-slide slide level1 center">
 <h1>Introducción</h1>
 <ul>
-<li class="fragment"><p><strong>Problema de estudio:</strong> Efecto del acceso TIC en el hogar y en la escuela en la autoeficacia digital de estudiantes.</p></li>
+<li class="fragment"><p><strong>Problema de estudio:</strong> Efecto del acceso TIC en el hogar, en la escuela y en el país en la autoeficacia digital de estudiantes.</p></li>
 <li class="fragment"><p><strong>Factores asociados [L1]:</strong> Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género.</p></li>
-<li class="fragment"><p><strong>Factores asociados [L2]:</strong> Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela.</p></li>
+<li class="fragment"><p><strong>Factores asociados [L2]:</strong> Acceso de estudiantes a TIC en la escuela.</p></li>
 <li class="fragment"><p><strong>Factores asociados [L3]:</strong> Índice de Desarrollo de TIC (IDI) en el país.</p></li>
 </ul>
 </section>
@@ -180,9 +180,8 @@
 <ul>
 <li class="fragment"><p><span class="math inline">\(H_1\)</span>[L1]: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes.</p></li>
 <li class="fragment"><p><span class="math inline">\(H_2\)</span>[L2]: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes.</p></li>
-<li class="fragment"><p><span class="math inline">\(H_3\)</span>[L2]: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar.</p></li>
-<li class="fragment"><p><span class="math inline">\(H_4\)</span>[L3]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.</p></li>
-<li class="fragment"><p><span class="math inline">\(H_5\)</span>[L3]: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_3\)</span>[L3]: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_4\)</span>[L3]: El efecto del acceso a computadores en el hogas sobre la autoeficacia de los estudiantes es moderado por el sexo.</p></li>
 </ul>
 </section>
 
@@ -463,40 +462,63 @@
 </section>
 <section id="modelo-1-autoeficacia-general" class="slide level2">
 <h2>Modelo 1: Autoeficacia General</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
 <p><span class="math display">\[
-\begin{aligned}
-\text{S\_GENEFF}_{ijk} = &amp;\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
-&amp;+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
-&amp;+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
-&amp;+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&amp;+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&amp;+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
-&amp;+ v_{0jk} + r_{ijk}
-\end{aligned}
+\begin{align}
+S\_GENEFF_{ijk} &amp;= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + \beta_2 \cdot tablets\_cmc_{ijk} \\
+&amp;\quad + \beta_3 \cdot C\_RATSTD_{jk} + \beta_4 \cdot IDI_{k} \\
+&amp;\quad + \beta_5 \cdot (desktops\_cmc_{ijk} \times S\_SEX_{ijk}) \\
+&amp;\quad + \beta_6 \cdot S\_HOMLIT_{ijk} + \beta_7 \cdot S\_SEX_{ijk} \\
+&amp;\quad + v_{00k} + v_{10k} \cdot desktops\_cmc_{ijk} + u_{0jk} + e_{ijk}
+\end{align}
 \]</span></p>
+</div><div class="column" style="padding-left: 10px;">
+<p><strong>Índices:</strong></p>
+<p><span class="math inline">\(i\)</span> = estudiante<br>
+<span class="math inline">\(j\)</span> = escuela<br>
+<span class="math inline">\(k\)</span> = país</p>
+<p><strong>Coeficientes:</strong></p>
+<p><span class="math inline">\(\beta\)</span> = efectos fijos (estudiante)<br>
+<span class="math inline">\(\gamma\)</span> = efectos escuela<br>
+<span class="math inline">\(\delta\)</span> = efectos país</p>
+<p><strong>Efectos Aleatorios:</strong></p>
+<p><span class="math inline">\(e_{ijk} \sim N(0, \sigma_e^2)\)</span><br>
+<span class="math inline">\(u_{0jk} \sim N(0, \sigma_u^2)\)</span><br>
+<span class="math inline">\((v_{00k}, v_{10k})' \sim MVN(0, \mathbf{T}_v)\)</span></p>
+<p>donde <span class="math inline">\(\mathbf{T}_v = \begin{pmatrix} \tau_{00} &amp; \tau_{01} \\ \tau_{01} &amp; \tau_{11} \end{pmatrix}\)</span></p>
+</div></div>
 </section>
 <section id="modelo-2-autoeficacia-específica" class="slide level2">
 <h2>Modelo 2: Autoeficacia Específica</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p><span class="math display">\[
-\begin{aligned}
-\text{S\_SPECEFF}_{ijk} = &amp;\gamma_{000} + \gamma_{100} \cdot \text{desktops\_cmc}_{ijk} + \gamma_{200} \cdot \text{tablets\_cmc}_{ijk} \\
-&amp;+ \gamma_{001} \cdot \text{C\_RATSTD}_{jk} + \gamma_{002} \cdot \text{IDI}_{jk} \\
-&amp;+ \gamma_{300} \cdot \text{S\_HOMLIT}_{ijk} + \gamma_{400} \cdot \text{S\_SEX}_{ijk} \\
-&amp;+ \gamma_{101} \cdot (\text{desktops\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&amp;+ \gamma_{201} \cdot (\text{tablets\_cmc}_{ijk} \times \text{IDI}_{jk}) \\
-&amp;+ u_{0k} + u_{1k} \cdot \text{desktops\_cmc}_{ijk} + u_{2k} \cdot \text{tablets\_cmc}_{ijk} \\
-&amp;+ v_{0jk} + r_{ijk}
-\end{aligned}
+\begin{align}
+S\_SPECEFF_{ijk} &amp;= \delta_{000} + \delta_{100} \cdot desktops\_cmc_{ijk} + \beta_2 \cdot tablets\_cmc_{ijk} \\
+&amp;\quad + \beta_3 \cdot C\_RATSTD_{jk} + \beta_4 \cdot IDI_{k} \\
+&amp;\quad + \beta_5 \cdot (desktops\_cmc_{ijk} \times S\_SEX_{ijk}) \\
+&amp;\quad + \beta_6 \cdot S\_HOMLIT_{ijk} + \beta_7 \cdot S\_SEX_{ijk} \\
+&amp;\quad + v_{00k} + u_{0jk} + u_{1jk} \cdot desktops\_cmc_{ijk} + e_{ijk}
+\end{align}
 \]</span></p>
-<p>donde: - <span class="math inline">\(i\)</span> = estudiante, <span class="math inline">\(j\)</span> = escuela, <span class="math inline">\(k\)</span> = país - <span class="math inline">\(r_{ijk} \sim N(0, \sigma^2)\)</span> (varianza residual) - <span class="math inline">\(v_{0jk} \sim N(0, \tau_v)\)</span> (intercepto aleatorio de escuela) - <span class="math inline">\((u_{0k}, u_{1k}, u_{2k})' \sim MVN(0, \mathbf{T}_u)\)</span> (efectos aleatorios de país)</p>
+</div><div class="column" style="padding-left: 10px;">
+<p><strong>Índices:</strong></p>
+<p><span class="math inline">\(i\)</span> = estudiante<br>
+<span class="math inline">\(j\)</span> = escuela<br>
+<span class="math inline">\(k\)</span> = país</p>
+<p><strong>Efectos Aleatorios:</strong></p>
+<p><span class="math inline">\(e_{ijk} \sim N(0, \sigma_e^2)\)</span><br>
+<span class="math inline">\(v_{00k} \sim N(0, \tau_{00})\)</span><br>
+<span class="math inline">\((u_{0jk}, u_{1jk})' \sim MVN(0, \mathbf{T}_u)\)</span></p>
+<p>donde <span class="math inline">\(\mathbf{T}_u = \begin{pmatrix} \sigma_{u00} &amp; \sigma_{u01} \\ \sigma_{u01} &amp; \sigma_{u11} \end{pmatrix}\)</span></p>
+</div></div>
 </section>
-<section id="modelos" class="slide level2">
-<h2>Modelos</h2>
-<p>Los resultados de los modelos de regresión pueden ser presentados en un coefplot</p>
+<section class="slide level2">
+
 </section></section>
-<section>
-<section id="resultados" class="title-slide slide level1 center">
-<h1>Resultados</h1>
+<section id="resultados-descriptivos" class="title-slide slide level1 center">
+<h1>Resultados descriptivos</h1>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">AEG/AEE</a></li><li><a href="#tabset-2-2">AEG/RDEscuela</a></li><li><a href="#tabset-2-3">AEE/RDEscuela</a></li><li><a href="#tabset-2-4">PCs/AEG</a></li><li><a href="#tabset-2-5">Tablets/AEG</a></li></ul>
 <div class="tab-content">
@@ -505,7 +527,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -516,7 +538,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -527,7 +549,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -538,7 +560,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -549,7 +571,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -558,13 +580,87 @@
 </div>
 </div>
 </section>
+
+<section>
+<section id="resultados-por-país" class="title-slide slide level1 center">
+<h1>Resultados por País</h1>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">General</a></li><li><a href="#tabset-3-2">Específica</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/gen.png" style="width:85.0%"></p>
+<figcaption>Distancia de Cook AG</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spec.png" style="width:85.0%"></p>
+<figcaption>Distancia de Cook AE</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="tbl-modelo-general" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelo-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Modelo de Autoeficacia General con Efectos Aleatorios
+</figcaption>
+<div aria-describedby="tbl-modelo-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/tab_gen.png"></p>
+<figcaption>Autoeficacia general</figcaption>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="tbl-modelo-especifica" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelo-especifica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Modelo de Autoeficacia Específica con Efectos Aleatorios
+</figcaption>
+<div aria-describedby="tbl-modelo-especifica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/tab_spec.png"></p>
+<figcaption>Autoeficacia específica</figcaption>
+</figure>
+</div>
+</section>
 <section id="interacción" class="slide level2">
 <h2>Interacción</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-
-</div><div class="column" style="width:30%;">
-<p>La interacción muestra que…</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentacion-template_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div></div>
 </section></section>
 <section>
@@ -572,14 +668,31 @@
 <h1>Conclusiones</h1>
 <div>
 <ul>
-<li class="fragment">bla bla bla</li>
-<li class="fragment">bla bla</li>
-<li class="fragment">bla</li>
+<li class="fragment">Efecto de computadores &gt; efecto tablets… calidad de acceso?</li>
+<li class="fragment">El género como moderador del efecto de los computadores en el hogar</li>
+<li class="fragment">Países con + IDI ≠ países con + autoeficacia</li>
+<li class="fragment">La insignificancia de la escuela</li>
 </ul>
 </div>
 </section>
 <section id="referencias" class="slide level2">
 <h2>Referencias</h2>
+<ul>
+<li class="fragment"><div style="margin-left: 0.5in;  text-indent: -0.5in;">
+<p>Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. https://doi.org/10.1017/CBO9780511527692&nbsp;</p>
+</div></li>
+<li class="fragment"><div style="margin-left: 0.5in;  text-indent: -0.5in;">
+<p>Eastin, M. S., &amp; LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <a href="https://doi.org/10.1111/j.1083-6101.2000.tb00110.x" class="uri">https://doi.org/10.1111/j.1083-6101.2000.tb00110.x</a>&nbsp;</p>
+</div></li>
+<li class="fragment"><div style="margin-left: 0.5in;  text-indent: -0.5in;">
+<p>Hatlevik, O. E., Gudmundsdottir, G. B., &amp; Loi, M. (2018). Digital diversity among upper secondary students: A multilevel analysis of the relationship between socio-economic status and digital competence. Computers &amp; Education, 120, 91–102. <a href="https://doi.org/10.1016/j.compedu.2014.10.019" class="uri">https://doi.org/10.1016/j.compedu.2014.10.019</a>&nbsp;</p>
+</div>
+<ul>
+<li class="fragment"><div style="margin-left: 0.5in;  text-indent: -0.5in;">
+<p>Ulfert-Blank, A. S., &amp; Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers &amp; Education, 191, 104626. <a href="https://doi.org/10.1016/j.compedu.2022.104626" class="uri">https://doi.org/10.1016/j.compedu.2022.104626</a>&nbsp;</p>
+</div></li>
+</ul></li>
+</ul>
 
 </section></section>
     </div>
