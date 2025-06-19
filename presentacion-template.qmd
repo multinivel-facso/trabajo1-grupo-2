@@ -109,21 +109,19 @@ Aquí mis notas
 
 Nivel 1:
 
-$H_1$: 
-
-$H_2$: 
+$H_1$: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes
 
 Nivel 2
 
-$H_3$: 
+$H_3$: El ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] tendrá un efecto positivo en la autoeficacia digital de los estudiantes
 
-$H_4$:
+$H_4$: El efecto del ratio [dispositivos TIC disponibles por estudiante]/[cantidad de estudiantes] en la autoeficacia es moderado por el nivel de acceso a TIC en el hogar 
 
 Nivel 3
 
-$H_5$: 
+$H_5$: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital
 
-$H_6$:
+$H_6$: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar
 
 # Metodología{data-background-color="#5f5758"}
 
@@ -139,11 +137,11 @@ $H_6$:
 
 ## Variables
 
-- Variables dependientes: Autoeficacia
+- Variables dependientes: Autoeficacia (general y específica)
 
-- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de alfabetización del hogar; 
+- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de literatura del hogar; Sexo de estudiantes; Acceso a internet. 
 
-- Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de 
+- Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de coordinadores TIC sobre disponibilidad de recursos TIC en escuela.
 
 - Variables nivel 3: IDI
 
