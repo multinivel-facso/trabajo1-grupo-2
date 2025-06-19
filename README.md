@@ -4,4 +4,4 @@ Informe disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-2/ic
 
 Presentación disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-2/presentacion-template.html](https://multinivel-facso.github.io/trabajo1-grupo-2/presentacion-template.html)
 
-Gráfico que no se pudo renderizar [](https://multinivel-facso.github.io/trabajo1-grupo-2/file1284cc205243)
+Gráfico que no se pudo renderizar [https://multinivel-facso.github.io/trabajo1-grupo-2/file1284cc205243](https://multinivel-facso.github.io/trabajo1-grupo-2/file1284cc205243)
