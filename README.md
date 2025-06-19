@@ -3,3 +3,5 @@
 Informe disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-2/icils2023_proc.html](https://multinivel-facso.github.io/trabajo1-grupo-2/icils2023_proc.html)
 
 Presentación disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-2/presentacion-template.html](https://multinivel-facso.github.io/trabajo1-grupo-2/presentacion-template.html)
+
+Gráfico que no se pudo renderizar [](https://multinivel-facso.github.io/trabajo1-grupo-2/file1284cc205243)
