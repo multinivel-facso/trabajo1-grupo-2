@@ -423,6 +423,7 @@ datos_schl <- datos_schl %>% na.omit()
 saveRDS(datos_limpios, "./output/datos_proc.rds")
 saveRDS(datos_combinados_bsg, "./output/datos_raw_stud.rds")
 saveRDS(datos_combinados_bcg, "./output/datos_raw_schl.rds")
+saveRDS(datos_descr_idi, "./output/datos_descr_idi.rds")
 ```
 
 #### Bivariados
@@ -602,18 +603,16 @@ modelo_gen_intercepto <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD +
 
 
 # --- Modelo 2: Autoeficacia ESPECÍFICA con Intercepto Aleatorio ---
-modelo_spec_intercepto <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI  + S_HOMLIT + S_SEX + (1 | CNTRY / id_school_unique),
+modelo_spec_intercepto <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI  + desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 | CNTRY / id_school_unique),
                                data = datos_limpios)
 
 
 # --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
-modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY / id_school_unique),
-                             data = datos_limpios)
 
+modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +       desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY) + (1 | id_school_unique), data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 # --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
-modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc |  CNTRY / id_school_unique),
-                              data = datos_limpios)
+modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + desktops_cmc*IDI + tablets_cmc*IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY) + (1 | id_school_unique),data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 ```
 
@@ -626,40 +625,34 @@ pacman::p_load(influence.ME,
                tidyr
                 )
 
+# Modelo con pendientes aleatorias solo para CNTRY
 
 
-struct <- modelo_gen_intercepto %>% select(id_school_unique,IS3G16AA, S_GENEFF) %>% group_by(id_school_unique) %>% summarise_all(mean) %>% as.data.frame() 
+estex_gen_cnt <- influence(modelo_gen_pendiente, "CNTRY") # ex estex_mod_est
+estex_spec_cnt <- influence(modelo_spec_pendiente, "CNTRY")
 
-dotplot(S_GENEFF ~ factor(IS3G16AA), # lattice
-        struct,
-        type=c("p","a"),
-        xlab="PCs en hogar",
-        ylab="Average Math Test Score")
+
+plot(estex_spec_cnt, which="cook",
+     cutoff=.17, sort=TRUE,
+     xlab="Cooks Distance",
+     ylab="Countrie")
+
+sigtest(estex_spec_cnt, test=-1.96)$tablets_cmc
+
+sigtest(estex_mod_est, test=-1.96)$tablets_cmc
+
+plot(estex_mod_est, which="cook",
+     cutoff=.17, sort=TRUE,
+     xlab="Cooks Distance",
+     ylab="Countrie")
+
+
+estex_gen_schl <- influence(modelo_gen_pendiente, "id_school_unique") 
+estex_spec_schl <- influence(modelo_spec_pendiente, "id_school_unique")
+
+
+
 ```
-
--   Cambiar las variables
-
-    -   Probar el modelo con independientes IS3G16B\* y IS2G16A\*
-
-    -   Hacer modelos de intercepto aleatorio y efecto fijo (primeros dos modelos en el bloque de abajo para que veas la sintaxis) y de intercepto y pendiente / efecto aleatorio (los últimos dos modelos en el bloque de abajo)
-
-    -   Agregar la variable a nivel escuela C_RATDEV (ratio de dispositivos TIC en la escuela y tamaño escuela) o C_RATSTD (ratio de dispositivos TIC disponibles para estudiantes en la escuela y cantidad de estudiantes en la escuela)
-
-    -   Agregar variables de control home literacy y sex
-
-    ```         
-    "S_HOMLIT", # Home literacy index
-    "S_SEX", # Sexo del/la estudiante
-
-    "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre) 
-    "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre) 
-    "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre) 
-
-
-    "IS3G16AA", # Cuantos pcs hay en tu hogar 
-    "IS3G16AB", # Cuantas tablets hay en tu hogar
-    ```
-
 ### Tabla resumen
 
 -   Arreglar la tabla para que utilice los nombres de los modelos correctos
@@ -669,18 +662,13 @@ dotplot(S_GENEFF ~ factor(IS3G16AA), # lattice
 ```{r}
 
 tab_models <- sjPlot::tab_model(
-  modelo_gen_intercepto, 
-  modelo_spec_intercepto, 
   modelo_gen_pendiente, 
   modelo_spec_pendiente,
   title = "Comparativa de Modelos de Autoeficacia Digital",
   p.style = "stars",
   dv.labels = c(
     "AE General (Intercepto Aleatorio)", 
-    "AE Específica (Intercepto Aleatorio)", 
-    "AE General (Pendiente Aleatoria)", 
-    "AE Específica (Pendiente Aleatoria)"
-  ),
+    "AE Específica (Intercepto Aleatorio)"),
   p.threshold = c(0.05, 0.01, 0.001),
   show.se = TRUE,
   digits = 3
