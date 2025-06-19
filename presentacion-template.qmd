@@ -17,6 +17,8 @@ editor: source
 
 ```{r}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
+install.packages("equatiomatic", dependencies = TRUE)
+
 pacman::p_load(lme4,
                kableExtra,
                haven,
@@ -26,7 +28,6 @@ pacman::p_load(lme4,
                stargazer,
                ggplot2, # gráficos
                dplyr, # manipulacion de datos
-               equatiomatic,
                summarytools, 
                reghelper, 
                corrplot,
@@ -36,7 +37,7 @@ pacman::p_load(lme4,
 options(scipen = 999) 
 rm(list = ls())   
 
-mlm = read_dta("trabajo1-grupo-2/output/workspace.Rdata")
+mlm = read_dta("")
 
 mlm = mlm %>% 
   select("CNTRY", "IDSCHOOL", "id_school_unique", "S_HOMLIT", "S_SEX", "S_GENEFF", "S_SPECEFF", "IS3G16BA", "IS3G16BB", "IS3G16BC", "IS3G16AA", "IS3G16AB", "S_INTNET", "C_RATDEV", "C_RATSTD", "C_ICTRES") %>%
@@ -92,21 +93,23 @@ Aquí mis notas
 
 - Factores asociados L1: Acceso de estudiantes a TIC en el hogar, alfabetización en el hogar y género. 
   
-- Factores asociados L2: Acceso de estudiantes a TIC en la escuela,  
+- Factores asociados L2: Acceso de estudiantes a TIC en la escuela; reportes de los coordinadores de TIC sobre la disponibilidad de recursos TIC en la escuela. 
+
+- Factores asociados L3: Índice de Desarrollo de TIC (IDI) en el país. 
 
 ## {data-background-color="#5f5758"}
 
 
 ::: {.center .middle}
 
-<span style="font-size: 250%;">¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? </span>
+<span style="font-size: 250%;">¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el índice de desarrollo de TIC del país?</span>
 :::
 
 # Hipótesis:
 
 Nivel 1:
 
-$H_1$: Los estudiantes con mayor acceso a TIC en el hogar presentarán niveles más altos de autoeficacia digital. 
+$H_1$: 
 
 $H_2$: 
 
@@ -114,19 +117,36 @@ Nivel 2
 
 $H_3$: 
 
-$H_4$: 
+$H_4$:
+
+Nivel 3
+
+$H_5$: 
+
+$H_6$:
 
 # Metodología{data-background-color="#5f5758"}
 
 - Método multinivel
 
-- Índice de infraestructura TIC del hogar
+- Centrado de variables y tratamiento de casos influyentes
 
 - Modelo nulo, modelo con intercepto aleatorio y modelo con intercepto y pendiente aleatorias
 
 ## Datos
 
+- ICILS 2023
+
 ## Variables
+
+- Variables dependientes: Autoeficacia
+
+- Variables nivel 1: Disponibilidad de aparatos TIC en el hogar: computadores, tablets y smartphones; Índice de alfabetización del hogar; 
+
+- Variables nivel 2: Ratio de aparatos TIC disponibles por estudiante: computadores y tablets; Reporte de 
+
+- Variables nivel 3: IDI
+
 
 (incluir tablas univariados por nivel)
 
