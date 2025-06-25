@@ -163,7 +163,7 @@ tabla3_idi
 
 ## Modelo 1: Autoeficacia General
 
-:::: {.columns}
+::::: columns
 ::: {.column width="55%"}
 $$
 \begin{align}
@@ -179,29 +179,29 @@ $$
 ::: {.column width="30%" style="padding-left: 10px;"}
 **Índices:**
 
-$i$ = estudiante  
-$j$ = escuela  
-$k$ = país  
+$i$ = estudiante\
+$j$ = escuela\
+$k$ = país
 
 **Coeficientes:**
 
-$\beta$ = efectos fijos (estudiante)  
-$\gamma$ = efectos escuela  
-$\delta$ = efectos país  
+$\beta$ = efectos fijos (estudiante)\
+$\gamma$ = efectos escuela\
+$\delta$ = efectos país
 
 **Efectos Aleatorios:**
 
-$e_{ijk} \sim N(0, \sigma_e^2)$  
-$u_{0jk} \sim N(0, \sigma_u^2)$  
-$(v_{00k}, v_{10k})' \sim MVN(0, \mathbf{T}_v)$  
+$e_{ijk} \sim N(0, \sigma_e^2)$\
+$u_{0jk} \sim N(0, \sigma_u^2)$\
+$(v_{00k}, v_{10k})' \sim MVN(0, \mathbf{T}_v)$
 
 donde $\mathbf{T}_v = \begin{pmatrix} \tau_{00} & \tau_{01} \\ \tau_{01} & \tau_{11} \end{pmatrix}$
 :::
-::::
+:::::
 
 ## Modelo 2: Autoeficacia Específica
 
-:::: {.columns}
+::::: columns
 ::: {.column width="60%"}
 $$
 \begin{align}
@@ -217,23 +217,21 @@ $$
 ::: {.column width="30%" style="padding-left: 10px;"}
 **Índices:**
 
-$i$ = estudiante  
-$j$ = escuela  
-$k$ = país  
+$i$ = estudiante\
+$j$ = escuela\
+$k$ = país
 
 **Efectos Aleatorios:**
 
-$e_{ijk} \sim N(0, \sigma_e^2)$  
-$v_{00k} \sim N(0, \tau_{00})$  
-$(u_{0jk}, u_{1jk})' \sim MVN(0, \mathbf{T}_u)$  
+$e_{ijk} \sim N(0, \sigma_e^2)$\
+$v_{00k} \sim N(0, \tau_{00})$\
+$(u_{0jk}, u_{1jk})' \sim MVN(0, \mathbf{T}_u)$
 
 donde $\mathbf{T}_u = \begin{pmatrix} \sigma_{u00} & \sigma_{u01} \\ \sigma_{u01} & \sigma_{u11} \end{pmatrix}$
 :::
-::::
-
+:::::
 
 # Resultados
-
 
 # Resultados descriptivos
 
@@ -313,6 +311,7 @@ ggplot(mlm, aes(x = IS3G16AB, y = S_GENEFF)) +
 
 ::: panel-tabset
 ## General
+
 ```{r}
 #| include: false
 # Cargar datos sin mostrar
@@ -322,6 +321,7 @@ estex_gen_cnt <- readRDS("./output/estex_gen_cnt.rds")
 ![Distancia de Cook AG](images/gen.png){fig-align="center" width="85%"}
 
 ## Específica
+
 ```{r}
 #| include: false
 # Cargar datos sin mostrar
@@ -329,9 +329,9 @@ estex_spec_cnt <- readRDS("./output/estex_spec_cnt.rds")
 ```
 
 ![Distancia de Cook AE](images/spec.png){fig-align="center" width="85%"}
-::: 
+:::
 
----
+------------------------------------------------------------------------
 
 ## Coeficientes de Correlación Intraclase (ICC)
 
@@ -371,7 +371,7 @@ kable(icc_results,
   column_spec(3:4, width = "2cm")
 ```
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| label: tbl-modelo-general
@@ -388,7 +388,7 @@ modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + 
 
 ![Autoeficacia general](images/tab_gen.png){fig-align="center"}
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| label: tbl-modelo-especifica
@@ -403,13 +403,11 @@ modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc*S_SEX + tablets_cmc + C_R
 
 ```
 
-
-![Autoeficacia específica](images/tab_spec.png){fig-align="center"}
----
+## ![Autoeficacia específica](images/tab_spec.png){fig-align="center"}
 
 ## Interacción
 
-::::: columns
+:::: columns
 ::: {.column width="70%"}
 ```{r}
 
@@ -417,8 +415,7 @@ sjPlot::plot_model(modelo_spec_pendiente, type="int")
 
 ```
 :::
-
-:::::
+::::
 
 # Conclusiones {data-background-color="black"}
 
@@ -427,7 +424,7 @@ sjPlot::plot_model(modelo_spec_pendiente, type="int")
 -   $H_2$\[L2\]: El ratio demostró no ser significativo
 -   $H_3$\[L3\]: Efecto contrario del IDI
 -   $H_4$\[L3\]: Los chicos son más afectados por el acceso en el hogar
--   Efecto de computadores > efecto tablets... calidad de acceso?
+-   Efecto de computadores \> efecto tablets... calidad de acceso?
 -   Países con + IDI ≠ países con + autoeficacia
 -   La insignificancia de la escuela
 :::
@@ -435,8 +432,8 @@ sjPlot::plot_model(modelo_spec_pendiente, type="int")
 ## Referencias
 
 -   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
-Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. https://doi.org/10.1017/CBO9780511527692 
-:::
+    Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. https://doi.org/10.1017/CBO9780511527692 
+    :::
 
 -   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
     Eastin, M. S., & LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <https://doi.org/10.1111/j.1083-6101.2000.tb00110.x> 
@@ -446,8 +443,6 @@ Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge Univer
     Hatlevik, O. E., Gudmundsdottir, G. B., & Loi, M. (2018). Digital diversity among upper secondary students: A multilevel analysis of the relationship between socio-economic status and digital competence. Computers & Education, 120, 91--102. <https://doi.org/10.1016/j.compedu.2014.10.019> 
     :::
 
-
-    
     -   ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
-    Ulfert-Blank, A. S., & Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers & Education, 191, 104626. <https://doi.org/10.1016/j.compedu.2022.104626> 
-    :::
+        Ulfert-Blank, A. S., & Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers & Education, 191, 104626. <https://doi.org/10.1016/j.compedu.2022.104626> 
+        :::
