@@ -131,7 +131,7 @@ variables_seleccionadas <- c(
   "CNTRY",# Código país
   "id_school_unique", # Identificador único de escuela
   
-  # Variables SES, demográficas y TIC (se agregarán en la próxima entrega)
+  # Variables nivel 1
   "S_HOMLIT", # Home literacy index
   "S_SEX", # Sexo del/la estudiante
   "S_HISCED", # Nivel educacional más alto de los padres
@@ -141,12 +141,11 @@ variables_seleccionadas <- c(
   "S_GENEFF", # Autoeficacia general del estudiante
   "S_SPECEFF", # Autoeficacia específica del estudiante
 
-  # Variables índice
   "IS3G16AA",  # Cuantos pcs hay en tu hogar
   "IS3G16AB",  # Cuantas tablets hay en tu hogar
   
   # CIL
-  "PV1CIL"
+  "PV1CIL" # Puntaje CIL de estudiante
 )
 
 datos_stud <- datos_combinados_bsg %>%
@@ -580,6 +579,7 @@ plot_model(
   legend.title = "Género"
 )
 ```
+
 El efecto de tener mayor alfabetización digital implica un
 
 ```{r}
