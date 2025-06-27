@@ -12,49 +12,65 @@ El presente estudio busca determinar el efecto que el acceso a TIC en el hogar y
 
 ## Introducción
 
-En los últimos años hemos sido testigos de una digitalización acelerada. Las Tecnologías de la Información y la Comunicación (TIC) han entrado en espacios cómo el Estado, el trabajo y la educación, por ende las habilidades informáticas se han transformado en un componente esencial de la participación ciudadana, el desarrollo profesional y la inclusión social (UNESCO, 2018). Tanto en el trabajo como en la vida cotidiana, el dominio de TICs es cada vez menos una opción, y más una necesidad. La capacidad de buscar información en línea, comunicarse de manera efectiva por medios virtuales, resolver problemas técnicos o interactuar con plataformas web son habilidades que estructuran oportunidades en casi todos los ámbitos de la vida (Van Deursen & van Dijk, 2011).
+En los últimos años hemos sido testigos de una digitalización acelerada. Las Tecnologías de la Información y la Comunicación (TIC) han entrado en espacios cómo el Estado, el trabajo y la educación, por ende las habilidades informáticas se han transformado en un componente esencial de la participación ciudadana, el desarrollo profesional y la inclusión social (UNESCO, 2018). Tanto en el trabajo como en la vida cotidiana, el uso de TIC se hace cada vez menos una opción, y más una necesidad. La capacidad de buscar información en línea, comunicarse de manera efectiva por medios virtuales, resolver problemas técnicos o interactuar con plataformas web son habilidades que estructuran oportunidades en casi todos los ámbitos de la vida (Van Deursen & Van Dijk, 2011).
 
-La literatura contemporánea ha documentado, por ejemplo, que la participación ciudadana en democracias digitales requiere conocimientos y habilidades para acceder a información confiable, interactuar con servicios gubernamentales en línea y ejercer derechos a través de plataformas digitales (Van Dijk, 2020). Estas habilidades forman parte de la denominada “alfabetización digital", la cual es considerada una condición previa para la inclusión social y la equidad en entornos altamente digitalizados, los cuales justamente están en crecimiento exponencial (Livingstone & Helsper, 2007).
+La literatura ha documentado que la participación ciudadana en democracias digitales requiere conocimientos y habilidades para acceder a información confiable, interactuar con servicios gubernamentales en línea y ejercer derechos a través de plataformas digitales (Van Dijk, 2020). Estas habilidades forman parte de la denominada alfabetización digital, la cual es considerada una condición previa para la inclusión social y la equidad en entornos altamente digitalizados, que están en crecimiento exponencial (Livingstone & Helsper, 2007). 
 
-Es desde este lugar, que el presente estudio propone ahondar en la comprensión de cómo el acceso a TIC en el hogar y en la escuela influye en los niveles de autoeficacia digital general y especializada de los estudiantes. La autoeficacia es un concepto desarrollado por Bandura (1995), que describe la actitud de un individuo hacia sus capacidades frente a un potencial evento futuro. Una persona autoeficaz (o, más precisamente, con un alto nivel de autoeficacia) es aquella que se considera capaz de reorganizar sus habilidades para masterizar un atributo que no domina en el momento. Es en esa lógica que emerge el concepto de autoeficacia digital, entendida cómo la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. Una alta autoeficacia digital no sólo facilita el uso autónomo de la tecnología, sino que también promueve el aprendizaje continuo en un entorno tecnológico que está en constante cambio (Ulfert-Blank & Schmidt, 2022).
+En este marco cobra relevancia el estudio de la autoeficacia, un concepto desarrollado por Bandura (1995), que describe la actitud de un individuo hacia sus capacidades frente a un potencial evento futuro. Una persona autoeficaz (o, más precisamente, con un alto nivel de autoeficacia) es aquella que se considera capaz de reorganizar sus habilidades para masterizar un atributo que no domina en el momento; es decir, es la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. En contextos digitalizados, se entiende por una alta autoeficacia digital una actitud que no sólo facilita el uso autónomo de la tecnología, sino que también promueve el aprendizaje continuo en un entorno tecnológico que está en constante cambio (Ulfert-Blank & Schmidt, 2022). De esta manera, la autoeficacia digital se entiende como una variable multidimensional que articula creencias personales con el desempeño en tareas tecnológicas especializadas (Eastin & LaRose, 2000). 
 
-Actualmente, ámbitos cómo la educación están cada vez más mediados por tecnologías, exigiendo que los estudiantes sean capaces de desarrollar habilidades que se adapten a nuevos entornos de aprendizaje. En la dimensión educativa, la autoeficacia digital toma importancia al relacionarse con la disposición de los estudiantes para interactuar con las TIC, así como también con la capacidad de apropiarse de ellas como posibles herramientas de aprendizaje (Hatlevik et al., 2018).Cargamos los paquetes a utilizar
-
-## Problema de investigación
-
-En esta investigación se busca determinar el efecto que el acceso a TIC en el hogar y en la escuela de los estudiantes tiene sobre su autoeficacia digital, tanto general como especializada. La autoeficacia digital se entiende como una variable multidimensional que articula creencias personales con el desempeño en tareas tecnológicas especializadas (Eastin & LaRose, 2000). Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020).
-
-Considerando todo lo anterior, se desprende la siguiente pregunta de investigación que guiará este estudio: **¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes?** En base a esta, el objetivo del artículo es caracterizar la relación entre el acceso a TIC en el hogar y en la escuela con la autoeficacia digital general y especializada de los estudiantes. Para abordarla, se establecen tres hipótesis: 
-
-1.  Los estudiantes con mayor acceso a TIC en el hogar presentarán niveles más altos de autoeficacia digital general y especializada
-2.  La infraestructura TIC de las escuelas tendrá un efecto positivo en la autoeficacia digital general y especializada de los estudiantes
-3.  El efecto de la infraestructura escolar estará moderado por el nivel de acceso a TIC en el hogar.
+Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020).
 
 ## Relevancia
 
-Desde una perspectiva sociológica, la autoeficacia digital es importante de estudiar, en tanto permite reflejar una disposición individual hacia la tecnología. La teoría reciente sobre la brecha digital ha evidenciado que el acceso desigual a la tecnología genera efectos acumulativos en el desempeño académico, las trayectorias educativas y la inclusión laboral (Lythreatis et al., 2022). De ese modo, la autoeficacia puede ser comprendida como un mecanismo que intermedia entre el acceso material a la tecnología y su uso significativo, y por tanto, como un indicador de las oportunidades reales de los jóvenes para participar en la sociedad digital y obtener resultados en la sociedad (Gran et al., 2021). En base a lo anterior, podemos decir que estudiar el cruce entre el acceso a la tecnología, como variable estructural, y la autoeficacia digital se hace relevante en la medida que permite plantear nuevas interrogantes respecto a esta relación.
+En la dimensión educativa, la autoeficacia digital toma importancia al relacionarse con la disposición de los estudiantes para interactuar con las TIC, así como también con la capacidad de apropiarse de ellas como posibles herramientas de aprendizaje (Hatlevik et al., 2018).En este marco, estudiar la autoeficacia de los estudiantes se vuelve muy relevante, en tanto permite reflejar una disposición individual de reflexividad respecto a la tecnología. La teoría reciente sobre la brecha digital ha evidenciado que el acceso desigual a la tecnología genera efectos acumulativos en el desempeño académico, las trayectorias educativas y la inclusión laboral (Lythreatis et al., 2022). De ese modo, la autoeficacia puede ser comprendida como un mecanismo que intermedia entre el acceso material a la tecnología y su uso significativo, y por tanto, como un indicador de las oportunidades reales de los jóvenes para participar en la sociedad digital y obtener resultados en la sociedad (Gran et al., 2021). En base a lo anterior, podemos decir que estudiar el cruce entre el acceso a la tecnología, como variable estructural, y la autoeficacia digital se hace relevante en la medida que permite plantear nuevas interrogantes respecto a esta relación. 
+
+Es desde este lugar que el presente estudio ahonda en la comprensión de cómo el acceso a TIC y la alfabetización digital influye en los niveles de autoeficacia digital general y especializada de los estudiantes. Para ello, se vale de una metodología multinivel, que permite distinguir analíticamente tres dimensiones del fenómeno estudiado: una primera dimensión a nivel individual (de hogar), una a nivel escuela y una a nivel país. Estos tres niveles de análisis, de cierta forma dimensiones de la socialización  de los estudiantes, interactúan de forma diferente con la variable dependiente del estudio, la autoeficacia digital. 
+
+A nivel hogar, además se utilizan variables que buscan medir el capital cultural del hogar, pues se considera que la cultura de los hogares favorece la adquisición de conocimiento y de competencias relacionadas con TIC (Vera-Noriega et al., 2017). A nivel escuela, se busca identificar la influencia del nivel de alfabetización digital del medio en que los estudiantes se están formando. A nivel país, por el otro lado, se busca medir el efecto de las diferencias en la infraestructura TIC de los diferentes territorios. En el caso del hogar y el país, se busca evaluar el efecto del acceso a TIC, mientras que en la escuela se mide la alfabetización digital.
+
+## Problema de investigación
+
+Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que factores como el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica y el desarrollo de competencias digitales en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020). Es en esta línea que se delimita como problema de investigación el efecto de factores relacionados con la alfabetización digital y el acceso a TIC de los estudiantes en diferentes niveles en su autoeficacia, tanto general como especializada. 
+
+Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: **¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el promedio escolar de alfabetización digital/alfabetización del hogar?**
+
+Para abordarla, se establecen tres hipótesis: 
+
+Nivel 1: 
+
+H1: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes
+
+Nivel 2: 
+
+H2:
+
+H3:
+
+Nivel 3: 
+
+H4: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital
+
+H5: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar
 
 ## Descripción de los datos
 
-Para examinar esta relación, se utilizará la base de datos del estudio International Computer and Information Literacy Study (ICILS) del 2023, una Evaluación Internacional a Gran Escala (ILSA por sus siglas en inglés) que recolecta información sobre competencias digitales y contexto escolar en estudiantes de octavo grado de 35 países. ICILS evalúa la alfabetización digital de estudiantes de diferentes países y culturas mediante una prueba de aplicación de conocimientos en el ámbito digital. 
+**Base de datos**
 
-Esta base incluye datos de 132.998 estudiantes (117338 luego de limpiar NAs) y en 5299 escuelas, y permite explorar tanto variables individuales como contextuales. Su elección se justifica por el rigor metodológico del estudio, la amplitud de su cobertura internacional, y la riqueza de las variables que recopila, entre ellas medidas de autoeficacia digital, acceso a TIC y características socioeducativas.
+Se usaron datos del International Computer and Information Literacy Study de 2023 (ICILS 2023), una evaluación internacional que recolecta información sobre competencias digitales y contexto escolar en estudiantes de octavo grado de 35 países, y evalúa la alfabetización digital mediante una prueba de aplicación. Esta base incluye datos de 135.615 estudiantes de 5.299 escuelas. 
 
 ## Variables del estudio
 
-Las variables dependientes de este estudio son la autoeficacia digital general (`S_GENEFF`) y la autoeficacia digital especializada (`S_SPECEFF`). Estas fueron construidas por ICILS en base a las siguientes variables: `IS3G24A`, `IS3G24B`, `IS3G24C`, `IS3G24D`, `IS3G24E`, `IS3G24F`, `IS3G24G`, `IS3G24H`, `IS3G24I`, `IS3G24J`, `IS3G24K`, `IS3G24L`, `IS3G24M`. Estas variables corresponden a preguntas tipo Likert con categorías de respuesta de 1 a 4, que buscan medir la autoeficacia relacionada a distintas habilidades del medio digital, en base a la pregunta (traducida) ¿Que tan bien puedes hacer cada una de estas tareas utilizando TIC?. Entre las generales, hay preguntas cómo "Editar imágenes" y "Buscar información en internet", y entre las especializadas, se encuentran preguntas cómo "Construir o editar una página web".
+Las variables dependientes seleccionadas son autoeficacia general y autoeficacia específica, ambas construidas por ICILS 2023 con preguntas tipo Likert. La formulación de las preguntas es: “¿En qué medida puedes realizar cada una de estas tareas en un ordenador? / Buscar y encontrar información relevante para un proyecto escolar en Internet”, con opciones de respuesta que van desde "Sé cómo hacerlo" hasta "creo que no podría hacerlo" (Fraillon et al., 2020).
 
-Las variables independientes principales incluyen un índice de acceso a TIC en el hogar (construido a partir del uso de computador, tablet, smartphone e internet) y, en etapas posteriores del análisis, la infraestructura TIC de las escuelas. Como variables de control (no aplicadas aún en el presente documento) se consideran el sexo (`S_SEX`), y la alfabetización del hogar (`S_HOMLIT`). Estas variables permitirán construir modelos explicativos que integren factores individuales y contextuales, en coherencia con el enfoque teórico y metodológico adoptado.
+La autoeficacia general se refiere a la percepción del estudiante sobre su capacidad para usar tecnologías de la información de forma cotidiana, sin necesidad de conocimientos avanzados. Se mide a través de 8 preguntas que cubren: editar imágenes, escribir texto académico, buscar información, crear presentaciones multimedia, actualizar perfiles online, copiar imágenes a documentos, instalar programas y juzgar la veracidad de la información en internet (Fraillon et al., 2020). Por otro lado, la autoeficacia específica evalúa la confianza del estudiante en su habilidad para ejecutar tareas tecnológicas más complejas que requieren conocimientos especializados. Esta variable se construye con 4 preguntas, que incluyen: crear una base de datos, crear/editar una página web, desarrollar un programa y configurar una red local de ordenadores (Fraillon et al., 2020).
+
+En cuanto a las variables de anidación, a nivel 2 se utilizaron los códigos identificadores de cada escuela y país. Dada la presencia de escuelas con sedes en múltiples países, fue necesario ajustar la variable para asignar una identificación única a cada escuela y evitar la pérdida de casos en este nivel.
+
+A nivel 1, se incluyeron diversas variables clave. El índice de alfabetización del hogar, construido a partir de la cantidad de libros disponibles en el hogar (categorizado de 0 a más de 200), se usó para capturar el capital cultural. También se consideró el sexo del estudiante y el nivel educativo más alto alcanzado por los padres, clasificado según la Clasificación Internacional Normalizada de la Educación, desde 0 (no completó el nivel 2) hasta 4 (completó los niveles 6, 7 u 8). Se añadió la cantidad de ordenadores y tablets disponibles en el hogar (0, 1, 2, o más de 3). Finalmente, se incorporó el primer valor plausible del puntaje en alfabetización computacional e informacional (CIL), que mide la capacidad de un individuo para usar ordenadores en la investigación, creación y comunicación para participar eficazmente en diversos entornos (Frailon et al., 2014, p. 1). El CIL tiene un puntaje máximo de 500.
+
+Para el nivel 3, se empleó el Índice de Desarrollo de las TIC (IDI), un índice continuo que resume el nivel de desarrollo tecnológico de cada país (ITU, 2023). El IDI se estructura en dos pilares: conectividad universal, que mide la cobertura general de internet y banda ancha, y conectividad significativa, que evalúa formas más específicas de acceso, como el porcentaje de personas con teléfono móvil o el costo de un plan móvil en relación con el PIB (ITU, 2023).
 
 ## Metodología
-
-El abordaje metodológico se enmarca en una perspectiva de análisis multinivel. Esta decisión se fundamenta en que los estudiantes están agrupados dentro de escuelas, y estas pueden compartir condiciones estructurales que afectan los resultados observables. El enfoque multinivel permite descomponer la varianza de la autoeficacia entre los niveles individual y escolar, y modelar interacciones entre variables de distintos niveles. Por ejemplo, se puede estimar si el efecto de la infraestructura escolar depende del acceso previo en el hogar, lo cual sería invisible en un modelo tradicional (Snijders & Bosker, 2012).
-
-Para trabajar estos datos, se seleccionaron los datos de todos los países y se combinaron usando la función bind_rows.
-
-Para medir el acceso a tecnologías de los estudiantes, se construyó un índice de acceso a TIC en el hogar. El índice, nombrado `acceso_TIC_intnet`, está compuesto por las variables `IS3G16BA` (acceso de computador en casa para tareas), `IS3G16BB` (acceso de tablets en casa para tareas), `IS3G16BC` (acceso de smartphones en casa) y `S_INTNET` (calidad del internet en casa), y toma valores del 0 al 1. 
-
-Se hizo un modelo nulo para estimar la correlación intra clase (ICC por sus siglas en inglés) con la variable dependiente y la variable de identificador de escuela. Luego se hicieron dos modelos para autoeficacia general y dos para autoeficacia especializada. Para cada dimensión de autoeficacia digital se realizó un modelo con intercepto aleatorio y efecto fijo y otro con intercepto y pendiente aleatoria. 
 
 ## Procesamiento de los datos
 
@@ -562,9 +578,6 @@ m3_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
 sjPlot::tab_model(m1_spec, m2_spec, m3_spec)
 
 ```
-
-
-
 
 ```{r}
 datos_limpios <- datos_limpios %>%
