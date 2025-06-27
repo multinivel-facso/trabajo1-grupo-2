@@ -1,0 +1,828 @@
+---
+title: "ICILS2023_proc"
+format: html
+editor: visual
+---
+
+
+
+# ¿Mayor acceso significa mayor autoeficacia? Un análisis de la autoeficacia digital general y específica a lo largo de 35 países. CAMBIAR NOMBRE¿
+
+## Abstract
+
+El presente estudio busca determinar el efecto que el acceso a TIC en el hogar y en la escuela de los estudiantes tiene sobre su autoeficacia digital, tanto general como especializada. Se entiende por autoeficacia digital la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. Para responder a este objetivo, se construyeron modelos multinivel usando datos de ICILS 2023. Las variables dependientes utilizadas son autoeficacia digital general y autoeficacia digital especializada; la variable independiente es un índice de acceso a TIC en el hogar, y se utilizó la escuela como variable de anidación. Los resultados preliminares señalan que tan solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la pertenencia a una escuela. Se encontraron efectos significativos del acceso a TIC en el hogar sobre ambas dimensiones de autoeficacia digital, sin embargo el impacto sobre la general es mucho mayor. 
+
+## Introducción
+
+En los últimos años hemos sido testigos de una digitalización acelerada. Las Tecnologías de la Información y la Comunicación (TIC) han entrado en espacios cómo el Estado, el trabajo y la educación, por ende las habilidades informáticas se han transformado en un componente esencial de la participación ciudadana, el desarrollo profesional y la inclusión social (UNESCO, 2018). Tanto en el trabajo como en la vida cotidiana, el dominio de TICs es cada vez menos una opción, y más una necesidad. La capacidad de buscar información en línea, comunicarse de manera efectiva por medios virtuales, resolver problemas técnicos o interactuar con plataformas web son habilidades que estructuran oportunidades en casi todos los ámbitos de la vida (Van Deursen & van Dijk, 2011).
+
+La literatura contemporánea ha documentado, por ejemplo, que la participación ciudadana en democracias digitales requiere conocimientos y habilidades para acceder a información confiable, interactuar con servicios gubernamentales en línea y ejercer derechos a través de plataformas digitales (Van Dijk, 2020). Estas habilidades forman parte de la denominada “alfabetización digital", la cual es considerada una condición previa para la inclusión social y la equidad en entornos altamente digitalizados, los cuales justamente están en crecimiento exponencial (Livingstone & Helsper, 2007).
+
+Es desde este lugar, que el presente estudio propone ahondar en la comprensión de cómo el acceso a TIC en el hogar y en la escuela influye en los niveles de autoeficacia digital general y especializada de los estudiantes. La autoeficacia es un concepto desarrollado por Bandura (1995), que describe la actitud de un individuo hacia sus capacidades frente a un potencial evento futuro. Una persona autoeficaz (o, más precisamente, con un alto nivel de autoeficacia) es aquella que se considera capaz de reorganizar sus habilidades para masterizar un atributo que no domina en el momento. Es en esa lógica que emerge el concepto de autoeficacia digital, entendida cómo la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. Una alta autoeficacia digital no sólo facilita el uso autónomo de la tecnología, sino que también promueve el aprendizaje continuo en un entorno tecnológico que está en constante cambio (Ulfert-Blank & Schmidt, 2022).
+
+Actualmente, ámbitos cómo la educación están cada vez más mediados por tecnologías, exigiendo que los estudiantes sean capaces de desarrollar habilidades que se adapten a nuevos entornos de aprendizaje. En la dimensión educativa, la autoeficacia digital toma importancia al relacionarse con la disposición de los estudiantes para interactuar con las TIC, así como también con la capacidad de apropiarse de ellas como posibles herramientas de aprendizaje (Hatlevik et al., 2018).Cargamos los paquetes a utilizar
+
+## Problema de investigación
+
+En esta investigación se busca determinar el efecto que el acceso a TIC en el hogar y en la escuela de los estudiantes tiene sobre su autoeficacia digital, tanto general como especializada. La autoeficacia digital se entiende como una variable multidimensional que articula creencias personales con el desempeño en tareas tecnológicas especializadas (Eastin & LaRose, 2000). Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020).
+
+Considerando todo lo anterior, se desprende la siguiente pregunta de investigación que guiará este estudio: **¿De qué manera el acceso a TIC en el hogar y en la escuela influye en la autoeficacia digital general y especializada de los estudiantes?** En base a esta, el objetivo del artículo es caracterizar la relación entre el acceso a TIC en el hogar y en la escuela con la autoeficacia digital general y especializada de los estudiantes. Para abordarla, se establecen tres hipótesis: 
+
+1.  Los estudiantes con mayor acceso a TIC en el hogar presentarán niveles más altos de autoeficacia digital general y especializada
+2.  La infraestructura TIC de las escuelas tendrá un efecto positivo en la autoeficacia digital general y especializada de los estudiantes
+3.  El efecto de la infraestructura escolar estará moderado por el nivel de acceso a TIC en el hogar.
+
+## Relevancia
+
+Desde una perspectiva sociológica, la autoeficacia digital es importante de estudiar, en tanto permite reflejar una disposición individual hacia la tecnología. La teoría reciente sobre la brecha digital ha evidenciado que el acceso desigual a la tecnología genera efectos acumulativos en el desempeño académico, las trayectorias educativas y la inclusión laboral (Lythreatis et al., 2022). De ese modo, la autoeficacia puede ser comprendida como un mecanismo que intermedia entre el acceso material a la tecnología y su uso significativo, y por tanto, como un indicador de las oportunidades reales de los jóvenes para participar en la sociedad digital y obtener resultados en la sociedad (Gran et al., 2021). En base a lo anterior, podemos decir que estudiar el cruce entre el acceso a la tecnología, como variable estructural, y la autoeficacia digital se hace relevante en la medida que permite plantear nuevas interrogantes respecto a esta relación.
+
+## Descripción de los datos
+
+Para examinar esta relación, se utilizará la base de datos del estudio International Computer and Information Literacy Study (ICILS) del 2023, una Evaluación Internacional a Gran Escala (ILSA por sus siglas en inglés) que recolecta información sobre competencias digitales y contexto escolar en estudiantes de octavo grado de 35 países. ICILS evalúa la alfabetización digital de estudiantes de diferentes países y culturas mediante una prueba de aplicación de conocimientos en el ámbito digital. 
+
+Esta base incluye datos de 132.998 estudiantes (117338 luego de limpiar NAs) y en 5299 escuelas, y permite explorar tanto variables individuales como contextuales. Su elección se justifica por el rigor metodológico del estudio, la amplitud de su cobertura internacional, y la riqueza de las variables que recopila, entre ellas medidas de autoeficacia digital, acceso a TIC y características socioeducativas.
+
+## Variables del estudio
+
+Las variables dependientes de este estudio son la autoeficacia digital general (`S_GENEFF`) y la autoeficacia digital especializada (`S_SPECEFF`). Estas fueron construidas por ICILS en base a las siguientes variables: `IS3G24A`, `IS3G24B`, `IS3G24C`, `IS3G24D`, `IS3G24E`, `IS3G24F`, `IS3G24G`, `IS3G24H`, `IS3G24I`, `IS3G24J`, `IS3G24K`, `IS3G24L`, `IS3G24M`. Estas variables corresponden a preguntas tipo Likert con categorías de respuesta de 1 a 4, que buscan medir la autoeficacia relacionada a distintas habilidades del medio digital, en base a la pregunta (traducida) ¿Que tan bien puedes hacer cada una de estas tareas utilizando TIC?. Entre las generales, hay preguntas cómo "Editar imágenes" y "Buscar información en internet", y entre las especializadas, se encuentran preguntas cómo "Construir o editar una página web".
+
+Las variables independientes principales incluyen un índice de acceso a TIC en el hogar (construido a partir del uso de computador, tablet, smartphone e internet) y, en etapas posteriores del análisis, la infraestructura TIC de las escuelas. Como variables de control (no aplicadas aún en el presente documento) se consideran el sexo (`S_SEX`), y la alfabetización del hogar (`S_HOMLIT`). Estas variables permitirán construir modelos explicativos que integren factores individuales y contextuales, en coherencia con el enfoque teórico y metodológico adoptado.
+
+## Metodología
+
+El abordaje metodológico se enmarca en una perspectiva de análisis multinivel. Esta decisión se fundamenta en que los estudiantes están agrupados dentro de escuelas, y estas pueden compartir condiciones estructurales que afectan los resultados observables. El enfoque multinivel permite descomponer la varianza de la autoeficacia entre los niveles individual y escolar, y modelar interacciones entre variables de distintos niveles. Por ejemplo, se puede estimar si el efecto de la infraestructura escolar depende del acceso previo en el hogar, lo cual sería invisible en un modelo tradicional (Snijders & Bosker, 2012).
+
+Para trabajar estos datos, se seleccionaron los datos de todos los países y se combinaron usando la función bind_rows.
+
+Para medir el acceso a tecnologías de los estudiantes, se construyó un índice de acceso a TIC en el hogar. El índice, nombrado `acceso_TIC_intnet`, está compuesto por las variables `IS3G16BA` (acceso de computador en casa para tareas), `IS3G16BB` (acceso de tablets en casa para tareas), `IS3G16BC` (acceso de smartphones en casa) y `S_INTNET` (calidad del internet en casa), y toma valores del 0 al 1. 
+
+Se hizo un modelo nulo para estimar la correlación intra clase (ICC por sus siglas en inglés) con la variable dependiente y la variable de identificador de escuela. Luego se hicieron dos modelos para autoeficacia general y dos para autoeficacia especializada. Para cada dimensión de autoeficacia digital se realizó un modelo con intercepto aleatorio y efecto fijo y otro con intercepto y pendiente aleatoria. 
+
+## Procesamiento de los datos
+
+
+
+```{r}
+
+library(pacman)
+p_load(dplyr, haven, lme4, summarytools, tidyverse, sjPlot, corrplot, reghelper, corrplot, psych)
+options(scipen = 999) 
+rm(list = ls())   
+```
+
+
+
+### Cargamos los datos del estudiante
+
+
+
+```{r}
+# Obtener la lista de archivos que comienzan con "BSG" y terminan con ".Rdata"
+archivos_bsg <- list.files(
+  path = "./ICILS2023_IDB_R/Data", # Asegúrate que esta ruta es correcta
+  pattern = "^BSG.*\\.Rdata$",
+  full.names = TRUE
+)
+
+# Ver qué archivos encontramos
+print(archivos_bsg)
+
+# Inicializar una lista vacía para almacenar temporalmente los dataframes
+temp_dataframes <- list()
+
+# Cargar cada archivo y añadirlo a la lista
+for (archivo in archivos_bsg) {
+  temp_env <- new.env()
+  load(archivo, envir = temp_env)
+  
+  nombres_objetos <- ls(temp_env)
+  for (nombre in nombres_objetos) {
+    objeto <- get(nombre, envir = temp_env)
+    if (is.data.frame(objeto) && grepl("^BSG", nombre)) {
+      temp_dataframes[[length(temp_dataframes) + 1]] <- objeto
+    }
+  }
+}
+
+# Combina todos los dataframes en uno solo
+datos_combinados_bsg <- bind_rows(temp_dataframes)
+
+
+# Columna de id única para cada escuela
+datos_combinados_bsg <- datos_combinados_bsg %>%
+  unite("id_school_unique", CNTRY, IDSCHOOL, sep = "_", remove = FALSE)
+
+
+# Ver el resultado
+dim(datos_combinados_bsg)
+
+# Revisar las primeras filas y las nuevas columnas para confirmar
+head(select(datos_combinados_bsg, id_school_unique, CNTRY, IDSCHOOL))
+```
+
+
+
+### Cargamos datos de la escuela
+
+
+
+```{r}
+
+# Obtener la lista de archivos que comienzan con "BCG" y terminan con ".Rdata"
+archivos_bcg <- list.files(
+  path = "./ICILS2023_IDB_R/Data", # Revisa que la ruta sea correcta
+  pattern = "^BCG.*\\.Rdata$",
+  full.names = TRUE
+)
+
+# Ver qué archivos encontramos
+print(archivos_bcg)
+
+# Inicializar una lista vacía para almacenar temporalmente los dataframes
+temp_dataframes_escuela <- list() # Usamos un nombre de lista diferente para claridad
+
+# Cargar cada archivo y añadirlo a la lista
+for (archivo in archivos_bcg) {
+  temp_env <- new.env()
+  load(archivo, envir = temp_env)
+  
+  nombres_objetos <- ls(temp_env)
+  for (nombre in nombres_objetos) {
+    objeto <- get(nombre, envir = temp_env)
+    # Verificamos si el nombre del dataframe comienza con BCG
+    if (is.data.frame(objeto) && grepl("^BCG", nombre)) {
+      temp_dataframes_escuela[[length(temp_dataframes_escuela) + 1]] <- objeto
+    }
+  }
+}
+
+# Combina todos los dataframes de escuelas en uno solo
+datos_combinados_bcg <- bind_rows(temp_dataframes_escuela)
+
+# Usamos unite() para crear 'id_school_unique' a partir de CNTRY e IDSCHOOL
+datos_combinados_bcg <- datos_combinados_bcg %>%
+  unite("id_school_unique", CNTRY, IDSCHOOL, sep = "_", remove = FALSE)
+
+# Ver el resultado
+dim(datos_combinados_bcg)
+
+# Revisar las primeras filas para confirmar que la columna se creó correctamente
+head(select(datos_combinados_bcg, id_school_unique, CNTRY, IDSCHOOL))
+```
+
+
+
+#### Eliminamos objetos innecesarios del entorno
+
+
+
+```{r}
+# Guardamos el nombre del objeto que queremos mantener
+objeto_a_mantener <- c("datos_combinados_bsg", "datos_combinados_bcg")
+
+# Obtenemos todos los objetos en el entorno actual
+todos_los_objetos <- ls()
+
+# Creamos una lista de objetos a eliminar (todos excepto datos_combinados)
+objetos_a_eliminar <- todos_los_objetos[todos_los_objetos != objeto_a_mantener]
+
+# Eliminamos los objetos que no necesitamos
+rm(list = objetos_a_eliminar)
+
+# Verificamos que solo queda el dataframe combinado
+print(ls())
+```
+
+
+
+### Seleccionamos variables relevantes estudiantes
+
+
+
+```{r}
+# Vector con todas las variables de interés
+variables_seleccionadas <- c(
+  # Variables esenciales
+  "CNTRY", # El código del país (tres letras)
+  "IDSCHOOL", # id único de la escuela
+  "id_school_unique",
+  
+  # Variables SES, demográficas y TIC (se agregarán en la próxima entrega)
+  "S_HOMLIT", # Home literacy index
+  "S_SEX", # Sexo del/la estudiante
+
+  # Variables del estudio
+  "S_GENEFF", # Autoeficacia general del estudiante
+  "S_SPECEFF", # Autoeficacia específica del estudiante
+
+  # Variables índice
+  #"IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre)
+  #"IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre)
+  #"IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre)
+  "IS3G16AA",  # Cuantos pcs hay en tu hogar
+  "IS3G16AB",  # Cuantas tablets hay en tu hogar
+  "S_INTNET" # Internet en casa si/no - dummy
+)
+
+datos_stud <- datos_combinados_bsg %>%
+  select(any_of(variables_seleccionadas))
+```
+
+
+
+### Seleccionamos variables relevantes escuela
+
+
+
+```{r}
+
+datos_schl <- datos_combinados_bcg %>%
+  select(
+    id_school_unique, # El índice que ya hicimos
+    C_RATDEV, # ratio de dispositivos TIC en la escuela y tamaño escuela
+    C_RATSTD, #ratio de dispositivos TIC disponibles para estudiantes en la escuela y cantidad de estudiantes en la escuela
+    C_ICTRES # ICT coordinators reports on availability of ICT resources at school
+    )
+```
+
+
+
+### Cargamos y procesamos los datos del IDI
+
+
+
+```{r}
+
+# Procesar datos iniciales
+datos_stud$CNTRY <- haven::zap_labels(datos_stud$CNTRY)
+
+datos_stud <- datos_stud %>%
+  mutate(CNTRY = ifelse(CNTRY == "BFL", "BEL", CNTRY))
+
+datos_stud <- datos_stud %>%
+  mutate(CNTRY = ifelse(CNTRY == "DNW", "DEU", CNTRY))
+
+country_codes <- unique(datos_stud$CNTRY)
+
+# Cargar y filtrar IDI
+IDI <- readxl::read_excel("./index/IDI.xlsx")
+idi_filtered <- IDI %>% 
+  mutate(Iso3 = as.character(Iso3)) %>%
+  select(IDI = `ICT Development Index (IDI)`, CNTRY = Iso3, label = Economy) %>% 
+  slice(-1)
+
+
+datos_stud <- left_join(datos_stud, idi_filtered, by = "CNTRY")
+
+datos_stud <- datos_stud %>%
+  mutate(label = ifelse(CNTRY == "TWN", "Taiwan", label))
+
+datos_stud <- datos_stud %>%
+  mutate(label = ifelse(CNTRY == "XKX", "Republic of Kosovo", label))
+
+datos_descr_idi <- datos_stud %>%
+  group_by(CNTRY) %>%
+  summarise(IDI = first(IDI))
+```
+
+
+
+Destruimos el muro de berlin (unificamos alemania 1 y 2 para poder pegarle el IDI)
+
+### Unimos dataframes y verificamos datos
+
+
+
+```{r}
+# Unimos el dataframe de estudiantes (datos_stud) con el de escuelas (datos_schl)
+datos_analisis <- left_join(datos_stud, datos_schl, by = "id_school_unique")
+
+# Verificación 
+print("Dimensiones del dataframe de estudiantes:")
+dim(datos_analisis)
+print("Dimensiones del dataframe final combinado:")
+dim(datos_analisis)
+```
+
+
+
+### Limpieza de datos
+
+
+
+```{r}
+# Grupos de variables
+vars_categoricas <- c("S_HOMLIT", "S_SEX", "IS3G16AA", "IS3G16AB", "S_INTNET")
+vars_escala <- c("S_GENEFF", "S_SPECEFF", "C_RATDEV", "C_RATSTD")
+
+datos_limpios <- datos_analisis %>%
+  select(-IDSCHOOL) %>%
+  mutate(across(all_of(vars_categoricas), 
+                ~ case_when(
+                  . %in% c(8, 9) ~ NA_integer_,
+                  TRUE ~ .
+                ))) %>%
+  mutate(across(all_of(vars_escala), 
+                ~ case_when(
+                  . %in% c(998, 999) ~ NA_real_,
+                  TRUE ~ .
+                ))) %>%
+  mutate(
+    C_RATDEV = case_when(
+      C_RATDEV == 9999 ~ NA_real_,
+      TRUE ~ C_RATDEV
+    ),
+    C_RATSTD = case_when(
+      C_RATSTD == 9999 ~ NA_real_,
+      TRUE ~ C_RATSTD
+    ),
+    C_ICTRES = case_when(
+      C_ICTRES == 9999 ~ NA_real_,
+      TRUE ~ C_ICTRES
+    )
+  ) %>%
+  mutate(across(all_of(vars_categoricas), as_factor))
+
+datos_schl <- datos_schl %>%
+  mutate(across(c(C_RATSTD, C_RATDEV), 
+                ~ case_when(
+                    .x %in% c(998, 999, 9999) ~ NA_real_,
+                    TRUE ~ .x
+                  )
+         ))
+
+```
+
+
+
+### Centrado de variables
+
+
+
+```{r}
+datos_limpios <- datos_limpios %>%
+  # Paso 1: Convertir las variables de factor/texto a numéricas.
+  # Ahora comparamos con el texto, por ejemplo: IS3G16AA == "None"
+  mutate(
+    num_desktops = case_when(
+      IS3G16AA == "None"          ~ 0,
+      IS3G16AA == "One"           ~ 1,
+      IS3G16AA == "Two"           ~ 2,
+      IS3G16AA == "Three or more" ~ 3,
+      TRUE ~ NA_real_ # Mantiene los NA existentes como NA
+    ),
+    num_tablets = case_when(
+      IS3G16AB == "None"          ~ 0,
+      IS3G16AB == "One"           ~ 1,
+      IS3G16AB == "Two"           ~ 2,
+      IS3G16AB == "Three or more" ~ 3,
+      TRUE ~ NA_real_
+    )
+  ) %>%
+  # Paso 2: Agrupar y centrar las nuevas variables numéricas.
+  group_by(id_school_unique) %>%
+  mutate(
+    desktops_cmc = num_desktops - mean(num_desktops, na.rm = TRUE),
+    tablets_cmc = num_tablets - mean(num_tablets, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+
+
+### Descriptivos univariados y bivariados
+
+#### Variables categóricas u ordinales por estudiante
+
+
+
+```{r}
+library(table1)
+
+label(datos_limpios$S_GENEFF)  <- "Autoeficacia General"
+label(datos_limpios$S_SPECEFF) <- "Autoeficacia Específica"
+label(datos_limpios$S_SEX)     <- "Sexo del Estudiante"
+label(datos_limpios$S_INTNET)  <- "Acceso a Internet en Casa"
+label(datos_limpios$S_HOMLIT)  <- "Índice de Literatura en Casa"
+label(datos_limpios$desktops_cmc)  <- "Número de computadores en Casa (centrado a la media de escuela)"
+label(datos_limpios$tablets_cmc)  <- "Número de tablets en Casa (centrado a la media de escuela)"
+
+
+table1(~ S_GENEFF + S_SPECEFF + S_SEX + S_INTNET + S_HOMLIT + desktops_cmc + tablets_cmc, 
+       data = datos_limpios,
+       caption = "<h3>Tabla 1: Características de la Muestra de Estudiantes</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar); los datos categóricos como n (%).
+       <br>Nota: Elaborado con datos de ICILS 2023.")
+```
+
+
+
+Podemos notar que la disponibilidad de los datos varía considerablemente con valores entre 0,6% y 9,2% de datos faltantes. El acceso a internet es de más del 93%, lo que muestra desde un inicio que las brechas de acceso podrían ser mínimas. En cuanto a los índices de literatura en la casa se muestra una importante diversidad de condiciones socieconómicas en la muestra.
+
+#### Variables por Escuela
+
+
+
+```{r}
+
+label(datos_schl$C_RATDEV)  <- "Ratio de Dispositivos por Escuela"
+label(datos_schl$C_RATSTD)  <- "Ratio de Dispositivos por Estudiante"
+
+table1(~ C_RATDEV + C_RATSTD, 
+       data = datos_schl,
+       caption = "<h3>Tabla 2: Características de la Muestra de Escuelas</h3>",
+       footnote = "Los datos continuos se presentan como Media (Desviación Estándar).
+       <br>Nota: Elaborado con datos de ICILS 2023.")
+
+```
+
+
+
+En este caso la falta de datos es masiva, con más de un 20% de datos perdidos. Una proporción problemática para las conclusiones. Las medias son extremadamente altas en comparación con las medianas, lo que sugiere que hay casos atípicos (probablemente NAs con valores 999, 9999, etc.) que desfiguran la representación.
+
+#### Variables continuas
+
+
+
+```{r}
+library(table1)
+
+label(datos_descr_idi$IDI)  <- "ICT Development Index (IDI)"
+
+
+tabla3_idi <- table1(~ IDI, 
+                           data = datos_descr_idi,
+                           caption = "<h3>Tabla 3: Estadísticos Descriptivos de ICT Development Index (IDI)</h3>",
+                           footnote = "Los datos se presentan como Media (Desviación Estándar).
+                           <br>Nota: Elaborado con datos de IDI 2023.")
+
+tabla3_idi
+```
+
+
+
+Los ratios ahora tienen un porcentaje aún mayor de datos faltantes, más del 25%. Los valores medios ya no son exhorbitantemente altos, pero las desviaciones estándar siguen siendo altas. Persisten problemas serios de calidad. Las medidas de autoeficacia mantienen su calidad relativamente buena (aproximadamente 7% a 9% datos faltantes), mientras que las variables tecnológicas son prácticamente inútiles para análisis rigurosos.
+
+#### Eliminamos NAs
+
+
+
+```{r}
+datos_limpios <- datos_limpios %>% na.omit() 
+datos_schl <- datos_schl %>% na.omit()
+```
+
+
+
+### Descargar datos para la presentación
+
+
+
+```{r}
+
+saveRDS(datos_limpios, "./output/datos_proc.rds")
+saveRDS(datos_combinados_bsg, "./output/datos_raw_stud.rds")
+saveRDS(datos_combinados_bcg, "./output/datos_raw_schl.rds")
+```
+
+
+
+#### Bivariados
+
+
+
+```{r}
+library(ggplot2)
+
+ggplot(datos_limpios, aes(x = S_SPECEFF, y = S_GENEFF)) +
+  geom_point(alpha = 0.1, color = "steelblue") +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Específica",
+    subtitle = "Datos limpios, con línea de regresión lineal",
+    x = "Puntaje de Autoeficacia Específica",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+
+ggplot(datos_limpios, aes(x = S_GENEFF , y = C_RATSTUD)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia General y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia General del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+
+ggplot(datos_limpios, aes(x = S_SPECEFF , y = C_RATSTUD)) +
+  geom_point(alpha = 0.1, color = "darkgray") +
+  geom_smooth(method = "lm", color = "darkorange", se = FALSE) +
+  labs(
+    title = "Relación entre Autoeficacia Específica y Ratio de Dispositivos por Escuela",
+    subtitle = "Cada punto representa a un estudiante",
+    x = "Puntaje de Autoeficacia Específica del Estudiante",
+    y = "Ratio de Dispositivos por Escuela"
+  ) +
+  theme_minimal()
+```
+
+
+
+La autoeficacia del estudiante y los recursos tecnológicos de su escuela parecen ser dos factores independientes en esta muestra de datos. No hay correlación aparente.
+
+
+
+```{r}
+# Autoeficacia por Sexo de Estudiante
+ggplot(datos_limpios, aes(x = S_SEX, y = S_GENEFF, fill = S_SEX)) +
+  geom_boxplot(na.rm = TRUE, alpha = 0.8) +
+  labs(
+    title = "Distribución de la Autoeficacia General por Sexo",
+    x = "Sexo del Estudiante",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Autoeficacia por Sexo de Estudiante
+ggplot(datos_limpios, aes(x = S_SEX, y = S_SPECEFF, fill = S_SEX)) +
+  geom_boxplot(na.rm = TRUE, alpha = 0.8) +
+  labs(
+    title = "Distribución de la Autoeficacia Específica por Sexo",
+    x = "Sexo del Estudiante",
+    y = "Puntaje de Autoeficacia Específica"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+table1(~ S_GENEFF + S_SPECEFF | S_SEX, 
+                           data = datos_limpios,
+                           caption = "<h3>Tabla 4: Autoeficiencia por Sexo de Estudiante</h3>",
+                           footnote = "Nota: Elaborado con datos de ICILS 2023.")
+```
+
+
+
+Respecto a la autoeficacia general, en ambos sexos hay un grupo considerable de estudiantes que marcan un puntaje inusualmente bajo. La diferencia de género en la autoconfianza aparece más fuertemente cuando se pregunta por habilidades específicas y menos cuando se pregunta de forma general.
+
+#### Autoeficacia por Acceso a Internet en Casa
+
+
+
+```{r}
+ggplot(datos_limpios, aes(x = S_INTNET, y = S_GENEFF, fill = S_INTNET)) +
+  geom_violin(na.rm = TRUE, trim = FALSE) + 
+  geom_boxplot(na.rm = TRUE, width = 0.1, fill = "white", alpha = 0.5) +
+  labs(
+    title = "Distribución de la Autoeficacia General por Acceso a Internet",
+    x = "Acceso a Internet en Casa",
+    y = "Puntaje de Autoeficacia General"
+  ) +
+  theme_bw() +
+  theme(legend.position = "none")
+
+ggplot(datos_limpios, aes(x = S_INTNET, y = S_SPECEFF, fill = S_INTNET)) +
+  geom_violin(na.rm = TRUE, trim = FALSE) + 
+  geom_boxplot(na.rm = TRUE, width = 0.1, fill = "white", alpha = 0.5) +
+  labs(
+    title = "Distribución de la Autoeficacia Específica por Acceso a Internet",
+    x = "Acceso a Internet en Casa",
+    y = "Puntaje de Autoeficacia Específica"
+  ) +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+
+
+#### Cantidad de dispositivos y autoeficacia
+
+
+
+```{r}
+ggplot(datos_limpios, aes(x = IS3G16AA, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de PCs en casa",
+       x = "Cantidad de PCs en casa)",
+       y = "Autoeficacia General")
+
+ggplot(datos_limpios, aes(x = IS3G16AB, y = S_GENEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia General según la cantidad de Tablets en casa",
+       x = "Cantidad de Tablets en casa",
+       y = "Autoeficacia General")
+
+ggplot(datos_limpios, aes(x = IS3G16AA, y = S_SPECEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia Específica según la cantidad de PCs en casa",
+       x = "Cantidad de PCs en casa)",
+       y = "Autoeficacia Específica")
+
+ggplot(datos_limpios, aes(x = IS3G16AB, y = S_SPECEFF)) +
+  geom_boxplot() +
+  labs(title = "Autoeficacia Específica según la cantidad de Tablets en casa",
+       x = "Cantidad de Tablets en casa",
+       y = "Autoeficacia Específica")
+```
+
+
+
+### Análisis Alfa de Cronbach índice acceso
+
+
+
+```{r}
+library(corrplot)
+
+datos_indice_acceso <- datos_limpios %>%  
+  select(IS3G16AA, IS3G16AB, S_INTNET) %>%
+  mutate(across(everything(), as.numeric))
+
+matriz_cor <- cor(datos_indice_acceso)
+corrplot(matriz_cor, 
+         method = "number", # Muestra el coeficiente de correlación
+         type = "upper",    # Muestra solo el triángulo superior
+         tl.col = "black",  # Color del texto de las variables
+         tl.srt = 45,       # Rota el texto de las variables para que no se solapen
+         title = "Matriz de Correlaciones de los Ítems del Índice",
+         mar = c(0,0,1,0))  # Ajusta los márgenes para el título
+```
+
+
+
+### Creamos los modelos nulos (para autoeficacia digital general y específica)
+
+
+
+```{r}
+
+results_0_gen_sch = lmer(S_GENEFF ~ 1 + (1 | CNTRY / id_school_unique), data = datos_limpios)
+results_0_spec_sch = lmer(S_SPECEFF ~ 1 + (1 | CNTRY / id_school_unique), data = datos_limpios)
+
+summary(results_0_gen_sch)
+summary(results_0_spec_sch)
+
+sjPlot::tab_model(results_0_gen_sch, show.ci = FALSE)
+sjPlot::tab_model(results_0_spec_sch, show.ci = FALSE)
+
+ICC_schl_gen <- 2.909/(2.909 + 91.049)
+ICC_cnt_gen <- 3.327/(3.327 + 2.909 + 91.049)
+
+ICC_schl_spec <- 3.212/(3.212 + 90.530)
+ICC_cnt_spec  <- 5.400/(5.400 + 3.212 + 90.530)
+```
+
+
+
+### Modelos multinivel preliminares
+
+
+
+```{r}
+# --- Modelo 1: Autoeficacia GENERAL con Intercepto Aleatorio ---
+modelo_gen_intercepto <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + S_HOMLIT + S_SEX + (1 | CNTRY / id_school_unique),
+                              data = datos_limpios)
+
+
+# --- Modelo 2: Autoeficacia ESPECÍFICA con Intercepto Aleatorio ---
+modelo_spec_intercepto <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI  + S_HOMLIT + S_SEX + (1 | CNTRY / id_school_unique),
+                               data = datos_limpios)
+
+
+# --- Modelo 3: Autoeficacia GENERAL con Intercepto y Pendiente Aleatorios ---
+modelo_gen_pendiente <- lmer(S_GENEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI + S_HOMLIT + S_SEX + (1 + desktops_cmc + tablets_cmc | CNTRY / id_school_unique),
+                             data = datos_limpios)
+
+
+# --- Modelo 4: Autoeficacia ESPECÍFICA con Intercepto y Pendiente Aleatorios ---
+modelo_spec_pendiente <- lmer(S_SPECEFF ~ desktops_cmc + tablets_cmc + C_RATSTD + IDI +  + S_HOMLIT + S_SEX +(1 + desktops_cmc + tablets_cmc |  CNTRY / id_school_unique),
+                              data = datos_limpios)
+
+```
+
+```{r}
+pacman::p_load(influence.ME,
+               lattice, # dotplot
+               dplyr,
+               texreg,
+               stargazer,
+               tidyr
+                )
+
+
+
+struct <- modelo_gen_intercepto %>% select(id_school_unique,IS3G16AA, S_GENEFF) %>% group_by(id_school_unique) %>% summarise_all(mean) %>% as.data.frame() 
+
+dotplot(S_GENEFF ~ factor(IS3G16AA), # lattice
+        struct,
+        type=c("p","a"),
+        xlab="PCs en hogar",
+        ylab="Average Math Test Score")
+```
+
+
+
+-   Cambiar las variables
+
+    -   Probar el modelo con independientes IS3G16B\* y IS2G16A\*
+
+    -   Hacer modelos de intercepto aleatorio y efecto fijo (primeros dos modelos en el bloque de abajo para que veas la sintaxis) y de intercepto y pendiente / efecto aleatorio (los últimos dos modelos en el bloque de abajo)
+
+    -   Agregar la variable a nivel escuela C_RATDEV (ratio de dispositivos TIC en la escuela y tamaño escuela) o C_RATSTD (ratio de dispositivos TIC disponibles para estudiantes en la escuela y cantidad de estudiantes en la escuela)
+
+    -   Agregar variables de control home literacy y sex
+
+    ```         
+    "S_HOMLIT", # Home literacy index
+    "S_SEX", # Sexo del/la estudiante
+
+    "IS3G16BA", # Acceso de computador en casa para tareas (escritorio o laptop). Rango: 1 a 4 (nunca a siempre) 
+    "IS3G16BB", # Acceso de tablets en casa para tareas. Rango: 1 a 4 (nunca a siempre) 
+    "IS3G16BC", # Acceso de smartphones en casa (escritorio o laptop) Rango: 1 a 4 (nunca a siempre) 
+
+
+    "IS3G16AA", # Cuantos pcs hay en tu hogar 
+    "IS3G16AB", # Cuantas tablets hay en tu hogar
+    ```
+
+### Tabla resumen
+
+-   Arreglar la tabla para que utilice los nombres de los modelos correctos
+
+-   Agregar nombres de variables como labels a la tabla
+
+
+
+```{r}
+
+tab_models <- sjPlot::tab_model(
+  modelo_gen_intercepto, 
+  modelo_spec_intercepto, 
+  modelo_gen_pendiente, 
+  modelo_spec_pendiente,
+  title = "Comparativa de Modelos de Autoeficacia Digital",
+  p.style = "stars",
+  dv.labels = c(
+    "AE General (Intercepto Aleatorio)", 
+    "AE Específica (Intercepto Aleatorio)", 
+    "AE General (Pendiente Aleatoria)", 
+    "AE Específica (Pendiente Aleatoria)"
+  ),
+  p.threshold = c(0.05, 0.01, 0.001),
+  show.se = TRUE,
+  digits = 3
+)
+
+# Imprimir la tabla
+print(tab_models)
+```
+
+
+
+## Resultados preliminares
+
+El análisis del modelo nulo, revela que para la autoeficacia digital general (`S_GENEFF`), el Coeficiente de Correlación Intraclase (ICC por sus siglas en inglés) estimado fue de 0.0024. Esto sugiere que aproximadamente el 0.24% de la variabilidad total en esta dimensión se encuentra a nivel de las escuelas, mientras que el 99.76% restante reside a nivel individual. En cuanto a la autoeficacia digital específica (`S_SPECEFF`), el ICC fue de 0.0179, indicando que el 1.79% de su varianza total es atribuible a las diferencias entre escuelas y el 98.21% a diferencias dentro de las escuelas.
+
+Si bien estos valores de ICC indican una influencia contextual escolar modesta en la varianza total, se decide proseguir con el análisis multinivel. Esta decisión se fundamenta, principalmente, en que el objetivo explícito del estudio es investigar el efecto de variables de acceso tanto a nivel individual como escolar, lo cual requiere metodológicamente un enfoque multinivel para una estimación precisa y para evitar la inflación del error de Tipo I en los predictores de nivel escolar.
+
+![](images/clipboard-2796411177.png)
+
+El análisis comparó cuatro modelos multinivel para evaluar cómo el índice de `acceso_TIC_intnet` se relaciona con la autoeficacia digital general y especializada. Consistentemente, un mayor acceso a TIC predijo significativamente mayores niveles en ambas dimensiones de la autoeficacia digital. Los modelos con pendientes aleatorias, que demostraron ser ligeramente más descriptivos, indican que el efecto del `acceso_TIC_intnet` no es uniforme entre escuelas: el incremento en autoeficacia general asociado a pasar de un acceso nulo (índice 0) a un acceso completo (índice 1) fue, en promedio, de aproximadamente 8.1 puntos, mientras que para la autoeficacia especializada fue de alrededor de 1.5 puntos. Notablemente, se encontró una correlación negativa significativa entre los niveles basales de autoeficacia digital de las escuelas y la magnitud de este efecto (ρ01​), sugiriendo que contextos escolares con menor autoeficacia inicial tienden a obtener un mayor beneficio del acceso a TIC. A pesar de estos hallazgos, la varianza total explicada por los modelos fue modesta.
+
+## Próximos pasos
+
+Para continuar con los análisis realizados en este documento, se plantean una serie de pasos. Primero, es necesario aplicar los pesos muestrales (`TOTWGTS`) y técnicas de estimación de varianza cómo Jackknife (`JKZONES`, `JKREPS`) para asegurar un correcto cálculo e interpretación de los estimadores. Segundo, en los análisis presentados aún no se agregan variables de nivel 2 (escuela), por lo que las hipótesis 2 y 3 aún no han sido contrastadas. Se añadirá la infraestructura digital de la escuela a los modelos preliminares interpretados en este documento. Por último, para tratar en concreto la tercera hipótesis del estudio se modelará la interacción entre la infraestructura TIC de la escuela y del hogar del estudiante.
+
+## Bibliografía
+
+::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. <https://doi.org/10.1017/CBO9780511527692> 
+
+Eastin, M. S., & LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <https://doi.org/10.1111/j.1083-6101.2000.tb00110.x> 
+
+Fraillon, J., Ainley, J., Schulz, W., Friedman, T., & Duckworth, D. (2020). Preparing for Life in a Digital World: IEA International Computer and Information Literacy Study 2018 International Report. Springer. <https://doi.org/10.1007/978-3-030-38781-5> 
+
+Gran, A., Booth, P., & Bucher, T. (2021). To be or not to be algorithm aware: A question of a new digital divide? Information, Communication & Society, 24(12), 1779–1796. <https://doi.org/10.1080/1369118X.2020.1736124> 
+
+Hatlevik, O. E., Gudmundsdottir, G. B., & Loi, M. (2018). Digital diversity among upper secondary students: A multilevel analysis of the relationship between socio-economic status and digital competence. Computers & Education, 120, 91–102. <https://doi.org/10.1016/j.compedu.2014.10.019> 
+
+Livingstone, S., & Helsper, E. J. (2007). Gradations in digital inclusion: Children, young people and the digital divide. New Media & Society, 9(4), 671–696. <https://www.researchgate.net/publication/30522837_Gradations_in_digital_inclusion_children_young_people_and_the_digital_divide> 
+
+Lythreatis, S. & Singh, S. K. & El-Kassar, A-N. (2022). The digital divide: A review and future research agenda. Technological Forecasting and Social Change, Elsevier, 175(C). <https://www.researchgate.net/publication/356589038_The_digital_divide_A_review_and_future_research_agenda> 
+
+Snijders, T. A. B., & Bosker, R. J. (1999). Multilevel analysis: An introduction to basic and advanced multilevel modeling. Sage. 
+
+Ulfert-Blank, A. S., & Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers & Education, 191, 104626. <https://doi.org/10.1016/j.compedu.2022.104626> 
+
+UNESCO. (2018). Digital skills critical for jobs and social inclusion. <https://www.unesco.org/en/articles/digital-skills-critical-jobs-and-social-inclusion> 
+
+Van Deursen, A. J. A. M., & van Dijk, J. A. G. M. (2011). Internet skills and the digital divide. New Media & Society, 13(6), 893–911. <https://doi.org/10.1177/1461444810386774> 
+
+Van Dijk, J. A. (2020). The Digital Divide. Polity Press. <https://www.researchgate.net/publication/339751402_Jan_Dijk_2020_The_digital_divide_Cambridge_UK_Polity_208_pp_1799_paperback_ISBN_9781509534456> 
+:::
+
