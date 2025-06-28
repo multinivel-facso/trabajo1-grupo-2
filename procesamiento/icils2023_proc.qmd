@@ -342,11 +342,9 @@ tabla3_idi
 
 Reportar IDI
 
-
 ```{r Eliminamos NAs}
 datos_limpios <- datos_analisis %>% na.omit()
 ```
-
 
 ```{r Descargar datos para la presentación}
 
@@ -357,8 +355,7 @@ saveRDS(datos_descr_idi, "../output/datos_descr_idi.rds")
 
 ### Modelos
 
--la formula de la kangreburger
--hacer ecuaciones en latex para todos los modelos que hicimos
+-la formula de la kangreburger -hacer ecuaciones en latex para todos los modelos que hicimos
 
 ### Resultados
 
@@ -411,6 +408,8 @@ summary(lm)
 
 #### Modelos multinivel simples
 
+Ver si cambiar el cil_sch_cmc por el homelit_sch_cmc, en base al resultado del próximo h4 (modelos con interacción)
+
 ```{r Modelo multinivel simple autoeficacia general}
 # --- Modelo 1: Variables individuales ---
 m1_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc + 
@@ -420,14 +419,14 @@ m1_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
 
 # --- Modelo 2: Variables escolares ---
 m2_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_gmc +
+               cil_sch_cmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
 
 # --- Modelo 3: Variables de país ---
 m3_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-              cil_sch_gmc + idi_gmc +
+              cil_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
@@ -444,14 +443,14 @@ m1_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
 
 # --- Modelo 2: Variables escolares ---
 m2_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_gmc +
+               cil_sch_cmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
 
 # --- Modelo 3: Variables de país ---
 m3_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-              cil_sch_gmc + idi_gmc +
+              cil_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
@@ -467,23 +466,23 @@ datos_limpios <- datos_limpios %>%
 
 # --- Modelo 4 ---
 # ¿El efecto del género varía según el desarrollo del país?
-m4_gen <- lmer(S_GENEFF ~ cil_sch_gmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_gmc + idi_gmc +
+m4_gen <- lmer(S_GENEFF ~ cil_sch_cmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
+               cil_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
-m4_spec <- lmer(S_SPECEFF ~ homelit_sch_gmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               homelit_sch_gmc + idi_gmc +
+m4_spec <- lmer(S_SPECEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
+               homelit_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
-m4a_gen <- lmer(S_GENEFF ~ homelit_sch_gmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               homelit_sch_gmc + idi_gmc +
+m4a_gen <- lmer(S_GENEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
+               homelit_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
-m4a_spec <- lmer(S_SPECEFF ~ cil_sch_gmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_gmc + idi_gmc +
+m4a_spec <- lmer(S_SPECEFF ~ cil_sch_cmc * S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
+               cil_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
@@ -566,7 +565,6 @@ estex_spec_schl <- influence(modelo_spec_pendiente, "id_school_unique")
 Reportar diferencia entre modelos de intercepto aleatorio y de pendiente aleatoria
 
 ### Conclusiones
-
 
 ### Bibliografía
 
