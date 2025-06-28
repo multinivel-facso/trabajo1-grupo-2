@@ -285,8 +285,8 @@ label(datos_analisis$cil_sch)      <- "Promedio CIL por escuela"
 
 # Variables centradas a la gran media (grand mean centered)
 label(datos_analisis$idi_gmc)         <- "IDI (centrado a la media general)"
-label(datos_analisis$cil_sch_gmc)     <- "Promedio CIL por escuela (centrado a la media general)"
-label(datos_analisis$homelit_sch_gmc) <- "Promedio Literatura por escuela (centrado a la media general)"
+label(datos_analisis$cil_sch_cmc)     <- "Promedio CIL por escuela (centrado a la media general)"
+label(datos_analisis$homelit_sch_cmc) <- "Promedio Literatura por escuela (centrado a la media general)"
 
 
 table1(~ S_GENEFF + S_SPECEFF + S_SEX + S_HOMLIT + IS3G16AA + IS3G16AB + 
@@ -491,7 +491,7 @@ sjPlot::tab_model(m4_gen, m4a_gen, m4_spec, m4a_spec)
 plot_model(
   m4_spec, 
   type = "int", 
-  terms = c("cil_sch_gmc", "S_SEX"),
+  terms = c("cil_sch_cmc", "S_SEX"),
   title = "Valores Predichos de Autoeficacia General",
   axis.title = c("Índice CIL de la Escuela (Centrado)", "Autoeficacia General Predicha"),
   legend.title = "Género"
