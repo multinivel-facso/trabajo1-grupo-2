@@ -27,7 +27,7 @@ editor_options:
 
 ### Abstract
 
-El presente estudio busca determinar el efecto que el acceso a TIC en el hogar y en la escuela de los estudiantes tiene sobre su autoeficacia digital, tanto general como especializada. Se entiende por autoeficacia digital la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. Para responder a este objetivo, se construyeron modelos multinivel usando datos de ICILS 2023. Las variables dependientes utilizadas son autoeficacia digital general y autoeficacia digital especializada; la variable independiente es un índice de acceso a TIC en el hogar, y se utilizó la escuela como variable de anidación. Los resultados preliminares señalan que tan solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la pertenencia a una escuela. Se encontraron efectos significativos del acceso a TIC en el hogar sobre ambas dimensiones de autoeficacia digital, sin embargo el impacto sobre la general es mucho mayor. 
+El presente estudio busca determinar el efecto que el acceso a Tecnologías de la Información y Comunicación (TIC) en el hogar y el promedio de alfabetización del hogar por escuela de estudiantes de octavo año tiene sobre su autoeficacia digital. Se entiende por autoeficacia digital la actitud que una persona tiene respecto de su habilidad para desempeñarse competentemente en circunstancias relativas a TIC que no domina. Para responder a este objetivo, se construyeron modelos multinivel usando datos de ICILS 2023. Se usó la escuela y el país como variables de anidación. Las variables dependientes son autoeficacia digital general y autoeficacia digital especializada; las variables independientes son la cantidad de aparatos digitales usados en el hogar (nivel 1), el promedio de alfabetización del hogar por escuela (nivel 2) y el Índice de Desarrollo de las TIC (IDI) del país (nivel 3, país). Los resultados señalan que solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la escuela y el país (alrededor del 8%). Sin embargo, el acceso en el hogar tiene un efecto en la autoeficacia: el acceso a computadoras tiene un mayor impacto en la autoeficacia digital que el acceso a tablets; adicionalmente, se descubrió que el efecto del promedio escolar de alfabetización del hogar en la autoeficacia digital tiene direcciones distintas dependiendo del sexo de los estudiantes y que ...
 
 ### Introducción
 
@@ -45,11 +45,15 @@ Es desde este lugar que el presente estudio ahonda en la comprensión de cómo e
 
 A nivel individual, se utilizará como variable de acceso la tenencia de computadoras y tablets en el hogar. En el nivel escuela, se medirá la influencia del promedio escolar de alfabetización del hogar de los estudiantes, como una variable que indica el nivel socioeconómico y cultural de la escuela. A nivel país, por el otro lado, se busca medir el efecto de las diferencias en la infraestructura TIC de los diferentes territorios, a través del Indice de Desarrollo de TIC (IDI por sus siglas en inglés). En el caso del hogar y el país, se busca evaluar el efecto del acceso a TIC, mientras que en la escuela se mide la alfabetización.
 
--   Acceso y autoeficacia: experiencias vicarias (bandura 1.2.1 Self-efficacy lines of information) y papers que relacionan DSE y acceso (2.4.1 Access and DSE divide; 2.4.5 School and country level and DSE divide)
-
 #### Problema de investigación
 
-Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que factores como el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica y el desarrollo de competencias digitales en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020). Es en esta línea que se delimita como problema de investigación el efecto de factores relacionados con la alfabetización y el acceso a TIC de los estudiantes en diferentes niveles en su autoeficacia, tanto general como especializada. 
+Las disparidades en el acceso a dispositivos digitales son un factor de importancia para comprender las diferencias en la autoeficacia digital de los jóvenes. Como señala Bandura (1995), parte de la producción de una actitud autoeficaz se explica por las *experiencias vicarias*,: ver a personas "como uno" desarrollar exitosamente una habilidad a través del esfuerzo lleva a creer que uno también puede dominarla. En congruencia, la literatura apunta a una relación positiva entre acceso a TIC y autoeficacia digital, como identifica Stone (2020), en dominios tales como la computación básica, el uso de internet y la creación de contenido. Otros estudios que han identificado esta relación fueron sistematizados en Senkbeil (2023).
+
+La literatura también señala que, así como el acceso a TIC, el género, la escuela y el país son variables frecuentemente utilizadas en el estudio de la autoeficacia digital. Para género, esto se atribuye a las diferencias entre hombres y mujeres que favorece la relación positiva de los primeros con la tecnología, demostrando una mayor autoeficacia digital y más actitudes positivas en relación a las TIC (Cai et al., 2017). En el caso de la escuela, Hatlevik et al., (2018) encontró que la varianza de la autoeficacia explicada por esta variable en ICILS 2013 es baja (menos del 6% en todos los países). Otros estudios también parecen apuntar que la escuela –en tanto contexto y modo de uso de TIC– no es una variable muy relevante en el estudio de la autoeficacia digital, en oposición a otros contextos de uso (Ball et al., 2020; Juhaňák et al., 2019). Por el otro lado, la autoeficacia parece tener un comportamiento heterogéneo si se comparan distintos paises, y dependiendo de las variables que se utilice los efectos pueden ser mayores o menores, como señalan los estudios de Hatlevik et al., (2018) o Cheng & Hu (2020), este último con datos de PISA 2015.
+
+Pese a que se ha avanzado en el acceso a dispositivos y conectividad, parecen persistir desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes.
+
+Estudios previos han demostrado que factores como el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica y el desarrollo de competencias digitales en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020). Es en esta línea que se delimita como problema de investigación el efecto de factores relacionados con la alfabetización y el acceso a TIC de los estudiantes en diferentes niveles en su autoeficacia, tanto general como especializada. 
 
 Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: ¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital de los estudiantes? ¿Que rol cumple el promedio escolar de alfabetización del hogar en la autoeficacia digital de los estudiantes?
 
@@ -723,7 +727,13 @@ Reportar diferencia entre modelos de intercepto aleatorio y de pendiente aleator
 ### Bibliografía
 
 ::: {style="margin-left: 0.5in;  text-indent: -0.5in;"}
+Ball, C., Huang, K.-T., Francis, J., Kadylak, T., & Cotten, S. R. (2020). A Call for Computer Recess: The Impact of Computer Activities on Predominantly Minority Students’ Technology and Application Self-Efficacy. *American Behavioral Scientist*, *64*(7), 883–899.
+
 Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. <https://doi.org/10.1017/CBO9780511527692>
+
+Cai, Z., Fan, X., & Du, J. (2017). Gender and attitudes toward technology use: A meta-analysis. *Computers & Education*, *105*, 1–13. <https://doi.org/10.1016/j.compedu.2016.11.003>
+
+Chen, X., & Hu, J. (2020). ICT-related behavioral factors mediate the relationship between adolescents’ ICT interest and their ICT self-efficacy: Evidence from 30 countries. *Computers & Education*, *159*, 104004. <https://doi.org/10.1016/j.compedu.2020.104004>
 
 Eastin, M. S., & LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <https://doi.org/10.1111/j.1083-6101.2000.tb00110.x>
 
@@ -735,11 +745,17 @@ Hatlevik, O. E., Gudmundsdottir, G. B., & Loi, M. (2018). Digital diversity amon
 
 International Telecommunication Union (2023). Measuring digital development. The ICT Development Index 2023. ITUPublications <https://www.itu.int/en/ITU-D/Statistics/pages/publications/mis2017/methodology.aspx>
 
+Juhaňák, L., Zounek, J., Záleská, K., Bárta, O., & Vlčková, K. (2019). The relationship between the age at first computer use and students’ perceived competence and autonomy in ICT usage: A mediation analysis. *Computers & Education*, *141*, 103614. <https://doi.org/10.1016/j.compedu.2019.103614>
+
 Livingstone, S., & Helsper, E. J. (2007). Gradations in digital inclusion: Children, young people and the digital divide. New Media & Society, 9(4), 671–696. <http://dx.doi.org/10.1177/1461444807080335>
 
 Lythreatis, S. & Singh, S. K. & El-Kassar, A-N. (2022). The digital divide: A review and future research agenda. Technological Forecasting and Social Change, Elsevier, 175(C). <http://dx.doi.org/10.1016/j.techfore.2021.121359>
 
+Senkbeil, M. (2023). How well does the digital home learning environment predict ICT literacy and ICT self-efficacy? Comparing the predictive power of adolescent and parent reports. *Computers & Education*, *207*, 104937. <https://doi.org/10.1016/j.compedu.2023.104937>
+
 Snijders, T. A. B., & Bosker, R. J. (1999). Multilevel analysis: An introduction to basic and advanced multilevel modeling. Sage. <https://uk.sagepub.com/en-gb/eur/multilevel-analysis/book234191>
+
+Stone, J. A. (2020). ICT Self-Efficacy: Gender and Socioeconomic Influences Among First-Year Students. *International Journal of Gender, Science and Technology*, *12*(3), 377–394.
 
 Ulfert-Blank, A. S., & Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers & Education, 191, 104626. <https://doi.org/10.1016/j.compedu.2022.104626>
 
