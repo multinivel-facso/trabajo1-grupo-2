@@ -579,31 +579,6 @@ m4_gen <- lmer(S_GENEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc +
 
 ```
 
-
-```{r}
-plot_model(
-  m4_gen, 
-  type = "int", 
-  terms = c("cil_sch_cmc", "S_SEX"),
-  title = "Interacción Género y índice Alfabetización por Escuela (centrado) | Autoeficacia Digital General",
-  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia General Predicha"),
-  legend.title = "Género"
-)
-
-plot_model(
-  m4_spec, 
-  type = "int", 
-  terms = c("cil_sch_cmc", "S_SEX"),
-  title = "Interacción Género y índice Alfabetización por Escuela (centrado) | Autoeficacia Digital Especializada",
-  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia Especializada Predicha"),
-  legend.title = "Género"
-)
-```
-
-El efecto de los recursos en el hogar (ya sean tecnológicos o de alfabetización) es significativo y positivo en ambas dimensiones de autoeficacia digital. En general, los efectos son mayores en el caso de la autoeficacia digital general, siendo el efecto del aumento de una unidad de la variable de computadores en el hogar, tablets en el hogar y alfabetización del hogar 0.69, 1.10 y 0.41. En el caso de las tablets se da la tendencia contraria, teniendo un aumento de 0.75 la autoeficacia especializada por unidad de aumento en la variable de tablets en el hogar. El efecto del índice de alfabetización del hogar y de la posesión de computadores sobre la autoeficacia especializada es de 0.21 y de 0.69, respectivamente. En ambas dimensiones de la autoeficacia, el efecto del género es negativo, siendo mayor en el caso de la autoeficacia especializada (-0.33 vs -2.35), presentando ambos efectos una diferencia considerable. Esto señala una brecha de género en autoeficacia digital, especialmente aguda en el caso de tareas más complejas. El promedio de alfabetización en la escuela es significativo y positivo en ambas dimensiones; el aumento de una unidad en esta variable produce un incremento de 2.02 puntos en autoeficacia digital general y 0.42 puntos en autoeficacia digital especializada. El efecto del IDI solo es significativo en la autoeficacia especializada, significando una unidad adicional de IDI un decrecimiento de 0.25 puntos de autoeficacia digital especializada. Este efecto es pequeño, pero es significativo y puede indicar que países con mejor infraestructura tecnológica infravaloran sus capacidades frente a países menos desarrollados.
-
-Sobre la interacción entre género y alfabetización de la escuela, en ambos casos es significativa y negativa, siendo más relevante en el caso de la autoeficacia digital especializada.En la dimensión general, una escuela con hogares más alfabetizados sigue prediciendo mejores niveles de autoeficacia para las mujeres, pero en la dimensión especializada el efecto de escuelas más alfabetizadas se invierte y vuelve negativo para las niñas, pero permanece positivo para los niños. En escuelas con mayores recursos, la brecha anteriormente observada se acentúa, especialmente en la actitud hacia labores más complejas.
-
 #### Modelos con pendiente aleatoria
 
 ```{r}
@@ -621,10 +596,38 @@ m5_gen <- lmer(S_GENEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc +
                data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 
-sjPlot::tab_model(m4_gen, m5_gen, m4_spec, m5_spec, dv.labels = c("Intercepto aleatorio autoeficacia general", "Pendiente aleatoria autoeficacia general", "Intercepto aleatorio autoeficacia especializada", "Pendiente aleatoria autoeficacia especializada"))
+sjPlot::tab_model(
+# m4_gen, 
+  m5_gen, 
+# m4_spec, 
+  m5_spec, 
+  dv.labels = c("Intercepto aleatorio autoeficacia general", "Pendiente aleatoria autoeficacia general", "Intercepto aleatorio autoeficacia especializada", "Pendiente aleatoria autoeficacia especializada"))
 
 ```
 
+El efecto de los recursos en el hogar (ya sean tecnológicos o de alfabetización) es significativo y positivo en ambas dimensiones de autoeficacia digital. En general, los efectos son mayores en el caso de la autoeficacia digital general, siendo el efecto del aumento de una unidad de la variable de computadores en el hogar, tablets en el hogar y alfabetización del hogar 1.13, 0.41 y 0.69, respectivamente. Para la autoeficacia especializada, en el caso de las tablets se da la tendencia contraria, teniendo un aumento de 0.75 por unidad de aumento de la cantidad de tablets en el hogar. El efecto del índice de alfabetización del hogar y de la posesión de computadores sobre la autoeficacia especializada es de 0.21 y de 0.69, respectivamente. En ambas dimensiones de la autoeficacia, el efecto del género es negativo, siendo mayor en el caso de la autoeficacia especializada, presentando ambos efectos una diferencia considerable (-0.33 vs -2.36). Esto señala una brecha de género en autoeficacia digital, especialmente aguda en el caso de tareas más complejas. El promedio de alfabetización en la escuela es significativo y positivo en ambas dimensiones; el aumento de una unidad en esta variable produce un incremento de 2.02 puntos en autoeficacia digital general y 0.42 puntos en autoeficacia digital especializada. El efecto del IDI solo es significativo en la autoeficacia especializada, significando una unidad adicional de IDI un decrecimiento de 0.25 puntos de autoeficacia digital especializada. Este efecto es pequeño, pero es significativo y puede indicar que países con mejor infraestructura tecnológica infravaloran sus capacidades frente a países menos desarrollados. Ambos modelos se comportan de manera similar, presentando diferencias mínimas en los estimadores. El único cambio percibido es un aumento pequeño en el $R^2$ (0.006 en los modelos de autoeficacia general y 0.003 en los modelos de autoeficacia especializada). Ambos modelos de pendiente aleatoria indican que el efecto de acceso a computadores en el hogar varía significativamente entre escuelas y países. Esta variación es mayor en el caso de la autoeficacia general que en la especializada. El $\rho01$ del modelo de autoeficacia digital general indica que en escuelas con un mayor intercepto el efecto de la posesión de computadores es mayor, lo que sugiere desigualdades acumulativas entre escuelas y mejores actitudes hacia las capacidades digitales. Este efecto no existe en el caso de la autoeficacia digital especializada. Sobre el nivel país, el $\rho_01$ es de 0.07 en ambos modelos, señalando una correlación positiva y baja entre el intercepto del grupo y el efecto de los computadores en el hogar. 
+
+```{r}
+plot_model(
+  m5_gen, 
+  type = "int", 
+  terms = c("cil_sch_cmc", "S_SEX"),
+  title = "Interacción Género y índice Alfabetización por Escuela (centrado) | Autoeficacia Digital General",
+  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia General Predicha"),
+  legend.title = "Género"
+)
+
+plot_model(
+  m5_spec, 
+  type = "int", 
+  terms = c("cil_sch_cmc", "S_SEX"),
+  title = "Interacción Género y índice Alfabetización por Escuela (centrado) | Autoeficacia Digital Especializada",
+  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia Especializada Predicha"),
+  legend.title = "Género"
+)
+```
+
+Sobre la interacción entre género y alfabetización de la escuela, en ambos casos es significativa y negativa, siendo más relevante en el caso de la autoeficacia digital especializada.En la dimensión general, una escuela con hogares más alfabetizados sigue prediciendo mejores niveles de autoeficacia para las mujeres, pero en la dimensión especializada el efecto de escuelas más alfabetizadas se invierte y vuelve negativo para las niñas, pero permanece positivo para los niños. En escuelas con mayores recursos, la brecha anteriormente observada se acentúa, especialmente en la actitud hacia labores más complejas.
 
 #### Test de Anova para diferencias entre modelos
 
@@ -711,14 +714,13 @@ tabla_anova
 
 ```
 
+Con respecto al ANOVA, se presentan diferencias significativas entre los modelos de intercepto aleatorio y pendiente aleatoria. Tanto en la autoeficacia digital general como la especializada existe una mejora en el $AIC$, y en el indicador $BIC$ hay un mejor puntaje solo en la dimensión general. Se concluye que los modelos con pendiente aleatoria son más explicativos. 
 
 #### Análisis de casos influyentes
 
-Sacar distancia de cook y dfbetas, hacer sigtest para nivel escuela y nivel pais
-
 ```{r Analisis de casos influyentes}
-#| results: asis
 #| cache: true
+#| results: asis
 
 estex_gen_cnt <- influence(m5_gen, "CNTRY")
 estex_spec_cnt <- influence(m5_spec, "CNTRY")
@@ -768,8 +770,7 @@ sigtest(estex_spec_cnt, test=-1.96)$desktops_cmc
 #sigtest(estex_spec_schl, test=-1.96)$desktops_cmc
 ```
 
-
-Reportar diferencia entre modelos de intercepto aleatorio y de pendiente aleatoria: mejoran los modelos
+Con respecto al análisis de casos influyentes realizado al nivel país, llaman la atención los casos de República Checa en la autoeficacia general y de Kazajistán en la autoeficacia especializada. Ninguno de estos casos es significativo por lo que se decide no eliminar ningún país.
 
 ### Conclusiones
 
