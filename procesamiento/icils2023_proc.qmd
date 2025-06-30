@@ -23,11 +23,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-# **¿Mayor acceso significa mayor autoeficacia?**
-
 ### Abstract
 
-El presente estudio busca determinar el efecto que el acceso a Tecnologías de la Información y Comunicación (TIC) en el hogar y el promedio de alfabetización del hogar por escuela de estudiantes de octavo año tiene sobre su autoeficacia digital. Se entiende por autoeficacia digital la actitud que una persona tiene respecto de su habilidad para desempeñarse competentemente en circunstancias relativas a TIC que no domina. Para responder a este objetivo, se construyeron modelos multinivel usando datos de ICILS 2023. Se usó la escuela y el país como variables de anidación. Las variables dependientes son autoeficacia digital general y autoeficacia digital especializada; las variables independientes son la cantidad de aparatos digitales usados en el hogar (nivel 1), el promedio de alfabetización del hogar por escuela (nivel 2) y el Índice de Desarrollo de las TIC (IDI) del país (nivel 3, país). Los resultados señalan que solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la escuela y el país (alrededor del 8%). Sin embargo, el acceso en el hogar tiene un efecto en la autoeficacia: el acceso a computadoras tiene un mayor impacto en la autoeficacia digital que el acceso a tablets; adicionalmente, se descubrió que el efecto del promedio escolar de alfabetización del hogar en la autoeficacia digital tiene direcciones distintas dependiendo del sexo de los estudiantes y que ...
+El presente estudio busca determinar el efecto que el acceso a Tecnologías de la Información y Comunicación (TIC) en el hogar y la alfabetización escolar tienen sobre la autoeficacia digital de estudiantes de octavo año a lo largo de 32 países. Se entiende por autoeficacia digital la actitud que una persona tiene respecto de su habilidad para desempeñarse competentemente en circunstancias relativas a TIC que no domina. Para responder a este objetivo, se utilizan modelos multinivel usando datos de ICILS 2023. Se usó la escuela y el país como variables de anidación. Las variables dependientes son autoeficacia digital general y autoeficacia digital especializada; las variables independientes son la cantidad de aparatos digitales usados en el hogar y el sexo (nivel 1), el promedio de alfabetización del hogar por escuela (nivel 2) y el Índice de Desarrollo de las TIC (IDI) del país (nivel 3), y se incluye como variable de control la alfabetización del hogar de los estudiantes. Los resultados señalan que solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la escuela y el país (alrededor del 8%). Sin embargo, el acceso a computadoras presenta un efecto significativo en la autoeficacia digital, y este efecto varía entre escuelas y países. Adicionalmente, se descubrió que el efecto del promedio escolar de alfabetización del hogar en la autoeficacia digital especializada es positivo en el caso de los niños, pero perjudica a las niñas; y el desarrollo tecnológico del país tiene un efecto negativo en la autoeficacia digital de los estudiantes. (conclusiones chikas)
 
 ### Introducción
 
@@ -51,11 +49,7 @@ Las disparidades en el acceso a dispositivos digitales son un factor de importan
 
 La literatura también señala que, así como el acceso a TIC, el género, la escuela y el país son variables frecuentemente utilizadas en el estudio de la autoeficacia digital. Para género, esto se atribuye a las diferencias entre hombres y mujeres que favorece la relación positiva de los primeros con la tecnología, demostrando una mayor autoeficacia digital y más actitudes positivas en relación a las TIC (Cai et al., 2017). En el caso de la escuela, Hatlevik et al., (2018) encontró que la varianza de la autoeficacia explicada por esta variable en ICILS 2013 es baja (menos del 6% en todos los países). Otros estudios también parecen apuntar que la escuela –en tanto contexto y modo de uso de TIC– no es una variable muy relevante en el estudio de la autoeficacia digital, en oposición a otros contextos de uso (Ball et al., 2020; Juhaňák et al., 2019). Por el otro lado, la autoeficacia parece tener un comportamiento heterogéneo si se comparan distintos paises, y dependiendo de las variables que se utilice los efectos pueden ser mayores o menores, como señalan los estudios de Hatlevik et al., (2018) o Cheng & Hu (2020), este último con datos de PISA 2015.
 
-Pese a que se ha avanzado en el acceso a dispositivos y conectividad, parecen persistir desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes.
-
-Estudios previos han demostrado que factores como el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica y el desarrollo de competencias digitales en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020). Es en esta línea que se delimita como problema de investigación el efecto de factores relacionados con la alfabetización y el acceso a TIC de los estudiantes en diferentes niveles en su autoeficacia, tanto general como especializada. 
-
-Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: ¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital de los estudiantes? ¿Que rol cumple el promedio escolar de alfabetización del hogar en la autoeficacia digital de los estudiantes?
+Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: **¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital de los estudiantes? ¿Que rol cumple la alfabetización escolar en la autoeficacia digital de los estudiantes?**
 
 #### Hipótesis
 
@@ -380,17 +374,73 @@ saveRDS(datos_descr_idi, "../output/datos_descr_idi.rds")
 
 ### Métodos
 
--   Formula, explicación y justificación de:
+El presente estudio utiliza un análisis multinivel, debido a una estructura anidada de los datos utilizados (ICILS 2023) y a la naturaleza de nuestro problema de estudio (acceso y condiciones del sujeto y de sus distintos contextos). Se modelarán los tres niveles disponibles en la base de datos, individuos dentro de escuelas agrupadas en países. Para esto, se utiliza el software R, con los paquetes `lme4` para estimar los modelos multinivel y `influence.ME` para diagnosticar casos influyentes.
 
--   Modelos nulos
+Se aplicó un enfoque progresivo para el modelado multinivel, ingresando paso a paso variables relevantes del estudio para analizar el impacto de estas. Para ambas dimensiones de la autoeficacia digital, se estimaron los mismos modelos. Para evitar redundancia, se detallarán solo los modelos aplicados a la autoeficacia digital general.
 
--   Modelos prelimiares (en vez de esto podríamos decir que se fue complejizando progresivamente)
+En primer lugar, se realizaron modelos nulos para calcular la correlación intraclase de nuestras dos variables dependientes, la autoeficacia digital general y la autoeficacia digital especializada. La fórmula utilizada fue la siguiente:
 
--   Modelos con intercepto aleatorio
+$$S\_GENEFF_{ijk} = \gamma_{000} + u_{0jk} + r_{0k} + e_{ijk}$$
 
--   Modelos con pendiente aleatoria
+$S\_GENEFF_{ifk}$ es la autoeficacia general del estudiante $i$ en la escuela $j$ del país $k$; $\gamma_{000}$ es el intercepto fijo; $u_{0jk}$ es el efecto aleatorio de la escuela $j$ en el país $k$; $r_{0k}$ es el efecto aleatorio del país $k$ y $e_{ijk}$ es el error residual del estudiante $i$. Luego, en base a los resultados de este modelo se calculó la correlación intraclase siguiendo estas fórmulas:
 
-Se realizó un análisis de la distancia de Cook para ver los casos influyentes y se hizo un test de significancia estadística para probar el efecto de borrar un caso en la significancia de los grupos en el modelo, borrando grupos en caso de que corresponda. Posteriormente, se realizó un test de ANOVA para evaluar la diferencia entre los modelos con intercepto aleatorio y los con pendiente aleatoria.
+$$ICC_{escuela} = \frac{\sigma^2_{u0}}{\sigma^2_{u0} + \sigma^2_e}$$
+
+$$ICC_{país} = \frac{\sigma^2_{r0}}{\sigma^2_{r0} + \sigma^2_{u0} + \sigma^2_e}$$
+
+Posteriormente, se estimaron tres modelos para cada tipo de autoeficacia digital, añadiendo progresivamente las variables individuales, escolares y del país. Estos modelos no serán reportados ni descritos, ya que no se estimaron para comprobar las hipótesis, sino para asegurarse de que el modelo converge e identificar variables problemáticas previo a aumentar la complejidad de los modelos. Si se requiere ver el detalle de ese procedimiento el código se encuentra en [el repositorio abierto de la investigación](https://github.com/multinivel-facso/trabajo1-grupo-2).
+
+Como siguiente paso, se estimaron los modelos de tres niveles con interacción entre variables de nivel 2 y nivel 1, para evaluar las primeras cuatro hipótesis del estudio. En este modelo, se añadieron como variables de nivel 1 el acceso de computadores y tablets en el hogar, y el sexo y el índice de alfabetización del hogar cómo variables de control. Cómo variable de nivel 2, y para comprobar las hipótesis 2 y 3 del estudio, se añadió la variable del promedio escolar de alfabetización del hogar, construida a partir del índice de alfabetización del hogar de los estudiantes, y se estimó la interacción de esta variable con el sexo del estudiante. Por último, se agregó el IDI como variable de nivel 3, y se aleatorizó el intercepto según $escuela:pais$. La fórmula utilizada fue la siguiente:
+
+$$ \begin{align}
+S\_GENEFF_{ijk} &= \gamma_{000} + \gamma_{010} \cdot homelit\_sch\_cmc_{jk} + \gamma_{001} \cdot idi\_gmc_{k} \\
+&\quad + \gamma_{100} \cdot S\_SEX_{ijk} + \gamma_{200} \cdot homelit\_cmc_{ijk} \\
+&\quad + \gamma_{300} \cdot desktops\_cmc_{ijk} + \gamma_{400} \cdot tablets\_cmc_{ijk} \\
+&\quad + \gamma_{110} \cdot homelit\_sch\_cmc_{jk} \cdot S\_SEX_{ijk} \\
+&\quad + u_{0jk} + r_{0k} + e_{ijk}
+\end{align}$$
+
+**Nivel 1 (Estudiantes):**
+
+-   $S\_SEX_{ijk}$: Sexo del estudiante $i$ en escuela $j$ del país $k$.
+-   $homelit\_cmc_{ijk}$: Índice de alfabetización del hogar (centrado en la media escolar) del estudiante $i$ en escuela $j$ del país $k$.
+-   $desktops\_cmc_{ijk}$: Computadores de escritorio en el hogar (centrado en la media escolar) del estudiante $i$ en escuela $j$ del país $k$.
+-   $tablets\_cmc_{ijk}$: Tabletas en el hogar (centrado en la media escolar) del estudiante $i$ en escuela $j$ del país $k$.
+
+**Nivel 2 (Escuelas):**
+
+-   $homelit\_sch\_cmc_{jk}$: Promedio del índice de alfabetización del hogar (centrado en la media del país) de la escuela $j$ en el país $k$.
+
+**Nivel 3 (Países):**
+
+-   $idi\_gmc_{k}$: Índice de desarrollo de TIC del país $k$ (centrado en la gran media).
+
+**Efectos:**
+
+-   $\gamma_{000}$: Intercepto general (autoeficacia promedio).
+-   $\gamma_{010}$: Efecto del promedio escolar de alfabetización del hogar.
+-   $\gamma_{001}$: Efecto del índice de desarrollo TIC del país.
+-   $\gamma_{100}$: Efecto principal del sexo.
+-   $\gamma_{200}$: Efecto de los recursos de alfabetización individuales.
+-   $\gamma_{300}$: Efecto de tenencia de computadores en el hogar.
+-   $\gamma_{400}$: Efecto de tenencia de tablets en el hogar.
+-   $\gamma_{110}$: Interacción cross-level entre promedio escolar de alfabetización del hogar y sexo del estudiante.
+
+Cómo último modelo, se aleatorizó el efecto de los computadores en el hogar según escuelas dentro de países, para evaluar la última hipótesis planteada. Para esto, se utilizó la siguiente fórmula:
+
+$$\begin{align}
+S\_GENEFF_{ijk} &= \gamma_{000} + \gamma_{010} \cdot homelit\_sch\_cmc_{jk} + \gamma_{001} \cdot idi\_gmc_{k} \\
+&\quad + \gamma_{100} \cdot S\_SEX_{ijk} + \gamma_{200} \cdot homelit\_cmc_{ijk} \\
+&\quad + \gamma_{300} \cdot desktops\_cmc_{ijk} + \gamma_{400} \cdot tablets\_cmc_{ijk} \\
+&\quad + \gamma_{110} \cdot homelit\_sch\_cmc_{jk} \cdot S\_SEX_{ijk} \\
+&\quad + u_{0jk} + u_{3jk} \cdot desktops\_cmc_{ijk} + r_{0k} + r_{3k} \cdot desktops\_cmc_{ijk} + e_{ijk}
+\end{align}$$
+
+El modelo es similar al anterior, pero se agregó $u_{3jk} \cdot desktops\_cmc_{ijk}$ y $r_{3k} \cdot desktops\_cmc_{ijk}$ para medir tanto la desviación de la pendiente de $desktops\_cmc$ en la escuela $j$ del país $k$, como la desviación de la pendiente de $desktops\_cmc$ del país $k$ por si solo.
+
+Posteriormente, se realizó un test de ANOVA para medir la diferencia entre los modelos de intercepto aleatorio e interacción y el último modelo, con intercepto aleatorio, pendiente aleatoria e interacción. Se observarán las métricas $AIC$ y $BIC$ y la significancia del test para analizar si existe una mejora en el último modelo.
+
+Para finalizar, se realizó un test de la distancia de cook para evaluar los países influyentes en los modelos calculados, y potencialmente eliminar alguno que genere excesivo ruido en los datos.
 
 ### Resultados
 
@@ -465,14 +515,14 @@ m1_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
 
 # --- Modelo 2: Variables escolares ---
 m2_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_cmc +
+               homelit_sch_cmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
 
 # --- Modelo 3: Variables de país ---
 m3_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-              cil_sch_cmc + idi_gmc +
+              homelit_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
@@ -491,14 +541,14 @@ m1_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
 
 # --- Modelo 2: Variables escolares ---
 m2_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-               cil_sch_cmc +
+               homelit_sch_cmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
 
 # --- Modelo 3: Variables de país ---
 m3_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc +
-              cil_sch_cmc + idi_gmc +
+              homelit_sch_cmc + idi_gmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
@@ -527,9 +577,10 @@ m4_gen <- lmer(S_GENEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc +
                (1 | CNTRY/id_school_unique), 
                data = datos_limpios)
 
+```
 
-sjPlot::tab_model(m4_gen, m4_spec)
 
+```{r}
 plot_model(
   m4_gen, 
   type = "int", 
@@ -544,12 +595,14 @@ plot_model(
   type = "int", 
   terms = c("cil_sch_cmc", "S_SEX"),
   title = "Interacción Género y índice Alfabetización por Escuela (centrado) | Autoeficacia Digital Especializada",
-  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia General Predicha"),
+  axis.title = c("Índice Alfabetización por Escuela (Centrado)", "Autoeficacia Especializada Predicha"),
   legend.title = "Género"
 )
 ```
 
-**Reportar**
+El efecto de los recursos en el hogar (ya sean tecnológicos o de alfabetización) es significativo y positivo en ambas dimensiones de autoeficacia digital. En general, los efectos son mayores en el caso de la autoeficacia digital general, siendo el efecto del aumento de una unidad de la variable de computadores en el hogar, tablets en el hogar y alfabetización del hogar 0.69, 1.10 y 0.41. En el caso de las tablets se da la tendencia contraria, teniendo un aumento de 0.75 la autoeficacia especializada por unidad de aumento en la variable de tablets en el hogar. El efecto del índice de alfabetización del hogar y de la posesión de computadores sobre la autoeficacia especializada es de 0.21 y de 0.69, respectivamente. En ambas dimensiones de la autoeficacia, el efecto del género es negativo, siendo mayor en el caso de la autoeficacia especializada (-0.33 vs -2.35), presentando ambos efectos una diferencia considerable. Esto señala una brecha de género en autoeficacia digital, especialmente aguda en el caso de tareas más complejas. El promedio de alfabetización en la escuela es significativo y positivo en ambas dimensiones; el aumento de una unidad en esta variable produce un incremento de 2.02 puntos en autoeficacia digital general y 0.42 puntos en autoeficacia digital especializada. El efecto del IDI solo es significativo en la autoeficacia especializada, significando una unidad adicional de IDI un decrecimiento de 0.25 puntos de autoeficacia digital especializada. Este efecto es pequeño, pero es significativo y puede indicar que países con mejor infraestructura tecnológica infravaloran sus capacidades frente a países menos desarrollados.
+
+Sobre la interacción entre género y alfabetización de la escuela, en ambos casos es significativa y negativa, siendo más relevante en el caso de la autoeficacia digital especializada.En la dimensión general, una escuela con hogares más alfabetizados sigue prediciendo mejores niveles de autoeficacia para las mujeres, pero en la dimensión especializada el efecto de escuelas más alfabetizadas se invierte y vuelve negativo para las niñas, pero permanece positivo para los niños. En escuelas con mayores recursos, la brecha anteriormente observada se acentúa, especialmente en la actitud hacia labores más complejas.
 
 #### Modelos con pendiente aleatoria
 
@@ -568,67 +621,10 @@ m5_gen <- lmer(S_GENEFF ~ homelit_sch_cmc * S_SEX + homelit_cmc + desktops_cmc +
                data = datos_limpios, control = lmerControl(optimizer = "bobyqa"))
 
 
-sjPlot::tab_model(m5_gen, m5_spec)
+sjPlot::tab_model(m4_gen, m5_gen, m4_spec, m5_spec, dv.labels = c("Intercepto aleatorio autoeficacia general", "Pendiente aleatoria autoeficacia general", "Intercepto aleatorio autoeficacia especializada", "Pendiente aleatoria autoeficacia especializada"))
 
 ```
 
-Deja de ser significativo el IDI en la autoeficacia general (muy cercano a la significancia)
-
-#### Análisis de casos influyentes
-
-Sacar distancia de cook y dfbetas, hacer sigtest para nivel escuela y nivel pais
-
-```{r Analisis de casos influyentes}
-#| results: asis
-#| cache: true
-
-estex_gen_cnt <- influence(m5_gen, "CNTRY")
-estex_spec_cnt <- influence(m5_spec, "CNTRY")
-
-cooks.distance(estex_gen_cnt, sort = TRUE)
-
-cooks.distance(estex_spec_cnt, sort = TRUE)
-
-plot(estex_gen_cnt, 
-     which="cook",
-     cutoff = 0.17, 
-     sort = TRUE,
-     xlab = "Distancia de Cook",
-     ylab = "Países")
-
-plot(estex_spec_cnt, 
-     which="cook",
-     cutoff = 0.17, 
-     sort = TRUE,
-     xlab = "Distancia de Cook",
-     ylab = "Países")
-
-sigtest(estex_gen_cnt, test=-1.96)$desktops_cmc
-sigtest(estex_spec_cnt, test=-1.96)$desktops_cmc
-
-#estex_gen_schl <- influence(m4_gen, "id_school_unique:CNTRY") 
-#estex_spec_schl <- influence(m4_spec, "id_school_unique:CNTRY")
-
-#cooks.distance(estex_gen_schl, sort = TRUE)
-#cooks.distance(estex_spec_schl, sort = TRUE)
-
-#plot(estex_gen_schl, 
-#     which="cook",
-#     cutoff = 0.17, 
-#     sort = TRUE,
-#     xlab = "Distancia de Cook",
-#     ylab = "Escuelas")
-
-#plot(estex_spec_schl, 
-#     which="cook",
-#     cutoff = 0.17, 
-#     sort = TRUE,
-#     xlab = "Distancia de Cook",
-#     ylab = "Escuelas")
-
-#sigtest(estex_gen_schl, test=-1.96)$desktops_cmc
-#sigtest(estex_spec_schl, test=-1.96)$desktops_cmc
-```
 
 #### Test de Anova para diferencias entre modelos
 
@@ -714,6 +710,64 @@ tabla_anova <- anova_results %>%
 tabla_anova
 
 ```
+
+
+#### Análisis de casos influyentes
+
+Sacar distancia de cook y dfbetas, hacer sigtest para nivel escuela y nivel pais
+
+```{r Analisis de casos influyentes}
+#| results: asis
+#| cache: true
+
+estex_gen_cnt <- influence(m5_gen, "CNTRY")
+estex_spec_cnt <- influence(m5_spec, "CNTRY")
+
+cooks.distance(estex_gen_cnt, sort = TRUE)
+
+cooks.distance(estex_spec_cnt, sort = TRUE)
+
+plot(estex_gen_cnt, 
+     which="cook",
+     cutoff = 0.17, 
+     sort = TRUE,
+     xlab = "Distancia de Cook",
+     ylab = "Países")
+
+plot(estex_spec_cnt, 
+     which="cook",
+     cutoff = 0.17, 
+     sort = TRUE,
+     xlab = "Distancia de Cook",
+     ylab = "Países")
+
+sigtest(estex_gen_cnt, test=-1.96)$desktops_cmc
+sigtest(estex_spec_cnt, test=-1.96)$desktops_cmc
+
+#estex_gen_schl <- influence(m4_gen, "id_school_unique:CNTRY") 
+#estex_spec_schl <- influence(m4_spec, "id_school_unique:CNTRY")
+
+#cooks.distance(estex_gen_schl, sort = TRUE)
+#cooks.distance(estex_spec_schl, sort = TRUE)
+
+#plot(estex_gen_schl, 
+#     which="cook",
+#     cutoff = 0.17, 
+#     sort = TRUE,
+#     xlab = "Distancia de Cook",
+#     ylab = "Escuelas")
+
+#plot(estex_spec_schl, 
+#     which="cook",
+#     cutoff = 0.17, 
+#     sort = TRUE,
+#     xlab = "Distancia de Cook",
+#     ylab = "Escuelas")
+
+#sigtest(estex_gen_schl, test=-1.96)$desktops_cmc
+#sigtest(estex_spec_schl, test=-1.96)$desktops_cmc
+```
+
 
 Reportar diferencia entre modelos de intercepto aleatorio y de pendiente aleatoria: mejoran los modelos
 
