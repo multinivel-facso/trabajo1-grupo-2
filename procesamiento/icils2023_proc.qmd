@@ -101,6 +101,8 @@ p_load(
   ggplot2,
   haven,
   influence.ME,
+  kableExtra,
+  knitr,
   lattice,
   lme4,
   psych,
@@ -508,6 +510,7 @@ summary(lm)
 
 ```{r Modelo multinivel simple autoeficacia general}
 #| cache: true
+#| output: false
 
 # --- Modelo 1: Variables individuales ---
 m1_gen <- lmer(S_GENEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc + 
@@ -534,6 +537,7 @@ sjPlot::tab_model(m1_gen, m2_gen, m3_gen)
 
 ```{r Modelo multinivel simple autoeficacia especializada}
 #| cache: true
+#| output: false
 
 # --- Modelo 1: Variables individuales ---
 m1_spec <- lmer(S_SPECEFF ~ S_SEX + homelit_cmc + desktops_cmc + tablets_cmc + 
@@ -561,7 +565,6 @@ sjPlot::tab_model(m1_spec, m2_spec, m3_spec)
 #### Modelos con interacción
 
 ```{r}
-#| results: asis
 #| cache: true
 
 datos_limpios <- datos_limpios %>%
@@ -642,9 +645,6 @@ Sobre la interacción entre género y alfabetización de la escuela, en ambos ca
 ```{r}
 #| results: asis
 #| cache: true
-# Código para crear tabla resumen automática desde objetos ANOVA
-library(knitr)
-library(kableExtra)
 
 # Realizar los ANOVAs y guardar resultados
 anova_gen <- anova(m4_gen, m5_gen)
@@ -727,29 +727,14 @@ Con respecto al ANOVA, se presentan diferencias significativas entre los modelos
 #### Análisis de casos influyentes
 
 ```{r Analisis de casos influyentes}
-#| cache: true
-#| results: asis
+#| cache: true
+#| output: false
 
 estex_gen_cnt <- influence(m5_gen, "CNTRY")
 estex_spec_cnt <- influence(m5_spec, "CNTRY")
 
 cooks.distance(estex_gen_cnt, sort = TRUE)
-
 cooks.distance(estex_spec_cnt, sort = TRUE)
-
-plot(estex_gen_cnt, 
-     which="cook",
-     cutoff = 0.17, 
-     sort = TRUE,
-     xlab = "Distancia de Cook",
-     ylab = "Países")
-
-plot(estex_spec_cnt, 
-     which="cook",
-     cutoff = 0.17, 
-     sort = TRUE,
-     xlab = "Distancia de Cook",
-     ylab = "Países")
 
 sigtest(estex_gen_cnt, test=-1.96)$desktops_cmc
 sigtest(estex_spec_cnt, test=-1.96)$desktops_cmc
@@ -777,6 +762,25 @@ sigtest(estex_spec_cnt, test=-1.96)$desktops_cmc
 #sigtest(estex_gen_schl, test=-1.96)$desktops_cmc
 #sigtest(estex_spec_schl, test=-1.96)$desktops_cmc
 ```
+
+```{r}
+#| cache: true
+#| results: asis
+plot(estex_gen_cnt, 
+     which="cook",
+     cutoff = 0.17, 
+     sort = TRUE,
+     xlab = "Distancia de Cook",
+     ylab = "Países")
+
+plot(estex_spec_cnt, 
+     which="cook",
+     cutoff = 0.17, 
+     sort = TRUE,
+     xlab = "Distancia de Cook",
+     ylab = "Países")
+```
+
 
 Con respecto al análisis de casos influyentes realizado al nivel país, llaman la atención los casos de República Checa en la autoeficacia general y de Kazajistán en la autoeficacia especializada. Ninguno de estos casos es significativo por lo que se decide no eliminar ningún país.
 

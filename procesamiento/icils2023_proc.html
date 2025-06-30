@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.33">
+<meta name="generator" content="quarto-1.6.30">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Ismael Aguayo, Domingo Monasterio, Exequiel Trujillo y Antonia Vera">
 <title>¿Mayor acceso significa mayor autoeficacia? Un análisis multinivel a lo largo de 52 países</title>
@@ -26,10 +26,37 @@ ul.task-list li input[type="checkbox"] {
 <script src="icils2023_proc_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="icils2023_proc_files/libs/quarto-html/anchor.min.js"></script>
 <link href="icils2023_proc_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="icils2023_proc_files/libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="icils2023_proc_files/libs/quarto-html/quarto-syntax-highlighting-3a01e2046221230fdceeea94b1ec5d67.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="icils2023_proc_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="icils2023_proc_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="icils2023_proc_files/libs/bootstrap/bootstrap-925f605f9f914435afdcf42482c42c18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><link href="icils2023_proc_files/libs/table1-1.0/table1_defaults.css" rel="stylesheet">
+<link href="icils2023_proc_files/libs/bootstrap/bootstrap-b87b1894dffcee81bf758029ae8f528e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><link href="icils2023_proc_files/libs/table1-1.0/table1_defaults.css" rel="stylesheet">
+<script src="icils2023_proc_files/libs/kePrint-0.0.1/kePrint.js"></script><link href="icils2023_proc_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body>
 
@@ -65,78 +92,106 @@ ul.task-list li input[type="checkbox"] {
   <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1"><h2 id="toc-title">Contenidos</h2>
    
   <ul>
-<li>
-<a href="#mayor-acceso-significa-mayor-autoeficacia" id="toc-mayor-acceso-significa-mayor-autoeficacia" class="nav-link active" data-scroll-target="#mayor-acceso-significa-mayor-autoeficacia"><span class="header-section-number">1</span> <strong>¿Mayor acceso significa mayor autoeficacia?</strong></a>
-  <ul class="collapse">
-<li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract"><span class="header-section-number">1.0.1</span> Abstract</a></li>
-  <li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">1.0.2</span> Introducción</a></li>
-  <li><a href="#descripci%C3%B3n-de-los-datos" id="toc-descripción-de-los-datos" class="nav-link" data-scroll-target="#descripci%C3%B3n-de-los-datos"><span class="header-section-number">1.0.3</span> Descripción de los datos</a></li>
-  <li><a href="#metodolog%C3%ADa" id="toc-metodología" class="nav-link" data-scroll-target="#metodolog%C3%ADa"><span class="header-section-number">1.0.4</span> Metodología</a></li>
-  <li><a href="#descriptivos-por-nivel" id="toc-descriptivos-por-nivel" class="nav-link" data-scroll-target="#descriptivos-por-nivel"><span class="header-section-number">1.0.5</span> Descriptivos por nivel</a></li>
-  <li><a href="#modelos" id="toc-modelos" class="nav-link" data-scroll-target="#modelos"><span class="header-section-number">1.0.6</span> Modelos</a></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">1.0.7</span> Resultados</a></li>
-  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><span class="header-section-number">1.0.8</span> Conclusiones</a></li>
-  <li><a href="#bibliograf%C3%ADa" id="toc-bibliografía" class="nav-link" data-scroll-target="#bibliograf%C3%ADa"><span class="header-section-number">1.0.9</span> Bibliografía</a></li>
+<li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li>
+<a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link" data-scroll-target="#introducci%C3%B3n">Introducción</a>
+  <ul>
+<li><a href="#problema-de-investigaci%C3%B3n" id="toc-problema-de-investigación" class="nav-link" data-scroll-target="#problema-de-investigaci%C3%B3n">Problema de investigación</a></li>
+  <li><a href="#hip%C3%B3tesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hip%C3%B3tesis">Hipótesis</a></li>
   </ul>
 </li>
+  <li>
+<a href="#descripci%C3%B3n-de-los-datos" id="toc-descripción-de-los-datos" class="nav-link" data-scroll-target="#descripci%C3%B3n-de-los-datos">Descripción de los datos</a>
+  <ul>
+<li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link" data-scroll-target="#base-de-datos">Base de datos</a></li>
+  <li><a href="#variables-del-estudio" id="toc-variables-del-estudio" class="nav-link" data-scroll-target="#variables-del-estudio">Variables del estudio</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#descriptivos-por-nivel" id="toc-descriptivos-por-nivel" class="nav-link" data-scroll-target="#descriptivos-por-nivel">Descriptivos por nivel</a>
+  <ul>
+<li><a href="#variables-de-nivel-1-individual" id="toc-variables-de-nivel-1-individual" class="nav-link" data-scroll-target="#variables-de-nivel-1-individual">Variables de nivel 1 (individual)</a></li>
+  <li><a href="#variables-de-nivel-2-escuela" id="toc-variables-de-nivel-2-escuela" class="nav-link" data-scroll-target="#variables-de-nivel-2-escuela">Variables de nivel 2 (escuela)</a></li>
+  <li><a href="#variables-de-nivel-3-pa%C3%ADs" id="toc-variables-de-nivel-3-país" class="nav-link" data-scroll-target="#variables-de-nivel-3-pa%C3%ADs">Variables de nivel 3 (país)</a></li>
+  </ul>
+</li>
+  <li><a href="#m%C3%A9todos" id="toc-métodos" class="nav-link" data-scroll-target="#m%C3%A9todos">Métodos</a></li>
+  <li>
+<a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a>
+  <ul>
+<li><a href="#estad%C3%ADsticos-bivariados" id="toc-estadísticos-bivariados" class="nav-link" data-scroll-target="#estad%C3%ADsticos-bivariados">Estadísticos bivariados</a></li>
+  <li><a href="#modelos-nulos" id="toc-modelos-nulos" class="nav-link" data-scroll-target="#modelos-nulos">Modelos nulos</a></li>
+  <li><a href="#modelos-con-interacci%C3%B3n" id="toc-modelos-con-interacción" class="nav-link" data-scroll-target="#modelos-con-interacci%C3%B3n">Modelos con interacción</a></li>
+  <li><a href="#modelos-con-pendiente-aleatoria" id="toc-modelos-con-pendiente-aleatoria" class="nav-link" data-scroll-target="#modelos-con-pendiente-aleatoria">Modelos con pendiente aleatoria</a></li>
+  <li><a href="#test-de-anova-para-diferencias-entre-modelos" id="toc-test-de-anova-para-diferencias-entre-modelos" class="nav-link" data-scroll-target="#test-de-anova-para-diferencias-entre-modelos">Test de Anova para diferencias entre modelos</a></li>
+  <li><a href="#an%C3%A1lisis-de-casos-influyentes" id="toc-análisis-de-casos-influyentes" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-casos-influyentes">Análisis de casos influyentes</a></li>
+  </ul>
+</li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
+  <li><a href="#bibliograf%C3%ADa" id="toc-bibliografía" class="nav-link" data-scroll-target="#bibliograf%C3%ADa">Bibliografía</a></li>
   </ul></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="mayor-acceso-significa-mayor-autoeficacia" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> <strong>¿Mayor acceso significa mayor autoeficacia?</strong>
-</h1>
-<section id="abstract" class="level3" data-number="1.0.1"><h3 data-number="1.0.1" class="anchored" data-anchor-id="abstract">
-<span class="header-section-number">1.0.1</span> Abstract</h3>
-<p>El presente estudio busca determinar el efecto que el acceso a TIC en el hogar y en la escuela de los estudiantes tiene sobre su autoeficacia digital, tanto general como especializada. Se entiende por autoeficacia digital la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. Para responder a este objetivo, se construyeron modelos multinivel usando datos de ICILS 2023. Las variables dependientes utilizadas son autoeficacia digital general y autoeficacia digital especializada; la variable independiente es un índice de acceso a TIC en el hogar, y se utilizó la escuela como variable de anidación. Los resultados preliminares señalan que tan solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la pertenencia a una escuela. Se encontraron efectos significativos del acceso a TIC en el hogar sobre ambas dimensiones de autoeficacia digital, sin embargo el impacto sobre la general es mucho mayor.&nbsp;</p>
-</section><section id="introducción" class="level3" data-number="1.0.2"><h3 data-number="1.0.2" class="anchored" data-anchor-id="introducción">
-<span class="header-section-number">1.0.2</span> Introducción</h3>
-<p>En los últimos años hemos sido testigos de una digitalización acelerada. Las Tecnologías de la Información y la Comunicación (TIC) han entrado en espacios cómo el Estado, el trabajo y la educación, por ende las habilidades informáticas se han transformado en un componente esencial de la participación ciudadana, el desarrollo profesional y la inclusión social (UNESCO, 2018). Tanto en el trabajo como en la vida cotidiana, el uso de TIC se hace cada vez menos una opción, y más una necesidad. La capacidad de buscar información en línea, comunicarse de manera efectiva por medios virtuales, resolver problemas técnicos o interactuar con plataformas web son habilidades que estructuran oportunidades en casi todos los ámbitos de la vida (Van Deursen &amp; Van Dijk, 2011).</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="abstract" class="level3"><h3 class="anchored" data-anchor-id="abstract">Abstract</h3>
+<p>El presente estudio busca determinar el efecto que el acceso a Tecnologías de la Información y Comunicación (TIC) en el hogar y la alfabetización escolar tienen sobre la autoeficacia digital de estudiantes de octavo año a lo largo de 32 países. Se entiende por autoeficacia digital la actitud que una persona tiene respecto de su habilidad para desempeñarse competentemente en circunstancias relativas a TIC que no domina. Para responder a este objetivo, se utilizan modelos multinivel usando datos de ICILS 2023. Se usó la escuela y el país como variables de anidación. Las variables dependientes son autoeficacia digital general y autoeficacia digital especializada; las variables independientes son la cantidad de aparatos digitales usados en el hogar y el sexo (nivel 1), el promedio de alfabetización del hogar por escuela (nivel 2) y el Índice de Desarrollo de las TIC (IDI) del país (nivel 3), y se incluye como variable de control la alfabetización del hogar de los estudiantes. Los resultados señalan que solo una pequeña porción de la varianza de la autoeficacia digital se asocia a la escuela y el país (alrededor del 8%). Sin embargo, el acceso a computadoras presenta un efecto significativo en la autoeficacia digital, y este efecto varía entre escuelas y países. Adicionalmente, se descubrió que el efecto del promedio escolar de alfabetización del hogar en la autoeficacia digital especializada es positivo en el caso de los niños, pero perjudica a las niñas; y el desarrollo tecnológico del país tiene un efecto negativo en la autoeficacia digital de los estudiantes. Se concluye que existe una brecha de género en la autoeficacia digital que crece con mejores entornos educativos, y que el acceso a TIC es una variable importante para predecir la autoeficacia digital.</p>
+</section><section id="introducción" class="level3"><h3 class="anchored" data-anchor-id="introducción">Introducción</h3>
+<p>En los últimos años hemos sido testigos de una digitalización acelerada. Las Tecnologías de la Información y la Comunicación (TIC) crecientemente se han apoderado de espacios cómo el Estado, el trabajo y la educación, por ende las habilidades informáticas se han transformado en un componente esencial de la participación ciudadana, el desarrollo profesional y la inclusión social (UNESCO, 2018). Tanto en el trabajo como en la vida cotidiana, el uso de TIC se hace cada vez menos una opción, y más una necesidad. La capacidad de buscar información en línea, comunicarse de manera efectiva por medios virtuales, resolver problemas técnicos o interactuar con plataformas web son habilidades que estructuran oportunidades en casi todos los ámbitos de la vida (Van Deursen &amp; Van Dijk, 2011).</p>
 <p>La literatura ha documentado que la participación ciudadana en democracias digitales requiere conocimientos y habilidades para acceder a información confiable, interactuar con servicios gubernamentales en línea y ejercer derechos a través de plataformas digitales (Van Dijk, 2020). Estas habilidades forman parte de la denominada alfabetización digital, la cual es considerada una condición previa para la inclusión social y la equidad en entornos altamente digitalizados, que están en crecimiento exponencial (Livingstone &amp; Helsper, 2007).&nbsp;</p>
-<p>En este marco cobra relevancia el estudio de la autoeficacia, un concepto desarrollado por Bandura (1995), que describe la actitud de un individuo hacia sus capacidades frente a un potencial evento futuro. Una persona autoeficaz (o, más precisamente, con un alto nivel de autoeficacia) es aquella que se considera capaz de reorganizar sus habilidades para masterizar un atributo que no domina en el momento; es decir, es la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos digitales que no domina. En contextos digitalizados, se entiende por una alta autoeficacia digital una actitud que no sólo facilita el uso autónomo de la tecnología, sino que también promueve el aprendizaje continuo en un entorno tecnológico que está en constante cambio (Ulfert-Blank &amp; Schmidt, 2022). De esta manera, la autoeficacia digital se entiende como una variable multidimensional que articula creencias personales con el desempeño en tareas tecnológicas especializadas (Eastin &amp; LaRose, 2000).&nbsp;</p>
+<p>En este marco cobra relevancia el estudio de la autoeficacia, un concepto desarrollado por Bandura (1995), que describe la actitud de un individuo hacia sus capacidades frente a un potencial evento futuro. Una persona autoeficaz (o, más precisamente, con un alto nivel de autoeficacia) es aquella que se considera capaz de reorganizar sus habilidades para masterizar un atributo que no domina en el momento; es decir, es la percepción que una persona tiene sobre su habilidad para desempeñarse competentemente en entornos que no domina. En contextos digitalizados, se entiende por una alta autoeficacia digital una actitud que no sólo facilita el uso autónomo de la tecnología, sino que también promueve el aprendizaje continuo en un entorno tecnológico que está en constante cambio (Ulfert-Blank &amp; Schmidt, 2022). De esta manera, la autoeficacia digital se entiende como una variable multidimensional que articula creencias personales con el desempeño en tareas tecnológicas especializadas (Eastin &amp; LaRose, 2000).&nbsp;</p>
 <p>Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020).</p>
-<p>En la dimensión educativa, la autoeficacia digital toma importancia al relacionarse con la disposición de los estudiantes para interactuar con las TIC, así como también con la capacidad de apropiarse de ellas como posibles herramientas de aprendizaje (Hatlevik et al., 2018).En este marco, estudiar la autoeficacia de los estudiantes se vuelve muy relevante, en tanto permite reflejar una disposición individual de reflexividad respecto a la tecnología. La teoría reciente sobre la brecha digital ha evidenciado que el acceso desigual a la tecnología genera efectos acumulativos en el desempeño académico, las trayectorias educativas y la inclusión laboral (Lythreatis et al., 2022). De ese modo, la autoeficacia puede ser comprendida como un mecanismo que intermedia entre el acceso material a la tecnología y su uso significativo, y por tanto, como un indicador de las oportunidades reales de los jóvenes para participar en la sociedad digital y obtener resultados en la sociedad (Gran et al., 2021). En base a lo anterior, podemos decir que estudiar el cruce entre el acceso a la tecnología, como variable estructural, y la autoeficacia digital se hace relevante en la medida que permite plantear nuevas interrogantes respecto a esta relación.&nbsp;</p>
-<p>Es desde este lugar que el presente estudio ahonda en la comprensión de cómo el acceso a TIC y la alfabetización digital influye en los niveles de autoeficacia digital general y especializada de los estudiantes. Para ello, se vale de una metodología multinivel, que permite distinguir analíticamente tres dimensiones del fenómeno estudiado: una primera dimensión a nivel individual (de hogar), una a nivel escuela y una a nivel país. Estos tres niveles de análisis, de cierta forma dimensiones de la socialización&nbsp; de los estudiantes, interactúan de forma diferente con la variable dependiente del estudio, la autoeficacia digital.&nbsp;</p>
-<p>A nivel hogar, además se utilizan variables que buscan medir el capital cultural del hogar, pues se considera que la cultura de los hogares favorece la adquisición de conocimiento y de competencias relacionadas con TIC (Vera-Noriega et al., 2017). A nivel escuela, se busca identificar la influencia del nivel de alfabetización digital del medio en que los estudiantes se están formando. A nivel país, por el otro lado, se busca medir el efecto de las diferencias en la infraestructura TIC de los diferentes territorios. En el caso del hogar y el país, se busca evaluar el efecto del acceso a TIC, mientras que en la escuela se mide la alfabetización digital.</p>
+<p>En la dimensión educativa, la autoeficacia digital toma importancia al relacionarse con la disposición de los estudiantes para interactuar con las TIC, así como también con la capacidad de apropiarse de ellas como posibles herramientas de aprendizaje (Hatlevik et al., 2018). En este marco, estudiar la autoeficacia de los estudiantes se vuelve muy relevante, en tanto permite reflejar una disposición individual de reflexividad respecto a la tecnología. La teoría reciente sobre la brecha digital ha evidenciado que el acceso desigual a la tecnología genera efectos acumulativos en el desempeño académico, las trayectorias educativas y la inclusión laboral (Lythreatis et al., 2022). De ese modo, la autoeficacia puede ser comprendida como un mecanismo que intermedia entre el acceso material a la tecnología y su uso significativo, y por tanto, como un indicador de las oportunidades reales de los jóvenes para participar en la sociedad digital y obtener resultados en la sociedad (Gran et al., 2021). En base a lo anterior, podemos decir que estudiar el cruce entre el acceso a la tecnología, como variable estructural, y la autoeficacia digital se hace relevante en la medida que permite plantear nuevas interrogantes respecto a esta relación.&nbsp;</p>
+<p>Es desde este lugar que el presente estudio ahonda en la comprensión de cómo el acceso a TIC y la alfabetización digital influye en los niveles de autoeficacia digital general y especializada de los estudiantes. Para ello, se vale de una metodología multinivel, que permite distinguir analíticamente tres dimensiones del fenómeno estudiado: una primera dimensión a nivel individual (de hogar), una a nivel escuela y una a nivel país. Estos tres niveles de análisis, en cierta forma dimensiones de la socialización&nbsp; de los estudiantes, interactúan de forma diferente con la variable dependiente del estudio, la autoeficacia digital.&nbsp;</p>
+<p>A nivel individual, se utilizará como variable de acceso la tenencia de computadoras y tablets en el hogar. En el nivel escuela, se medirá la influencia del promedio escolar de alfabetización del hogar de los estudiantes, como una variable que indica el nivel socioeconómico y cultural de la escuela. A nivel país, por el otro lado, se busca medir el efecto de las diferencias en la infraestructura TIC de los diferentes territorios, a través del Indice de Desarrollo de TIC (IDI por sus siglas en inglés). En el caso del hogar y el país, se busca evaluar el efecto del acceso a TIC, mientras que en la escuela se mide la alfabetización.</p>
 <section id="problema-de-investigación" class="level4"><h4 class="anchored" data-anchor-id="problema-de-investigación">Problema de investigación</h4>
-<p>Pese a que se ha avanzado en el acceso a dispositivos y conectividad, persisten desigualdades estructurales que condicionan las oportunidades de desarrollo digital de los jóvenes. Estudios previos han demostrado que factores como el acceso regular a dispositivos digitales en el hogar, la disponibilidad de conectividad de calidad y la presencia de infraestructura tecnológica y el desarrollo de competencias digitales en las escuelas tienen efectos significativos sobre las actitudes de los estudiantes respecto a su competencia digital (Fraillon et al., 2020). Es en esta línea que se delimita como problema de investigación el efecto de factores relacionados con la alfabetización digital y el acceso a TIC de los estudiantes en diferentes niveles en su autoeficacia, tanto general como especializada.&nbsp;</p>
-<p>Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: ¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital general y especializada de los estudiantes? ¿y cómo influye el promedio escolar de alfabetización digital/alfabetización del hogar?</p>
+<p>Las disparidades en el acceso a dispositivos digitales son un factor de importancia para comprender las diferencias en la autoeficacia digital de los jóvenes. Como señala Bandura (1995), parte de la producción de una actitud autoeficaz se explica por las <em>experiencias vicarias</em>,: ver a personas “como uno” desarrollar exitosamente una habilidad a través del esfuerzo lleva a creer que uno también puede dominarla. En congruencia, la literatura apunta a una relación positiva entre acceso a TIC y autoeficacia digital, como identifica Stone (2020), en dominios tales como la computación básica, el uso de internet y la creación de contenido. Otros estudios que han identificado esta relación fueron sistematizados en Senkbeil (2023).</p>
+<p>La literatura también señala que, así como el acceso a TIC, el género, la escuela y el país son variables frecuentemente utilizadas en el estudio de la autoeficacia digital. Para género, esto se atribuye a las diferencias entre hombres y mujeres que favorece la relación positiva de los primeros con la tecnología, demostrando una mayor autoeficacia digital y más actitudes positivas en relación a las TIC (Cai et al., 2017). En un estudio más reciente, Gebhardt et al.&nbsp;(2019) no observan diferencias entre hombres y mujeres en cuanto a su autoeficacia digital general, pero sí en su autoeficacia digital especializada, donde los varones sobrepasan significativamente a sus pares femeninos.</p>
+<p>En el caso de la escuela, Hatlevik et al., (2018) encontró que la varianza de la autoeficacia explicada por esta variable en ICILS 2013 es baja (menos del 6% en todos los países). Otros estudios también parecen apuntar que la escuela –en tanto contexto y modo de uso de TIC– no es una variable muy relevante en el estudio de la autoeficacia digital, en oposición a otros contextos de uso (Ball et al., 2020; Juhaňák et al., 2019). Por el otro lado, la autoeficacia parece tener un comportamiento heterogéneo si se comparan distintos paises, y dependiendo de las variables que se utilice los efectos pueden ser mayores o menores, como señalan los estudios de Hatlevik et al., (2018) o Cheng &amp; Hu (2020), este último con datos de PISA 2015.</p>
+<p>Considerando todo lo anterior, se desprende la siguiente pregunta de investigación: <strong>¿De qué manera el acceso a TIC en el hogar y en el país influyen en la autoeficacia digital de los estudiantes? ¿Que rol cumple la alfabetización escolar en la autoeficacia digital de los estudiantes?</strong></p>
 </section><section id="hipótesis" class="level4"><h4 class="anchored" data-anchor-id="hipótesis">Hipótesis</h4>
-<p>Nivel 1:</p>
-<p>H1: El acceso a TIC en el hogar tendrá un efecto positivo en la autoeficacia digital de los estudiantes</p>
-<p>Nivel 2:</p>
-<p>H2:</p>
-<p>H3:</p>
-<p>Nivel 3:</p>
-<p>H4: Los estudiantes de países con mayor IDI (Índice de Desarrollo de TIC) presentarán niveles más altos de autoeficacia digital</p>
-<p>H5: El efecto del país en la autoeficacia de los estudiantes es moderado por el efecto del acceso a TIC en el hogar</p>
-</section></section><section id="descripción-de-los-datos" class="level3" data-number="1.0.3"><h3 data-number="1.0.3" class="anchored" data-anchor-id="descripción-de-los-datos">
-<span class="header-section-number">1.0.3</span> Descripción de los datos</h3>
+<ul>
+<li>
+<p><strong>Nivel 1:</strong></p>
+<ul>
+<li>H1: El acceso a computadores y tablets en el hogar tiene un efecto positivo en la autoeficacia digital de los estudiantes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Nivel 2:</strong></p>
+<ul>
+<li><p>H2: El promedio escolar de alfabetización del hogar tiene un efecto positivo en la autoeficacia digital de los estudiantes.</p></li>
+<li><p>H3: El efecto del promedio escolar de alfabetización del hogar en la autoeficacia digital es moderado por el sexo del estudiante.</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Nivel 3:</strong></p>
+<ul>
+<li>H4: El IDI (Índice de Desarrollo de TIC) del país tiene un efecto positivo en la autoeficacia digital de los estudiantes.</li>
+<li>H5: El efecto del acceso a computadores en el hogar varía según escuelas y países.</li>
+</ul>
+</li>
+</ul></section></section><section id="descripción-de-los-datos" class="level3"><h3 class="anchored" data-anchor-id="descripción-de-los-datos">Descripción de los datos</h3>
 <section id="base-de-datos" class="level4"><h4 class="anchored" data-anchor-id="base-de-datos">Base de datos</h4>
 <p>Se usaron datos del International Computer and Information Literacy Study de 2023 (ICILS 2023), una evaluación internacional que recolecta información sobre competencias digitales y contexto escolar en estudiantes de octavo grado de 35 países, y evalúa la alfabetización digital mediante una prueba de aplicación. Esta base incluye datos de 135.615 estudiantes de 5.299 escuelas.&nbsp;</p>
 </section><section id="variables-del-estudio" class="level4"><h4 class="anchored" data-anchor-id="variables-del-estudio">Variables del estudio</h4>
-<p>Las variables dependientes seleccionadas son autoeficacia general y autoeficacia específica, ambas construidas por ICILS 2023 con preguntas tipo Likert. La formulación de las preguntas es: “¿En qué medida puedes realizar cada una de estas tareas en un ordenador? / Buscar y encontrar información relevante para un proyecto escolar en Internet”, con opciones de respuesta que van desde “Sé cómo hacerlo” hasta “creo que no podría hacerlo” (Fraillon et al., 2020).</p>
-<p>La autoeficacia general se refiere a la percepción del estudiante sobre su capacidad para usar tecnologías de la información de forma cotidiana, sin necesidad de conocimientos avanzados. Se mide a través de 8 preguntas que cubren: editar imágenes, escribir texto académico, buscar información, crear presentaciones multimedia, actualizar perfiles online, copiar imágenes a documentos, instalar programas y juzgar la veracidad de la información en internet (Fraillon et al., 2020). Por otro lado, la autoeficacia específica evalúa la confianza del estudiante en su habilidad para ejecutar tareas tecnológicas más complejas que requieren conocimientos especializados. Esta variable se construye con 4 preguntas, que incluyen: crear una base de datos, crear/editar una página web, desarrollar un programa y configurar una red local de ordenadores (Fraillon et al., 2020).</p>
+<p>Las variables dependientes seleccionadas son autoeficacia general y autoeficacia especializada, ambas construidas por ICILS 2023 con preguntas tipo Likert. La formulación de las preguntas es: “¿En qué medida puedes realizar cada una de estas tareas en un ordenador? / Buscar y encontrar información relevante para un proyecto escolar en Internet”, con opciones de respuesta que van desde “Sé cómo hacerlo” hasta “creo que no podría hacerlo” (Fraillon et al., 2020).</p>
+<p>La autoeficacia general se refiere a la percepción del estudiante sobre su capacidad para usar tecnologías de la información de forma cotidiana, sin necesidad de conocimientos avanzados. Se mide a través de 8 preguntas que cubren: editar imágenes, escribir texto académico, buscar información, crear presentaciones multimedia, actualizar perfiles online, copiar imágenes a documentos, instalar programas y juzgar la veracidad de la información en internet (Fraillon et al., 2020). Por otro lado, la autoeficacia especializada evalúa la confianza del estudiante en su habilidad para ejecutar tareas tecnológicas más complejas que requieren conocimientos especializados. Esta variable se construye con 4 preguntas, que incluyen: crear una base de datos, crear/editar una página web, desarrollar un programa y configurar una red local de ordenadores (Fraillon et al., 2020). Ambas variables corresponden a índices desarrollados por ICILS, y se encuentran estandarizadas (con promedio 50 y desviación estándar de 10).</p>
 <p>En cuanto a las variables de anidación, a nivel 2 se utilizaron los códigos identificadores de cada escuela y país. Dada la presencia de escuelas con sedes en múltiples países, fue necesario ajustar la variable para asignar una identificación única a cada escuela y evitar la pérdida de casos en este nivel.</p>
-<p>A nivel 1, se incluyeron diversas variables clave. El índice de alfabetización del hogar, construido a partir de la cantidad de libros disponibles en el hogar (categorizado de 0 a más de 200), se usó para capturar el capital cultural. También se consideró el sexo del estudiante y el nivel educativo más alto alcanzado por los padres, clasificado según la Clasificación Internacional Normalizada de la Educación, desde 0 (no completó el nivel 2) hasta 4 (completó los niveles 6, 7 u 8). Se añadió la cantidad de ordenadores y tablets disponibles en el hogar (0, 1, 2, o más de 3). Finalmente, se incorporó el primer valor plausible del puntaje en alfabetización computacional e informacional (CIL), que mide la capacidad de un individuo para usar ordenadores en la investigación, creación y comunicación para participar eficazmente en diversos entornos (Frailon et al., 2014, p.&nbsp;1). El CIL tiene un puntaje máximo de 500.</p>
-<p>Para el nivel 3, se empleó el Índice de Desarrollo de las TIC (IDI), un índice continuo que resume el nivel de desarrollo tecnológico de cada país (ITU, 2023). El IDI se estructura en dos pilares: conectividad universal, que mide la cobertura general de internet y banda ancha, y conectividad significativa, que evalúa formas más específicas de acceso, como el porcentaje de personas con teléfono móvil o el costo de un plan móvil en relación con el PIB (ITU, 2023).</p>
-</section></section><section id="metodología" class="level3" data-number="1.0.4"><h3 data-number="1.0.4" class="anchored" data-anchor-id="metodología">
-<span class="header-section-number">1.0.4</span> Metodología</h3>
-<p>Se crearon dos variables de nivel 2 (escuela) a partir de variables de nivel 1 (individual); una corresponde al promedio de la alfabetización del hogar por escuela y la otra al promedio CIL por escuela. Respecto al nivel 3 (paises), se eliminaros los casos correspondientes a Kosovo y Taiwán puesto que estos paises no tiene IDI. Además, en el nivel 3 se fusionó Renania del Norte-Westfalia con el resto de Alemania, que en ICILS están separados pues tienen dos sistemas educacionales distintos, pero este paso fue necesario para agregar el IDI, puesto que este tiene un código identificador para Alemania pero no para esta región.</p>
-<p>Se centraron las variables individuales a la media escuela, las variables escuelas a la media país y las variables país a la media general. Se realizó un análisis de la distancia de Cook para ver los casos influyentes y se hizo un test de significancia estadística para probar el efecto de borrar un caso en la significancia de los grupos en el modelo.</p>
-</section><section id="descriptivos-por-nivel" class="level3" data-number="1.0.5"><h3 data-number="1.0.5" class="anchored" data-anchor-id="descriptivos-por-nivel">
-<span class="header-section-number">1.0.5</span> Descriptivos por nivel</h3>
-<section id="variables-de-nivel-1-individual" class="level4"><h4 class="anchored">Variables de nivel 1 (individual)</h4>
+<p>A nivel 1, se incluyó el índice de alfabetización del hogar, construido a partir de la cantidad de libros disponibles en el hogar según el estudiante (0, 1-25, 26-100, 101-200 o más de 200). También se consideró el sexo del estudiante (0=hombre, 1=mujer) y la cantidad de ordenadores y tablets disponibles en el hogar según el estudiante (0, 1, 2, 3 o más).</p>
+<p>Para el nivel 3, se empleó el Índice de Desarrollo de TIC (IDI), un índice continuo que resume el nivel de desarrollo tecnológico de cada país (ITU, 2023). El IDI se estructura en dos pilares: conectividad universal, que mide la cobertura general de internet y banda ancha, y conectividad significativa, que evalúa formas más específicas de acceso, como el porcentaje de personas con teléfono móvil o el costo de un plan móvil en relación con el PIB (ITU, 2023). Se eliminaron los casos correspondientes a Kosovo y Taiwán puesto que estos paises no tienen IDI. Además, se fusionó Renania del Norte-Westfalia con el resto de Alemania, que en ICILS están separados pues tienen dos sistemas educacionales distintos, debido a que el IDI tiene un solo código identificador para Alemania. En el caso de Bélgica solo se tienen datos de Flandes.</p>
+<p>Se centraron las variables individuales a la media escuela y las variables país a la media general. Además, se creó una variable de nivel 2 (escuela) a partir de variables de nivel 1 (individual): el promedio de la alfabetización del hogar por escuela, el cual fue centrado a la media del país.</p>
+</section></section><section id="descriptivos-por-nivel" class="level3"><h3 class="anchored" data-anchor-id="descriptivos-por-nivel">Descriptivos por nivel</h3>
+<p>A continuación, se presentan los descriptivos generales de la muestra separados por niveles (individual, escuela y país).</p>
+<section id="variables-de-nivel-1-individual" class="level4"><h4 class="anchored" data-anchor-id="variables-de-nivel-1-individual">Variables de nivel 1 (individual)</h4>
 <div class="Rtable1"><table class="Rtable1">
-<caption><h3 class="anchored" data-anchor-id="variables-de-nivel-1-individual">Tabla 1: Características de la Muestra</h3></caption>
+<caption>Tabla 1: Características de la Muestra</caption>
 
 <thead><tr>
 <th class="rowlabel firstrow lastrow"></th>
 <th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=135615)</span></span></th>
 </tr></thead>
 <tfoot><tr><td colspan="2" class="Rtable1-footnote">
-<p>Los datos continuos se presentan como Media (Desviación Estándar); los datos categóricos como n (%).
-       <br>Nota: Elaborado con datos de ICILS 2023.</p>
+<p>Nota: Elaborado con datos de ICILS 2023.</p>
 </td></tr></tfoot>
 <tbody>
 <tr>
@@ -156,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 <td class="lastrow">10237 (7.5%)</td>
 </tr>
 <tr>
-<td class="rowlabel firstrow">Autoeficacia Específica</td>
+<td class="rowlabel firstrow">Autoeficacia Especializada</td>
 <td class="firstrow"></td>
 </tr>
 <tr>
@@ -176,12 +231,20 @@ ul.task-list li input[type="checkbox"] {
 <td class="firstrow"></td>
 </tr>
 <tr>
-<td class="rowlabel">Mean (SD)</td>
-<td>0.491 (0.500)</td>
+<td class="rowlabel">Boy</td>
+<td>68665 (50.6%)</td>
 </tr>
 <tr>
-<td class="rowlabel">Median [Min, Max]</td>
-<td>0 [0, 1.00]</td>
+<td class="rowlabel">Girl</td>
+<td>66186 (48.8%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Not administered/not scored/score out of range</td>
+<td>0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Omitted</td>
+<td>0 (0%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Missing</td>
@@ -192,12 +255,32 @@ ul.task-list li input[type="checkbox"] {
 <td class="firstrow"></td>
 </tr>
 <tr>
-<td class="rowlabel">Mean (SD)</td>
-<td>1.95 (1.30)</td>
+<td class="rowlabel">None or very few (0 - 10 books)</td>
+<td>21282 (15.7%)</td>
 </tr>
 <tr>
-<td class="rowlabel">Median [Min, Max]</td>
-<td>2.00 [0, 4.00]</td>
+<td class="rowlabel">Enough to fill one shelf (11 - 25 books)</td>
+<td>29876 (22.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill one bookcase (26 - 100 books)</td>
+<td>37882 (27.9%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill two bookcases (101 - 200 books)</td>
+<td>21008 (15.5%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Enough to fill three or more bookcases (more than 200 books)</td>
+<td>22260 (16.4%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Not administered/not scored/score out of range</td>
+<td>0 (0%)</td>
+</tr>
+<tr>
+<td class="rowlabel">Omitted</td>
+<td>0 (0%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Missing</td>
@@ -267,64 +350,24 @@ ul.task-list li input[type="checkbox"] {
 <td class="rowlabel lastrow">Missing</td>
 <td class="lastrow">8146 (6.0%)</td>
 </tr>
-<tr>
-<td class="rowlabel firstrow">Promedio de Literatura en Casa por escuela</td>
-<td class="firstrow"></td>
-</tr>
-<tr>
-<td class="rowlabel">Mean (SD)</td>
-<td>1.95 (0.643)</td>
-</tr>
-<tr>
-<td class="rowlabel">Median [Min, Max]</td>
-<td>1.95 [0, 4.00]</td>
-</tr>
-<tr>
-<td class="rowlabel lastrow">Missing</td>
-<td class="lastrow">168 (0.1%)</td>
-</tr>
-<tr>
-<td class="rowlabel firstrow">Promedio CIL por escuela</td>
-<td class="firstrow"></td>
-</tr>
-<tr>
-<td class="rowlabel">Mean (SD)</td>
-<td>478 (68.8)</td>
-</tr>
-<tr>
-<td class="rowlabel lastrow">Median [Min, Max]</td>
-<td class="lastrow">492 [168, 620]</td>
-</tr>
 </tbody>
 </table></div>
-<p>El análisis descriptivo de las variables dependientes, muestra que la autoeficacia general presenta una media de 49.9 puntos con una desviación estándar de 9.95. Esto indica que, en promedio, los estudiantes tienen una percepción de su capacidad cercana al punto medio de la escala, con una variabilidad moderada entre ellos. Por su parte, la autoeficacia específica muestra una media muy similar de 49.8, pero con una desviación estándar ligeramente mayor de 9.98, una dispersión de respuestas parecida a la de la autoeficacia general.</p>
-<p>A nivel individual es posible ver que la variable sexo del estudiante tiene una media de 0.491, lo que significa que la muestra está distribuida de manera casi equitativa entre hombres y mujeres. El índice de literatura en el hogar, muestra una media de 1.95 en una escala de 0 a 4, sugiriendo que, en promedio, los hogares se ubican cerca del punto medio en cuanto a la cantidad de libros disponibles.</p>
-<p>Respecto al acceso a la tecnología, la disponibilidad de dispositivos es alta. El 38.4% de los estudiantes reporta tener tres o más computadores en casa, siendo esta la categoría más frecuente, mientras que solo un 7.5% no tiene ninguno. El 27.4% de los estudiantes cuenta con tres o más tablets en el hogar. Estos datos indican un elevado nivel de acceso a dispositivos en los hogares de los participantes.</p>
-</section><section id="variables-de-nivel-2-escuela" class="level4"><h4 class="anchored">Variables de nivel 2 (escuela)</h4>
+<p>Se observa que la autoeficacia general y especializada se encuentran normalizadas, con una media de ~50 y una desviación estandar de ~10. Ambas variables presentan una alta cantidad de casos perdidos, con 7.5% en la dimensión general y 9.2% en la especializada.</p>
+<p>La variable sexo se encuentra distribuida de forma bastante equitativa entre hombres y mujeres, teniendo los hombres una frecuencia un 1.8% mayor.</p>
+<p>El índice de literatura en el hogar se encuentra bastante distribuido entre sus categorías, siendo la más común en la muestra “Suficiente para llenar un librero (27.9%), y presenta una pequeña proporción de NAs (2.4%).</p>
+<p>Respecto al acceso a computadores, la disponibilidad es alta. El 38.4% de los estudiantes reporta tener tres o más computadores en casa, siendo esta la categoría más frecuente, mientras que solo un 7.5% no tiene ninguno. El acceso a tablets se encuentra más distribuido, teniendo el 27.4% de los estudiantes cuenta con tres o más tablets en el hogar, pero un 20.6% de los estudiantes no poseen tabletas. Ambas variables poseen un nivel aceptable de casos perdidos (entre 3.9% y 6%).</p>
+</section><section id="variables-de-nivel-2-escuela" class="level4"><h4 class="anchored" data-anchor-id="variables-de-nivel-2-escuela">Variables de nivel 2 (escuela)</h4>
 <div class="Rtable1"><table class="Rtable1">
-<caption><h3 class="anchored" data-anchor-id="variables-de-nivel-2-escuela">Tabla 2: Características de la Muestra de Escuelas</h3></caption>
+<caption>Tabla 2: Características de la Muestra de Escuelas</caption>
 
 <thead><tr>
 <th class="rowlabel firstrow lastrow"></th>
 <th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=5410)</span></span></th>
 </tr></thead>
 <tfoot><tr><td colspan="2" class="Rtable1-footnote">
-<p>Los datos continuos se presentan como Media (Desviación Estándar).
-       <br>Nota: Elaborado con datos de ICILS 2023.</p>
+<p>Nota: Elaborado con datos de ICILS 2023.</p>
 </td></tr></tfoot>
 <tbody>
-<tr>
-<td class="rowlabel firstrow">Promedio CIL por escuela</td>
-<td class="firstrow"></td>
-</tr>
-<tr>
-<td class="rowlabel">Mean (SD)</td>
-<td>473 (71.3)</td>
-</tr>
-<tr>
-<td class="rowlabel lastrow">Median [Min, Max]</td>
-<td class="lastrow">488 [168, 620]</td>
-</tr>
 <tr>
 <td class="rowlabel firstrow">Promedio de Literatura en Casa por escuela</td>
 <td class="firstrow"></td>
@@ -343,19 +386,17 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table></div>
-<p>Para la variable de promedio agregado de alfabetización por escuela, se registró una media de 1.95 con una desviación estándar de 0.643. Este valor es idéntico al promedio individual, pero la desviación estándar indica que existe una variabilidad apreciable en los niveles de recursos literarios entre las distintas escuelas.</p>
-<p>El promedio agregado de CIL por escuela se ubicó en 478 puntos, un valor alto considerando que el máximo es 500. Sin embargo, la elevada desviación estándar de 68.8 puntos revela que existen diferencias considerables en el nivel de competencia digital promedio entre escuelas. La mediana de 492, superior a la media, sugiere que la mayoría de las escuelas tiende a agruparse en la parte superior de la distribución de puntajes.</p>
-</section><section id="variables-de-nivel-3-país" class="level4"><h4 class="anchored">Variables de nivel 3 (país)</h4>
+<p>Para la variable de promedio agregado de alfabetización por escuela, se registró una media de 1.89 con una desviación estándar de 0.655. Este valor es idéntico al promedio individual, pero la desviación estándar indica que existe una variabilidad apreciable en los niveles de recursos literarios entre las distintas escuelas. Existen 8 escuelas que no cuentan con esta variable (todos sus integrantes no cuentan con índice de alfabetización del hogar), sin embargo esto solo representa el 0.1% de las escuelas.</p>
+</section><section id="variables-de-nivel-3-país" class="level4"><h4 class="anchored" data-anchor-id="variables-de-nivel-3-país">Variables de nivel 3 (país)</h4>
 <div class="Rtable1"><table class="Rtable1">
-<caption><h3 class="anchored" data-anchor-id="variables-de-nivel-3-país">Tabla 3: Estadísticos Descriptivos de ICT Development Index (IDI)</h3></caption>
+<caption>Tabla 3: Estadísticos Descriptivos de ICT Development Index (IDI)</caption>
 
 <thead><tr>
 <th class="rowlabel firstrow lastrow"></th>
 <th class="firstrow lastrow"><span class="stratlabel">Overall<br><span class="stratn">(N=34)</span></span></th>
 </tr></thead>
 <tfoot><tr><td colspan="2" class="Rtable1-footnote">
-<p>Los datos se presentan como Media (Desviación Estándar).
-                           <br>Nota: Elaborado con datos de IDI 2023.</p>
+<p>Nota: Elaborado con datos de IDI 2023.</p>
 </td></tr></tfoot>
 <tbody>
 <tr>
@@ -376,188 +417,102 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table></div>
-<p>Reportar IDI</p>
-</section></section><section id="modelos" class="level3" data-number="1.0.6"><h3 data-number="1.0.6" class="anchored" data-anchor-id="modelos">
-<span class="header-section-number">1.0.6</span> Modelos</h3>
-<p>-la formula de la kangreburger -hacer ecuaciones en latex para todos los modelos que hicimos</p>
-</section><section id="resultados" class="level3" data-number="1.0.7"><h3 data-number="1.0.7" class="anchored" data-anchor-id="resultados">
-<span class="header-section-number">1.0.7</span> Resultados</h3>
+<p>Con respecto al IDI, la media entre los países es de 89.0 (desviación estándar de 4.61). Debido a lo alto del promedio, se justifica especialmente el centrado de variables que se realizó. Cómo se explicó anteriormente, hay dos sistemas educativos que no poseen IDI (Taiwán y República de Kosovo).</p>
+<p>Luego del procesamiento y limpieza de casos perdidos (utilizando listwise), la muestra final contiene 109.266 estudiantes agrupados en 5069 escuelas, en 32 países.</p>
+</section></section><section id="métodos" class="level3"><h3 class="anchored" data-anchor-id="métodos">Métodos</h3>
+<p>El presente estudio utiliza un análisis multinivel, debido a una estructura anidada de los datos utilizados (ICILS 2023) y a la naturaleza de nuestro problema de estudio (acceso y condiciones del sujeto y de sus distintos contextos). Se modelarán los tres niveles disponibles en la base de datos, individuos dentro de escuelas agrupadas en países. Para esto, se utiliza el software R, con los paquetes <code>lme4</code> para estimar los modelos multinivel y <code>influence.ME</code> para diagnosticar casos influyentes.</p>
+<p>Se aplicó un enfoque progresivo para el modelado multinivel, ingresando paso a paso variables relevantes del estudio para analizar el impacto de estas. Para ambas dimensiones de la autoeficacia digital, se estimaron los mismos modelos. Para evitar redundancia, se detallarán solo los modelos aplicados a la autoeficacia digital general.</p>
+<p>En primer lugar, se realizaron modelos nulos para calcular la correlación intraclase de nuestras dos variables dependientes, la autoeficacia digital general y la autoeficacia digital especializada. La fórmula utilizada fue la siguiente:</p>
+<p><span class="math display">\[S\_GENEFF_{ijk} = \gamma_{000} + u_{0jk} + r_{0k} + e_{ijk}\]</span></p>
+<p><span class="math inline">\(S\_GENEFF_{ifk}\)</span> es la autoeficacia general del estudiante <span class="math inline">\(i\)</span> en la escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>; <span class="math inline">\(\gamma_{000}\)</span> es el intercepto fijo; <span class="math inline">\(u_{0jk}\)</span> es el efecto aleatorio de la escuela <span class="math inline">\(j\)</span> en el país <span class="math inline">\(k\)</span>; <span class="math inline">\(r_{0k}\)</span> es el efecto aleatorio del país <span class="math inline">\(k\)</span> y <span class="math inline">\(e_{ijk}\)</span> es el error residual del estudiante <span class="math inline">\(i\)</span>. Luego, en base a los resultados de este modelo se calculó la correlación intraclase siguiendo estas fórmulas:</p>
+<p><span class="math display">\[ICC_{escuela} = \frac{\sigma^2_{u0}}{\sigma^2_{u0} + \sigma^2_e}\]</span></p>
+<p><span class="math display">\[ICC_{país} = \frac{\sigma^2_{r0}}{\sigma^2_{r0} + \sigma^2_{u0} + \sigma^2_e}\]</span></p>
+<p>Posteriormente, se estimaron tres modelos para cada tipo de autoeficacia digital, añadiendo progresivamente las variables individuales, escolares y del país. Estos modelos no serán reportados ni descritos, ya que no se estimaron para comprobar las hipótesis, sino para asegurarse de que el modelo converge e identificar variables problemáticas previo a aumentar la complejidad de los modelos. Si se requiere ver el detalle de ese procedimiento el código se encuentra en <a href="https://github.com/multinivel-facso/trabajo1-grupo-2">el repositorio abierto de la investigación</a>.</p>
+<p>Como siguiente paso, se estimaron los modelos de tres niveles con interacción entre variables de nivel 2 y nivel 1, para evaluar las primeras cuatro hipótesis del estudio. En este modelo, se añadieron como variables de nivel 1 el acceso de computadores y tablets en el hogar, y el sexo y el índice de alfabetización del hogar cómo variables de control. Cómo variable de nivel 2, y para comprobar las hipótesis 2 y 3 del estudio, se añadió la variable del promedio escolar de alfabetización del hogar, construida a partir del índice de alfabetización del hogar de los estudiantes, y se estimó la interacción de esta variable con el sexo del estudiante. Por último, se agregó el IDI como variable de nivel 3, y se aleatorizó el intercepto según <span class="math inline">\(escuela:pais\)</span>. La fórmula utilizada fue la siguiente:</p>
+<p><span class="math display">\[ \begin{align}
+S\_GENEFF_{ijk} &amp;= \gamma_{000} + \gamma_{010} \cdot homelit\_sch\_cmc_{jk} + \gamma_{001} \cdot idi\_gmc_{k} \\
+&amp;\quad + \gamma_{100} \cdot S\_SEX_{ijk} + \gamma_{200} \cdot homelit\_cmc_{ijk} \\
+&amp;\quad + \gamma_{300} \cdot desktops\_cmc_{ijk} + \gamma_{400} \cdot tablets\_cmc_{ijk} \\
+&amp;\quad + \gamma_{110} \cdot homelit\_sch\_cmc_{jk} \cdot S\_SEX_{ijk} \\
+&amp;\quad + u_{0jk} + r_{0k} + e_{ijk}
+\end{align}\]</span></p>
+<p><strong>Nivel 1 (Estudiantes):</strong></p>
+<ul>
+<li>
+<span class="math inline">\(S\_SEX_{ijk}\)</span>: Sexo del estudiante <span class="math inline">\(i\)</span> en escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>.</li>
+<li>
+<span class="math inline">\(homelit\_cmc_{ijk}\)</span>: Índice de alfabetización del hogar (centrado en la media escolar) del estudiante <span class="math inline">\(i\)</span> en escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>.</li>
+<li>
+<span class="math inline">\(desktops\_cmc_{ijk}\)</span>: Computadores de escritorio en el hogar (centrado en la media escolar) del estudiante <span class="math inline">\(i\)</span> en escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>.</li>
+<li>
+<span class="math inline">\(tablets\_cmc_{ijk}\)</span>: Tabletas en el hogar (centrado en la media escolar) del estudiante <span class="math inline">\(i\)</span> en escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p><strong>Nivel 2 (Escuelas):</strong></p>
+<ul>
+<li>
+<span class="math inline">\(homelit\_sch\_cmc_{jk}\)</span>: Promedio del índice de alfabetización del hogar (centrado en la media del país) de la escuela <span class="math inline">\(j\)</span> en el país <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p><strong>Nivel 3 (Países):</strong></p>
+<ul>
+<li>
+<span class="math inline">\(idi\_gmc_{k}\)</span>: Índice de desarrollo de TIC del país <span class="math inline">\(k\)</span> (centrado en la gran media).</li>
+</ul>
+<p><strong>Efectos:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(\gamma_{000}\)</span>: Intercepto general (autoeficacia promedio).</li>
+<li>
+<span class="math inline">\(\gamma_{010}\)</span>: Efecto del promedio escolar de alfabetización del hogar.</li>
+<li>
+<span class="math inline">\(\gamma_{001}\)</span>: Efecto del índice de desarrollo TIC del país.</li>
+<li>
+<span class="math inline">\(\gamma_{100}\)</span>: Efecto principal del sexo.</li>
+<li>
+<span class="math inline">\(\gamma_{200}\)</span>: Efecto de los recursos de alfabetización individuales.</li>
+<li>
+<span class="math inline">\(\gamma_{300}\)</span>: Efecto de tenencia de computadores en el hogar.</li>
+<li>
+<span class="math inline">\(\gamma_{400}\)</span>: Efecto de tenencia de tablets en el hogar.</li>
+<li>
+<span class="math inline">\(\gamma_{110}\)</span>: Interacción cross-level entre promedio escolar de alfabetización del hogar y sexo del estudiante.</li>
+</ul>
+<p>Cómo último modelo, se aleatorizó el efecto de los computadores en el hogar según escuelas dentro de países, para evaluar la última hipótesis planteada. Para esto, se utilizó la siguiente fórmula:</p>
+<p><span class="math display">\[\begin{align}
+S\_GENEFF_{ijk} &amp;= \gamma_{000} + \gamma_{010} \cdot homelit\_sch\_cmc_{jk} + \gamma_{001} \cdot idi\_gmc_{k} \\
+&amp;\quad + \gamma_{100} \cdot S\_SEX_{ijk} + \gamma_{200} \cdot homelit\_cmc_{ijk} \\
+&amp;\quad + \gamma_{300} \cdot desktops\_cmc_{ijk} + \gamma_{400} \cdot tablets\_cmc_{ijk} \\
+&amp;\quad + \gamma_{110} \cdot homelit\_sch\_cmc_{jk} \cdot S\_SEX_{ijk} \\
+&amp;\quad + u_{0jk} + u_{3jk} \cdot desktops\_cmc_{ijk} + r_{0k} + r_{3k} \cdot desktops\_cmc_{ijk} + e_{ijk}
+\end{align}\]</span></p>
+<p>El modelo es similar al anterior, pero se agregó <span class="math inline">\(u_{3jk} \cdot desktops\_cmc_{ijk}\)</span> y <span class="math inline">\(r_{3k} \cdot desktops\_cmc_{ijk}\)</span> para medir tanto la desviación de la pendiente de <span class="math inline">\(desktops\_cmc\)</span> en la escuela <span class="math inline">\(j\)</span> del país <span class="math inline">\(k\)</span>, como la desviación de la pendiente de <span class="math inline">\(desktops\_cmc\)</span> del país <span class="math inline">\(k\)</span> por si solo.</p>
+<p>Posteriormente, se realizó un test de ANOVA para medir la diferencia entre los modelos de intercepto aleatorio e interacción y el último modelo, con intercepto aleatorio, pendiente aleatoria e interacción. Se observarán las métricas <span class="math inline">\(AIC\)</span> y <span class="math inline">\(BIC\)</span> y la significancia del test para analizar si existe una mejora en el último modelo.</p>
+<p>Para finalizar, se realizó un test de la distancia de cook para evaluar los países influyentes en los modelos calculados, y potencialmente eliminar alguno que genere excesivo ruido en los datos.</p>
+</section><section id="resultados" class="level3"><h3 class="anchored" data-anchor-id="resultados">Resultados</h3>
 <section id="estadísticos-bivariados" class="level4"><h4 class="anchored" data-anchor-id="estadísticos-bivariados">Estadísticos bivariados</h4>
 <p><img src="icils2023_proc_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-<p>El gráfico X indica que las correlaciones tanto de la autoeficacia general como de la especializada son bajas…</p>
+<p>Para analizar la relación entre nuestras variables, se realizó una matriz de correlaciones. En general, la gran mayoría de variables presentan una correlación baja con ambas autoeficacias (r&lt;0.2). Ambas dimensiones de la autoeficacia digital covarían (r=0.58), lo cual sustenta que las hipótesis del estudio no distingan entre ambas variables.</p>
 </section><section id="modelos-nulos" class="level4"><h4 class="anchored" data-anchor-id="modelos-nulos">Modelos nulos</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Linear mixed model fit by REML ['lmerMod']
-Formula: S_GENEFF ~ 1 + (1 | CNTRY/id_school_unique)
-   Data: datos_limpios
-
-REML criterion at convergence: 782773.8
-
-Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--4.4978 -0.6384 -0.1464  0.5209  2.8968 
-
-Random effects:
- Groups                 Name        Variance Std.Dev.
- id_school_unique:CNTRY (Intercept)  2.924   1.710   
- CNTRY                  (Intercept)  3.259   1.805   
- Residual                           92.030   9.593   
-Number of obs: 106002, groups:  id_school_unique:CNTRY, 5035; CNTRY, 32
-
-Fixed effects:
-            Estimate Std. Error t value
-(Intercept)   50.283      0.322   156.1</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Linear mixed model fit by REML ['lmerMod']
-Formula: S_SPECEFF ~ 1 + (1 | CNTRY/id_school_unique)
-   Data: datos_limpios
-
-REML criterion at convergence: 782128.4
-
-Scaled residuals: 
-     Min       1Q   Median       3Q      Max 
--2.91630 -0.56217 -0.04385  0.53410  2.92213 
-
-Random effects:
- Groups                 Name        Variance Std.Dev.
- id_school_unique:CNTRY (Intercept)  3.323   1.823   
- CNTRY                  (Intercept)  5.214   2.284   
- Residual                           91.228   9.551   
-Number of obs: 106002, groups:  id_school_unique:CNTRY, 5035; CNTRY, 32
-
-Fixed effects:
-            Estimate Std. Error t value
-(Intercept)  49.8199     0.4061   122.7</code></pre>
-</div>
-<div class="cell-output-display">
-<table style="border-collapse:collapse; border:none;">
-<tbody><tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia General</th>
+<table class="caption-top table" data-quarto-postprocess="true">
+<caption>Correlación Intraclase por Nivel</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Autoeficacia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ICC País</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ICC Escuela</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">General</td>
+<td style="text-align: right;">0.034</td>
+<td style="text-align: right;">0.031</td>
 </tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
+<tr class="even">
+<td style="text-align: left;">Especializada</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: right;">0.035</td>
 </tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.28</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td colspan="3" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">92.03</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub><sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">2.92</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub><sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">3.26</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.06</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">5035</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">32</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">106002</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.000 / 0.063</td>
-</tr>
-</tbody></table>
-</div>
-<div class="cell-output-display">
-<table style="border-collapse:collapse; border:none;">
-<tbody><tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
-<th colspan="2" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia Específica</th>
-</tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">49.82</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td colspan="3" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">91.23</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub><sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">3.32</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub><sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">5.21</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.09</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">5035</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">32</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="2">106002</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="2">0.000 / 0.086</td>
-</tr>
-</tbody></table>
-</div>
-</div>
+</tbody>
+</table>
+<p>Sobre los modelos nulos, se observa una baja correlación intra clase en ambas autoeficacias digitales, tanto a nivel escuela como a nivel país. En la dimensión general, la varianza dependiente del país es de 3.4% y de 3.1% al nivel escuela. La especializada se comporta similar en el nivel escuela (un 3.5% de la varianza depende de la escuela), pero a nivel país presenta un aumento, con un 5.3% de la varianza asociada al país del estudiante. Estos resultados justifican el uso de modelos multinivel, aunque sugieren que los factores individuales son más determinantes que los contextuales en la autoeficacia digital.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -567,34 +522,35 @@ lm(formula = S_GENEFF ~ homelit_sch_cmc + cil_sch_cmc + desktops_cmc +
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--42.175  -6.318  -1.478   5.107  28.998 
+-42.200  -6.303  -1.489   5.089  29.075 
 
 Coefficients:
                   Estimate Std. Error  t value             Pr(&gt;|t|)    
-(Intercept)     50.3017052  0.0422592 1190.315 &lt; 0.0000000000000002 ***
-homelit_sch_cmc  0.6183629  0.0694149    8.908 &lt; 0.0000000000000002 ***
-cil_sch_cmc      0.0189119  0.0008146   23.216 &lt; 0.0000000000000002 ***
-desktops_cmc     1.1028450  0.0377866   29.186 &lt; 0.0000000000000002 ***
-tablets_cmc      0.3996088  0.0301277   13.264 &lt; 0.0000000000000002 ***
-idi_gmc         -0.1186177  0.0075070  -15.801 &lt; 0.0000000000000002 ***
-S_SEX           -0.3624971  0.0597223   -6.070        0.00000000129 ***
-homelit_cmc      0.6980070  0.0270535   25.801 &lt; 0.0000000000000002 ***
+(Intercept)     50.2599357  0.0415093 1210.812 &lt; 0.0000000000000002 ***
+homelit_sch_cmc  0.6423281  0.0682855    9.407 &lt; 0.0000000000000002 ***
+cil_sch_cmc      0.0188662  0.0008013   23.544 &lt; 0.0000000000000002 ***
+desktops_cmc     1.1072527  0.0371303   29.821 &lt; 0.0000000000000002 ***
+tablets_cmc      0.4053537  0.0296275   13.682 &lt; 0.0000000000000002 ***
+idi_gmc         -0.1202106  0.0074095  -16.224 &lt; 0.0000000000000002 ***
+S_SEX           -0.3413137  0.0587523   -5.809        0.00000000629 ***
+homelit_cmc      0.6991520  0.0266215   26.263 &lt; 0.0000000000000002 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 9.691 on 105994 degrees of freedom
-Multiple R-squared:  0.0364,    Adjusted R-squared:  0.03634 
-F-statistic:   572 on 7 and 105994 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+Residual standard error: 9.68 on 109258 degrees of freedom
+Multiple R-squared:  0.03705,   Adjusted R-squared:  0.03699 
+F-statistic: 600.5 on 7 and 109258 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 </div>
 </div>
-</section><section id="modelos-multinivel-simples" class="level4"><h4 class="anchored" data-anchor-id="modelos-multinivel-simples">Modelos multinivel simples</h4>
-<p>Ver si cambiar el cil_sch_cmc por el homelit_sch_cmc, en base al resultado del próximo h4 (modelos con interacción)</p>
+</section><section id="modelos-con-interacción" class="level4"><h4 class="anchored" data-anchor-id="modelos-con-interacción">Modelos con interacción</h4>
+</section><section id="modelos-con-pendiente-aleatoria" class="level4"><h4 class="anchored" data-anchor-id="modelos-con-pendiente-aleatoria">Modelos con pendiente aleatoria</h4>
 <table style="border-collapse:collapse; border:none;">
 <tbody><tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia General</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia General</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia General</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Intercepto aleatorio autoeficacia general</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Pendiente aleatoria autoeficacia general</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Intercepto aleatorio autoeficacia especializada</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Pendiente aleatoria autoeficacia especializada</th>
 </tr>
 <tr>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
@@ -607,310 +563,225 @@ F-statistic:   572 on 7 and 105994 DF,  p-value: &lt; 0.00000000000000022</code>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">Estimates</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">CI</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">CI</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  3">p</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.44</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">49.81&nbsp;–&nbsp;51.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.38</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">49.77&nbsp;–&nbsp;50.99</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.42</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">49.79&nbsp;–&nbsp;51.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.38</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">49.77&nbsp;–&nbsp;50.99</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">50.41</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">49.80&nbsp;–&nbsp;51.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">50.95</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">50.24&nbsp;–&nbsp;51.67</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">50.95</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">50.24&nbsp;–&nbsp;51.66</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Sexo del Estudiante</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.37</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.49&nbsp;–&nbsp;-0.25</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Promedio Literatura por<br>escuela (centrado a la<br>media general)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.85&nbsp;–&nbsp;2.20</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.42</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.54&nbsp;–&nbsp;-0.31</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.85&nbsp;–&nbsp;2.19</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.42</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-0.54&nbsp;–&nbsp;-0.31</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.42</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.24&nbsp;–&nbsp;0.60</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.42</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.24&nbsp;–&nbsp;0.60</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Índice de Literatura en<br>Casa(centrado a la media<br>de escuela)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">S_SEX: Mujeres</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.33</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.45&nbsp;–&nbsp;-0.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.33</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.45&nbsp;–&nbsp;-0.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-2.36</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-2.48&nbsp;–&nbsp;-2.25</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-2.36</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">-2.48&nbsp;–&nbsp;-2.25</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Índice de Literatura en<br>Casa (centrado a la media<br>de escuela)</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.69</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.64&nbsp;–&nbsp;0.74</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.70</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.64&nbsp;–&nbsp;0.75</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.70</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.64&nbsp;–&nbsp;0.75</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de computadores en<br>Casa(centrado a la media<br>de escuela)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.10</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.02&nbsp;–&nbsp;1.17</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.02&nbsp;–&nbsp;1.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">1.02&nbsp;–&nbsp;1.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de tablets en<br>Casa(centrado a la media<br>de escuela)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.40</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.35&nbsp;–&nbsp;0.46</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.40</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.34&nbsp;–&nbsp;0.46</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.40</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.34&nbsp;–&nbsp;0.46</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Promedio CIL por<br>escuela(centrado a la<br>media general)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02&nbsp;–&nbsp;0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.02&nbsp;–&nbsp;0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">IDI(centrado a la media<br>general)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.12</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-0.26&nbsp;–&nbsp;0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.070</td>
-</tr>
-<tr>
-<td colspan="10" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">89.79</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">89.75</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">89.75</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.07 <sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.89 <sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.89 <sub>id_school_unique:CNTRY</sub>
-</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.24 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.24 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.02 <sub>CNTRY</sub>
-</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.05</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.05</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
-</td>
-
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">32 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">32 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">32 <sub>CNTRY</sub>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.022 / 0.086</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.033 / 0.086</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.036 / 0.086</td>
-</tr>
-</tbody></table>
-<table style="border-collapse:collapse; border:none;">
-<tbody><tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia Específica</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia Específica</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Autoeficacia Específica</th>
-</tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">CI</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">CI</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">CI</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">p</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">51.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.21&nbsp;–&nbsp;51.82</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">51.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">50.22&nbsp;–&nbsp;51.82</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">50.99</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">50.28&nbsp;–&nbsp;51.71</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Sexo del Estudiante</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-2.39</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-2.51&nbsp;–&nbsp;-2.28</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-2.37</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-2.49&nbsp;–&nbsp;-2.25</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-2.37</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-2.49&nbsp;–&nbsp;-2.25</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Índice de Literatura en<br>Casa(centrado a la media<br>de escuela)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.21</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.16&nbsp;–&nbsp;0.26</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.21</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.16&nbsp;–&nbsp;0.26</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.69</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.64&nbsp;–&nbsp;0.74</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.21</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.16&nbsp;–&nbsp;0.26</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.21</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.16&nbsp;–&nbsp;0.26</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de computadores en<br>Casa(centrado a la media<br>de escuela)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.68</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.61&nbsp;–&nbsp;0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de computadores en<br>Casa (centrado a la media<br>de escuela)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.03&nbsp;–&nbsp;1.17</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.68</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.61&nbsp;–&nbsp;0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.13</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">1.01&nbsp;–&nbsp;1.25</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.68</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.61&nbsp;–&nbsp;0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.69</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.62&nbsp;–&nbsp;0.77</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.69</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.57&nbsp;–&nbsp;0.80</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de tablets en<br>Casa(centrado a la media<br>de escuela)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.75</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.69&nbsp;–&nbsp;0.81</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Número de tablets en Casa<br>(centrado a la media de<br>escuela)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.41</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.35&nbsp;–&nbsp;0.47</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.75</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.69&nbsp;–&nbsp;0.81</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.41</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.35&nbsp;–&nbsp;0.46</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.75</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.69&nbsp;–&nbsp;0.81</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.69&nbsp;–&nbsp;0.81</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">Promedio CIL por<br>escuela(centrado a la<br>media general)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.01&nbsp;–&nbsp;-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-0.01&nbsp;–&nbsp;-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">IDI(centrado a la media<br>general)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">IDI (centrado a la media<br>general)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.13</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.27&nbsp;–&nbsp;0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.053</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.13</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.27&nbsp;–&nbsp;0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">0.052</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.25</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-0.40&nbsp;–&nbsp;-0.09</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>0.002</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.25</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">-0.41&nbsp;–&nbsp;-0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>0.002</strong></td>
 </tr>
 <tr>
-<td colspan="10" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">homelit_sch_cmc:S_SEXMujeres</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.78</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.99&nbsp;–&nbsp;-0.56</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.77</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.99&nbsp;–&nbsp;-0.56</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.97</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">-1.18&nbsp;–&nbsp;-0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.97</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">-1.18&nbsp;–&nbsp;-0.75</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td colspan="13" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">88.60</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">88.60</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">88.60</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">89.55</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">89.04</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">88.51</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">88.24</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.36 <sub>id_school_unique:CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.35 <sub>id_school_unique:CNTRY</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.23 <sub>id_school_unique:CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.38 <sub>id_school_unique:CNTRY</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.23 <sub>id_school_unique:CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.34 <sub>id_school_unique:CNTRY</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">3.35 <sub>id_school_unique:CNTRY</sub>
 </td>
 
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5.26 <sub>CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.99 <sub>CNTRY</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5.29 <sub>CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.99 <sub>CNTRY</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">4.15 <sub>CNTRY</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">4.12 <sub>CNTRY</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">4.12 <sub>CNTRY</sub>
+</td>
+
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>11</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.64 <sub>id_school_unique:CNTRY.desktops_cmc</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.33 <sub>id_school_unique:CNTRY.desktops_cmc</sub>
+</td>
+
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.07 <sub>CNTRY.desktops_cmc</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.07 <sub>CNTRY.desktops_cmc</sub>
+</td>
+
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ρ<sub>01</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.25 <sub>id_school_unique:CNTRY</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.00 <sub>id_school_unique:CNTRY</sub>
+</td>
+
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">-0.03 <sub>CNTRY</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">-0.10 <sub>CNTRY</sub>
 </td>
 
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.08</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.08</td>
 
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5069 <sub>id_school_unique</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5069 <sub>id_school_unique</sub>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5035 <sub>id_school_unique</sub>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5069 <sub>id_school_unique</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">5069 <sub>id_school_unique</sub>
 </td>
 
 </tr>
@@ -922,632 +793,179 @@ F-statistic:   572 on 7 and 105994 DF,  p-value: &lt; 0.00000000000000022</code>
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">32 <sub>CNTRY</sub>
 </td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">32 <sub>CNTRY</sub>
+</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">106002</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">109266</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">109266</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">109266</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">109266</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
 </td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.027 / 0.113</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.028 / 0.113</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.037 / 0.111</td>
-</tr>
-</tbody></table></section><section id="modelos-con-interacción" class="level4"><h4 class="anchored" data-anchor-id="modelos-con-interacción">Modelos con interacción</h4>
-<table style="border-collapse:collapse; border:none;">
-<tbody><tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
-&nbsp;
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Autoeficacia General
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Autoeficacia General
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Autoeficacia Específica
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Autoeficacia Específica
-</th>
-</tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
-Predictors
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-Estimates
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-p
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-Estimates
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
-p
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">
-Estimates
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">
-CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">
-p
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">
-Estimates
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">
-CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  3">
-p
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-(Intercept)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-50.39
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-49.78&nbsp;–&nbsp;51.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-50.42
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-49.82&nbsp;–&nbsp;51.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-50.98
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-50.27&nbsp;–&nbsp;51.69
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-50.98
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-50.27&nbsp;–&nbsp;51.70
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Promedio CIL por<br>escuela(centrado a la<br>media general)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.03&nbsp;–&nbsp;0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
--0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
--0.01&nbsp;–&nbsp;-0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>0.002</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-S SEX: Mujeres
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.38
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.49&nbsp;–&nbsp;-0.26
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.35
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.46&nbsp;–&nbsp;-0.23
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--2.37
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--2.48&nbsp;–&nbsp;-2.25
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
--2.33
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
--2.45&nbsp;–&nbsp;-2.21
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Índice de Literatura en<br>Casa(centrado a la media<br>de escuela)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.70
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.64&nbsp;–&nbsp;0.75
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.69
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.64&nbsp;–&nbsp;0.74
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.21
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-0.16&nbsp;–&nbsp;0.26
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-0.21
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-0.16&nbsp;–&nbsp;0.26
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Número de computadores en<br>Casa(centrado a la media<br>de escuela)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-1.09
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-1.02&nbsp;–&nbsp;1.16
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-1.09
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-1.02&nbsp;–&nbsp;1.17
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.68
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-0.61&nbsp;–&nbsp;0.75
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-0.68
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-0.61&nbsp;–&nbsp;0.75
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Número de tablets en<br>Casa(centrado a la media<br>de escuela)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.40
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.35&nbsp;–&nbsp;0.46
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.40
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.35&nbsp;–&nbsp;0.46
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.75
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-0.70&nbsp;–&nbsp;0.81
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-0.75
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-0.70&nbsp;–&nbsp;0.81
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-IDI(centrado a la media<br>general)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.12
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.26&nbsp;–&nbsp;0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.072
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.13
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.26&nbsp;–&nbsp;0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-0.055
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.24
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.40&nbsp;–&nbsp;-0.09
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>0.002</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
--0.25
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
--0.40&nbsp;–&nbsp;-0.09
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>0.002</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-cil_sch_cmc:S_SEXMujeres
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.01&nbsp;–&nbsp;-0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
--0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
--0.01&nbsp;–&nbsp;-0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Promedio Literatura por<br>escuela(centrado a la<br>media general)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-2.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-1.84&nbsp;–&nbsp;2.19
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.39
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-0.21&nbsp;–&nbsp;0.57
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-homelit_sch_cmc:S_SEXMujeres
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.80
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--1.02&nbsp;–&nbsp;-0.58
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.99
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--1.20&nbsp;–&nbsp;-0.77
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
-</td>
-</tr>
-<tr>
-<td colspan="13" style="font-weight:bold; text-align:left; padding-top:.8em;">
-Random Effects
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-σ<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-89.69
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-89.72
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-88.53
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-88.56
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-τ<sub>00</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-1.91 <sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-2.36 <sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-3.36 <sub>id_school_unique:CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-3.24 <sub>id_school_unique:CNTRY</sub>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-3.02 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-2.96 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-4.12 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-4.17 <sub>CNTRY</sub>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-ICC
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.05
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.06
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.08
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.08
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-N
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-5035 <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-5035 <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-5035 <sub>id_school_unique</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-5035 <sub>id_school_unique</sub>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-32 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-32 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-32 <sub>CNTRY</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-32 <sub>CNTRY</sub>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
-Observations
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-106002
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-106002
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-106002
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-106002
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.037 / 0.087
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.032 / 0.086
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.037 / 0.112
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.038 / 0.112
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.033 / 0.087</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.033 / 0.093</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.037 / 0.112</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.037 / 0.115</td>
 </tr>
 </tbody></table>
-<p>`````<img src="icils2023_proc_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-<p>Tarea: observar esos 4 modelos, para escoger entre homelit promediado a la escuela o CIL promediado a la escuela. Luego aleatorizar alguna de las pendientes, tirar un anova para ver diferencias entre modelos y sacar casos influyentes.</p>
-</section><section id="modelos-con-pendiente-aleatoria" class="level4"><h4 class="anchored" data-anchor-id="modelos-con-pendiente-aleatoria">Modelos con pendiente aleatoria</h4>
-</section><section id="análisis-de-casos-influyentes" class="level4"><h4 class="anchored" data-anchor-id="análisis-de-casos-influyentes">Análisis de casos influyentes</h4>
-<p>Sacar distancia de cook y dfbetas, hacer sigtest para nivel escuela y nivel pais</p>
-</section><section id="test-de-anova-para-diferencias-entre-modelos" class="level4"><h4 class="anchored" data-anchor-id="test-de-anova-para-diferencias-entre-modelos">Test de Anova para diferencias entre modelos</h4>
-<p>Reportar diferencia entre modelos de intercepto aleatorio y de pendiente aleatoria</p>
-</section></section><section id="conclusiones" class="level3" data-number="1.0.8"><h3 data-number="1.0.8" class="anchored" data-anchor-id="conclusiones">
-<span class="header-section-number">1.0.8</span> Conclusiones</h3>
-</section><section id="bibliografía" class="level3" data-number="1.0.9"><h3 data-number="1.0.9" class="anchored" data-anchor-id="bibliografía">
-<span class="header-section-number">1.0.9</span> Bibliografía</h3>
-<div style="margin-left: 0.5in;  text-indent: -0.5in;">
-<p>Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511527692" class="uri">https://doi.org/10.1017/CBO9780511527692</a>&nbsp;</p>
-<p>Eastin, M. S., &amp; LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <a href="https://doi.org/10.1111/j.1083-6101.2000.tb00110.x" class="uri">https://doi.org/10.1111/j.1083-6101.2000.tb00110.x</a>&nbsp;</p>
-<p>Fraillon, J., Ainley, J., Schulz, W., Friedman, T., &amp; Duckworth, D. (2020). Preparing for Life in a Digital World: IEA International Computer and Information Literacy Study 2018 International Report. Springer. <a href="https://doi.org/10.1007/978-3-030-38781-5" class="uri">https://doi.org/10.1007/978-3-030-38781-5</a>&nbsp;</p>
-<p>Gran, A., Booth, P., &amp; Bucher, T. (2021). To be or not to be algorithm aware: A question of a new digital divide? Information, Communication &amp; Society, 24(12), 1779–1796. <a href="https://doi.org/10.1080/1369118X.2020.1736124" class="uri">https://doi.org/10.1080/1369118X.2020.1736124</a>&nbsp;</p>
-<p>Hatlevik, O. E., Gudmundsdottir, G. B., &amp; Loi, M. (2018). Digital diversity among upper secondary students: A multilevel analysis of the relationship between socio-economic status and digital competence. Computers &amp; Education, 120, 91–102. <a href="https://doi.org/10.1016/j.compedu.2014.10.019" class="uri">https://doi.org/10.1016/j.compedu.2014.10.019</a>&nbsp;</p>
-<p>Livingstone, S., &amp; Helsper, E. J. (2007). Gradations in digital inclusion: Children, young people and the digital divide. New Media &amp; Society, 9(4), 671–696. <a href="https://www.researchgate.net/publication/30522837_Gradations_in_digital_inclusion_children_young_people_and_the_digital_divide" class="uri">https://www.researchgate.net/publication/30522837_Gradations_in_digital_inclusion_children_young_people_and_the_digital_divide</a>&nbsp;</p>
-<p>Lythreatis, S. &amp; Singh, S. K. &amp; El-Kassar, A-N. (2022). The digital divide: A review and future research agenda. Technological Forecasting and Social Change, Elsevier, 175(C). <a href="https://www.researchgate.net/publication/356589038_The_digital_divide_A_review_and_future_research_agenda" class="uri">https://www.researchgate.net/publication/356589038_The_digital_divide_A_review_and_future_research_agenda</a>&nbsp;</p>
-<p>Snijders, T. A. B., &amp; Bosker, R. J. (1999). Multilevel analysis: An introduction to basic and advanced multilevel modeling. Sage.&nbsp;</p>
-<p>Ulfert-Blank, A. S., &amp; Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers &amp; Education, 191, 104626. <a href="https://doi.org/10.1016/j.compedu.2022.104626" class="uri">https://doi.org/10.1016/j.compedu.2022.104626</a>&nbsp;</p>
-<p>UNESCO. (2018). Digital skills critical for jobs and social inclusion. <a href="https://www.unesco.org/en/articles/digital-skills-critical-jobs-and-social-inclusion" class="uri">https://www.unesco.org/en/articles/digital-skills-critical-jobs-and-social-inclusion</a>&nbsp;</p>
-<p>Van Deursen, A. J. A. M., &amp; van Dijk, J. A. G. M. (2011). Internet skills and the digital divide. New Media &amp; Society, 13(6), 893–911. <a href="https://doi.org/10.1177/1461444810386774" class="uri">https://doi.org/10.1177/1461444810386774</a>&nbsp;</p>
-<p>Van Dijk, J. A. (2020). The Digital Divide. Polity Press. <a href="https://www.researchgate.net/publication/339751402_Jan_Dijk_2020_The_digital_divide_Cambridge_UK_Polity_208_pp_1799_paperback_ISBN_9781509534456" class="uri">https://www.researchgate.net/publication/339751402_Jan_Dijk_2020_The_digital_divide_Cambridge_UK_Polity_208_pp_1799_paperback_ISBN_9781509534456</a>&nbsp;</p>
+<p>El efecto de los recursos en el hogar (ya sean tecnológicos o de alfabetización) es significativo y positivo en ambas dimensiones de autoeficacia digital. En general, los efectos son mayores en el caso de la autoeficacia digital general, siendo el efecto del aumento de una unidad de la variable de computadores en el hogar, tablets en el hogar y alfabetización del hogar 1.13, 0.41 y 0.69, respectivamente. Para la autoeficacia especializada, en el caso de las tablets se da la tendencia contraria, teniendo un aumento de 0.75 por unidad de aumento de la cantidad de tablets en el hogar.</p>
+<p>El efecto del índice de alfabetización del hogar y de la posesión de computadores sobre la autoeficacia especializada es de 0.21 y de 0.69, respectivamente. En ambas dimensiones de la autoeficacia, el efecto del género es negativo, siendo mayor en el caso de la autoeficacia especializada, presentando ambos efectos una diferencia considerable (-0.33 vs -2.36). Esto señala una brecha de género en autoeficacia digital, especialmente aguda en el caso de tareas más complejas.</p>
+<p>El promedio de alfabetización en la escuela es significativo y positivo en ambas dimensiones; el aumento de una unidad en esta variable produce un incremento de 2.02 puntos en autoeficacia digital general y 0.42 puntos en autoeficacia digital especializada. El efecto del IDI solo es significativo en la autoeficacia especializada, implicando una unidad adicional de IDI un decrecimiento de 0.25 puntos de autoeficacia digital especializada. Este efecto es pequeño, pero es significativo y puede indicar que estudiantes en países con mejor infraestructura tecnológica infravaloran sus capacidades frente a sus pares de países menos&nbsp;desarrollados.</p>
+<p>Los modelos con intercepto aleatorio y los modelos con pendiente aleatoria se comportan de manera similar, presentando diferencias mínimas en los estimadores. El único cambio percibido es un aumento pequeño en el <span class="math inline">\(R^2\)</span> (0.006 en los modelos de autoeficacia general y 0.003 en los modelos de autoeficacia especializada). Los dos modelos de pendiente aleatoria indican que el efecto de acceso a computadores en el hogar varía significativamente entre escuelas y países. Esta variación es mayor en el caso de la autoeficacia general que en la especializada. El <span class="math inline">\(\rho01\)</span> del modelo de autoeficacia digital general indica que en escuelas con un mayor intercepto el efecto de la posesión de computadores es mayor, lo que sugiere desigualdades acumulativas entre escuelas y mejores actitudes hacia las capacidades digitales. Este efecto no existe en el caso de la autoeficacia digital especializada. Sobre el nivel país, el <span class="math inline">\(\rho_01\)</span> es de 0.07 en ambos modelos, señalando una correlación positiva y baja entre el intercepto del grupo y el efecto de los computadores en el hogar.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="icils2023_proc_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</section></section></main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="icils2023_proc_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sobre la interacción entre género y alfabetización de la escuela, en ambos casos es significativa y negativa, siendo más relevante en el caso de la autoeficacia digital especializada. En la dimensión general, una escuela con hogares más alfabetizados sigue prediciendo mejores niveles de autoeficacia para las mujeres, pero en la dimensión especializada el efecto de escuelas más alfabetizadas se invierte y vuelve negativo para las niñas, permaneciendo positivo para los niños. En escuelas con mayores recursos, la brecha anteriormente observada se acentúa, especialmente en la actitud hacia labores más complejas.</p>
+</section><section id="test-de-anova-para-diferencias-entre-modelos" class="level4"><h4 class="anchored" data-anchor-id="test-de-anova-para-diferencias-entre-modelos">Test de Anova para diferencias entre modelos</h4>
+<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true">
+<caption>Comparación de Modelos: Test de Razón de Verosimilitud para Pendientes Aleatorias</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="6" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Criterios de Información
+</div></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Test Estadístico
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable Dependiente</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">AIC Base</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">AIC Pendiente</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Δ AIC</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">BIC Base</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">BIC Pendiente</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Δ BIC</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">χ²</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">gl</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p-valor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S_GENEFF (Autoeficacia General)</td>
+<td style="text-align: right;">803540</td>
+<td style="text-align: right;">803475</td>
+<td style="text-align: right; font-weight: bold; color: green !important;">64.7</td>
+<td style="text-align: right;">803645</td>
+<td style="text-align: right;">803619</td>
+<td style="text-align: right; font-weight: bold; color: green !important;">26.2</td>
+<td style="text-align: right;">72.652</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left; font-weight: bold; color: blue !important;">&lt; 0.001***</td>
+<td style="text-align: left;">Mejora significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S_SPECEFF (Autoeficacia Específica)</td>
+<td style="text-align: right;">802971</td>
+<td style="text-align: right;">802950</td>
+<td style="text-align: right; font-weight: bold; color: green !important;">20.8</td>
+<td style="text-align: right;">803076</td>
+<td style="text-align: right;">803094</td>
+<td style="text-align: right; font-weight: bold; color: red !important;">-17.7</td>
+<td style="text-align: right;">28.755</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left; font-weight: bold; color: blue !important;">&lt; 0.001***</td>
+<td style="text-align: left;">Mejora significativa</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notas:</span></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0;">
+<sup></sup> *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05; Δ AIC/BIC: valores positivos indican mejora del modelo con pendiente aleatoria</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+</table>
+<p>Con respecto al ANOVA, se presentan diferencias significativas entre los modelos de intercepto aleatorio y pendiente aleatoria. Tanto en la autoeficacia digital general como la especializada existe una mejora en el <span class="math inline">\(AIC\)</span>, mientras que en el indicador <span class="math inline">\(BIC\)</span> hay un mejor puntaje solamente en la dimensión general. Se concluye que los modelos con pendiente aleatoria son más explicativos.</p>
+</section><section id="análisis-de-casos-influyentes" class="level4"><h4 class="anchored" data-anchor-id="análisis-de-casos-influyentes">Análisis de casos influyentes</h4>
+<p><img src="icils2023_proc_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"><img src="icils2023_proc_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+<p>Con respecto al análisis de casos influyentes realizado al nivel país, llaman la atención los casos de República Checa en la autoeficacia general y de Kazajistán en la autoeficacia especializada. Ninguno de estos casos es significativo por lo que se decide no eliminar ningún país.</p>
+</section></section><section id="conclusiones" class="level3"><h3 class="anchored" data-anchor-id="conclusiones">Conclusiones</h3>
+<p>Tal como indica la bibliografía, la correlación intraclase de los diferentes niveles es baja, especialmente la de escuela (~0.03) (Hatlevik et al., 2018; Juhaňák et al., 2019). Esto apunta a que las características individuales son más relevantes que las contextuales a la hora de definir las actitudes sobre las capacidades digitales de los estudiantes. El país, sin embargo, sí explica un porcentaje un poco mayor de la varianza (~0.05), lo cual podría abrir líneas de estudio en relación con las características de los países o de regiones más amplias, sean de tipo culturales, políticas, económicas o de otro tipo. Se actualizan las conclusiones de Hatlevik et al.&nbsp;(2018) y Cheng &amp; Hu (2020) respecto al comportamiento heterogéneo de la autoeficacia si se comparan diferentes países.</p>
+<p>Se confirma la hipótesis 1. Es posible inferir diferencias en el tipo de acceso, porque en la autoeficacia digital general los computadores tienen un mayor efecto que las tablets, pero en la autoeficacia digital especializada ocurre lo contrario: las tablets tienen un mayor efecto. Por el bajo tamaño de los efectos, es difícil concluir algo sólido; sin embargo, estas diferencias llaman la atención y sería interesante indagar en ellas. La importancia del acceso a TIC en el hogar para predecir la autoeficacia es congruente con lo que la literatura señala (Stone, 2020; Senkbeil, 2023). Esto se relaciona con la importancia que le otorga Bandura (1995) a la experiencia vicaria para definir el desarrollo de la autoeficacia, pues los resultados apuntan a que, si en el hogar hay artefactos digitales en uso, aumenta la autoeficacia digital de los estudiantes. Sería importante, para profundizar en este hallazgo, observar cómo la autoeficacia se comporta en relación con otros contextos de acceso a TIC, como la escuela, pues podría tener otro tipo de efectos (Ball et al., 2020).</p>
+<p>Respecto a la segunda hipótesis, esta también es confirmada por los resultados, ya que se identifica una relación positiva entre alfabetización escolar y autoeficacia digital. Esto apunta a que, para un estudiante, desenvolverse en un medio escolar donde sus pares tienen un mayor capital cultural aumenta su actitud positiva hacia sus capacidades digitales. El efecto de esta variable sobre la autoeficacia general es mayor que sobre la específica. Esto se puede interpretar de varias maneras: una forma de verlo es que el salto cualitativo de la alfabetización a las tareas digitales básicas es menor que a las tareas más avanzadas (por ejemplo, distinguir entre información verídica e información falsa en internet tiene una relación más intuitiva con el capital cultural que la que tiene este último con montar un servidor). Otra forma de verlo es que el capital cultural de una escuela no necesariamente se relaciona con la posesión de tecnología, pues hay escuelas y hogares con un alto nivel socioeconómico que no fomentan el uso de TIC, como es el caso de los sistemas educativos y comunidades Waldorf o Montessori.</p>
+<p>Uno de los hallazgos más interesantes confirma la hipótesis tres, pues la interacción entre sexo y alfabetización escolar es significativa. Aparte de existir una brecha de género como tal en ambas autoeficacias digitales, el sexo implica un efecto menor del capital cultural escolar sobre la autoeficacia digital. Específicamente, en el caso de la autoeficacia digital especializada, el efecto se invierte, lo que significa que la confianza de las mujeres en sus capacidades digitales complejas disminuye cuando el capital cultural de la escuela aumenta. Esto coincide con los hallazgos de Gebhardt et al.&nbsp;(2019) respecto a las diferencias de género, que se acentúan en la autoeficacia digital especializada; pero los resultados del presente estudio indican que el capital cultural de la escuela causa un incremento progresivo en esta brecha.</p>
+<p>La hipótesis 4 es rechazada: el efecto del IDI en la autoeficacia digital de los estudiantes no es significativo para la dimensión general, pero sí para la especializada, y es negativo. Esto significa que, en países donde la infraestructura TIC es mayor, la confianza de los estudiantes en sus capacidades digitales especializadas es menor. Esto puede interpretarse como una consecuencia del efecto Dunning-Kruger, pues los estudiantes con mayor infraestructura TIC –condiciones más favorables para el desarrollo de sus habilidades computacionales e informacionales– tienen una menor autoeficacia digital especializada, ya que son más conscientes de la complejidad de las tareas que componen esta dimensión.</p>
+<p>Por último, se confirma la hipótesis 5, ya que se observan diferencias significativas en la relación entre posesión de computadores y autoeficacia, como exhibe el modelo con pendientes aleatorias, que demuestra ser mejor a través del test de ANOVA. En escuelas con mayor autoeficacia digital, el efecto de la posesión de computadores es mayor, lo que indica una posible desigualdad acumulativa del conocimiento digital.</p>
+<p>En suma, el acceso a la tecnología en diferentes niveles afecta la autoeficacia digital de los estudiantes. Si bien la literatura ha señalado que la escuela no siempre es una dimensión relevante de estudio de la autoeficacia, se encontró una forma de aprovecharla como nivel de análisis, en tanto contexto de socialización y de transmisión de capital cultural de los estudiantes. Sería interesante seguir indagando en el acceso a TIC en la escuela; sobre todo, es relevante estudiar la relación entre autoeficacia, escuela y género, para entender por qué las estudiantes con mejores entornos de aprendizaje presentan menor confianza en sus capacidades, y por qué ocurre lo opuesto con los estudiantes varones.</p>
+</section><section id="bibliografía" class="level3"><h3 class="anchored" data-anchor-id="bibliografía">Bibliografía</h3>
+<div style="margin-left: 0.5in;  text-indent: -0.5in;">
+<p>Ball, C., Huang, K.-T., Francis, J., Kadylak, T., &amp; Cotten, S. R. (2020). A&nbsp;Call&nbsp;for&nbsp;Computer Recess:&nbsp;The Impact&nbsp;of&nbsp;Computer Activities&nbsp;on&nbsp;Predominantly Minority Students’&nbsp;Technology&nbsp;and&nbsp;Application Self-Efficacy.&nbsp;<em>American Behavioral Scientist</em>,&nbsp;<em>64</em>(7), 883–899.</p>
+<p>Bandura, A. (Ed.). (1995). Self-efficacy in changing societies. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511527692" class="uri">https://doi.org/10.1017/CBO9780511527692</a></p>
+<p>Cai, Z., Fan, X., &amp; Du, J. (2017). Gender and attitudes toward technology use:&nbsp;A&nbsp;meta-analysis.&nbsp;<em>Computers &amp; Education</em>,&nbsp;<em>105</em>, 1–13.&nbsp;<a href="https://doi.org/10.1016/j.compedu.2016.11.003" class="uri">https://doi.org/10.1016/j.compedu.2016.11.003</a></p>
+<p>Chen, X., &amp; Hu, J. (2020).&nbsp;ICT-related&nbsp;behavioral factors mediate the relationship between adolescents’&nbsp;ICT&nbsp;interest and their&nbsp;ICT&nbsp;self-efficacy:&nbsp;Evidence&nbsp;from 30 countries.&nbsp;<em>Computers &amp; Education</em>,&nbsp;<em>159</em>, 104004.&nbsp;<a href="https://doi.org/10.1016/j.compedu.2020.104004" class="uri">https://doi.org/10.1016/j.compedu.2020.104004</a></p>
+<p>Eastin, M. S., &amp; LaRose, R. (2000). Internet self-efficacy and the psychology of the digital divide. Journal of Computer-Mediated Communication, 6(1). <a href="https://doi.org/10.1111/j.1083-6101.2000.tb00110.x" class="uri">https://doi.org/10.1111/j.1083-6101.2000.tb00110.x</a></p>
+<p>Fraillon, J., Ainley, J., Schulz, W., Friedman, T., &amp; Duckworth, D. (2020). Preparing for Life in a Digital World: IEA International Computer and Information Literacy Study 2018 International Report. Springer. <a href="https://doi.org/10.1007/978-3-030-38781-5" class="uri">https://doi.org/10.1007/978-3-030-38781-5</a></p>
+<p>Gebhardt, E., Thomson, S., Ainley, J., &amp; Hillman, K. (2019). Student Achievement and Beliefs Related to Computer and Information Literacy. En E. Gebhardt, S. Thomson, J. Ainley, &amp; K. Hillman (Eds.), Gender Differences in Computer and Information Literacy: An In-depth Analysis of Data from ICILS (pp.&nbsp;21-31). Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-26203-7_3" class="uri">https://doi.org/10.1007/978-3-030-26203-7_3</a></p>
+<p>Gran, A., Booth, P., &amp; Bucher, T. (2021). To be or not to be algorithm aware: A question of a new digital divide? Information, Communication &amp; Society, 24(12), 1779–1796. <a href="https://doi.org/10.1080/1369118X.2020.1736124" class="uri">https://doi.org/10.1080/1369118X.2020.1736124</a></p>
+<p>Hatlevik, O. E., Throndsen, I., Loi, M., &amp; Gudmundsdottir, G. B. (2018). Students’ ICT self-efficacy and computer and information literacy: Determinants and relationships. Computers &amp; Education, 118, 107-119. <a href="https://doi.org/10.1016/j.compedu.2017.11.011" class="uri">https://doi.org/10.1016/j.compedu.2017.11.011</a></p>
+<p>International Telecommunication Union (2023). Measuring digital development. The ICT Development Index 2023. ITUPublications <a href="https://www.itu.int/en/ITU-D/Statistics/pages/publications/mis2017/methodology.aspx" class="uri">https://www.itu.int/en/ITU-D/Statistics/pages/publications/mis2017/methodology.aspx</a></p>
+<p>Juhaňák, L., Zounek, J., Záleská, K., Bárta, O., &amp; Vlčková, K. (2019). The relationship between the age at first computer use and students’ perceived competence and autonomy in&nbsp;ICT&nbsp;usage:&nbsp;A&nbsp;mediation analysis.&nbsp;<em>Computers &amp; Education</em>,&nbsp;<em>141</em>, 103614.&nbsp;<a href="https://doi.org/10.1016/j.compedu.2019.103614" class="uri">https://doi.org/10.1016/j.compedu.2019.103614</a></p>
+<p>Livingstone, S., &amp; Helsper, E. J. (2007). Gradations in digital inclusion: Children, young people and the digital divide. New Media &amp; Society, 9(4), 671–696. <a href="http://dx.doi.org/10.1177/1461444807080335" class="uri">http://dx.doi.org/10.1177/1461444807080335</a></p>
+<p>Lythreatis, S. &amp; Singh, S. K. &amp; El-Kassar, A-N. (2022). The digital divide: A review and future research agenda. Technological Forecasting and Social Change, Elsevier, 175(C). <a href="http://dx.doi.org/10.1016/j.techfore.2021.121359" class="uri">http://dx.doi.org/10.1016/j.techfore.2021.121359</a></p>
+<p>Senkbeil, M. (2023). How well does the digital home learning environment predict ICT literacy and ICT self-efficacy? Comparing the predictive power of adolescent and parent reports. <em>Computers &amp; Education</em>, <em>207</em>, 104937. <a href="https://doi.org/10.1016/j.compedu.2023.104937" class="uri">https://doi.org/10.1016/j.compedu.2023.104937</a></p>
+<p>Snijders, T. A. B., &amp; Bosker, R. J. (1999). Multilevel analysis: An introduction to basic and advanced multilevel modeling. Sage. <a href="https://uk.sagepub.com/en-gb/eur/multilevel-analysis/book234191" class="uri">https://uk.sagepub.com/en-gb/eur/multilevel-analysis/book234191</a></p>
+<p>Stone, J. A. (2020). ICT Self-Efficacy: Gender and Socioeconomic Influences Among First-Year Students. <em>International Journal of Gender, Science and Technology</em>, <em>12</em>(3), 377–394.</p>
+<p>Ulfert-Blank, A. S., &amp; Schmidt, I. (2022). Assessing digital self-efficacy: Review and scale development. Computers &amp; Education, 191, 104626. <a href="https://doi.org/10.1016/j.compedu.2022.104626" class="uri">https://doi.org/10.1016/j.compedu.2022.104626</a></p>
+<p>UNESCO. (2018). Digital skills critical for jobs and social inclusion. <a href="https://www.unesco.org/en/articles/digital-skills-critical-jobs-and-social-inclusion" class="uri">https://www.unesco.org/en/articles/digital-skills-critical-jobs-and-social-inclusion</a></p>
+<p>Van Deursen, A. J. A. M., &amp; van Dijk, J. A. G. M. (2011). Internet skills and the digital divide. New Media &amp; Society, 13(6), 893–911. <a href="https://doi.org/10.1177/1461444810386774" class="uri">https://doi.org/10.1177/1461444810386774</a></p>
+<p>Van Dijk, J. A. (2020). The Digital Divide. Polity Press. <a href="http://dx.doi.org/10.1002/asi.24355" class="uri">http://dx.doi.org/10.1002/asi.24355</a></p>
+</div>
+</section></main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

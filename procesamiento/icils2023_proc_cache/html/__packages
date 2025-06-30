@@ -23,3 +23,5 @@ purrr
 stringr
 forcats
 lubridate
+knitr
+kableExtra
